@@ -8340,6 +8340,9 @@ static struct BurnRomInfo VsavaeRomDesc[] = {
 	{ "vsav.key",        0x000014, 0xa6e3b164, CPS2_ENCRYPTION_KEY },
 };
 
+STD_ROM_PICK(Vsavae)
+STD_ROM_FN(Vsavae)
+
 static struct BurnRomInfo Vsav2RomDesc[] = {
 	{ "vs2j.03",       0x080000, 0x89fd86b4, CPS2_PRG_68K | BRF_ESS | BRF_PRG },
 	{ "vs2j.04",       0x080000, 0x107c091b, CPS2_PRG_68K | BRF_ESS | BRF_PRG },
