@@ -1,17 +1,5 @@
 #include "cps.h"
 
-INT32 Cps2Volume = 39;
-INT32 Cps2DisableDigitalVolume = 0;
-UINT8 Cps2VolUp;
-UINT8 Cps2VolDwn;
-
-UINT16 Cps2VolumeStates[40] = {
-	0xf010, 0xf008, 0xf004, 0xf002, 0xf001, 0xe810, 0xe808, 0xe804, 0xe802, 0xe801,
-	0xe410, 0xe408, 0xe404, 0xe402, 0xe401, 0xe210, 0xe208, 0xe204, 0xe202, 0xe201,
-	0xe110, 0xe108, 0xe104, 0xe102, 0xe101, 0xe090, 0xe088, 0xe084, 0xe082, 0xe081,
-	0xe050, 0xe048, 0xe044, 0xe042, 0xe041, 0xe030, 0xe028, 0xe024, 0xe022, 0xe021
-};
-
 // Input Definitions
 
 static struct BurnInputInfo Cps2FightingInputList[] = {
@@ -49,6 +37,57 @@ static struct BurnInputInfo Cps2FightingInputList[] = {
 };
 
 STDINPUTINFO(Cps2Fighting)
+
+static struct BurnInputInfo Sfz3mixInputList[] = {
+	{"P1 Coin"          , BIT_DIGITAL  , CpsInp020+4, "p1 coin"   },
+	{"P1 Start"         , BIT_DIGITAL  , CpsInp020+0, "p1 start"  },
+	{"P1 Up"            , BIT_DIGITAL  , CpsInp001+3, "p1 up"     },
+	{"P1 Down"          , BIT_DIGITAL  , CpsInp001+2, "p1 down"   },
+	{"P1 Left"          , BIT_DIGITAL  , CpsInp001+1, "p1 left"   },
+	{"P1 Right"         , BIT_DIGITAL  , CpsInp001+0, "p1 right"  },
+	{"P1 Weak Punch"    , BIT_DIGITAL  , CpsInp001+4, "p1 fire 1" },
+	{"P1 Medium Punch"  , BIT_DIGITAL  , CpsInp001+5, "p1 fire 2" },
+	{"P1 Strong Punch"  , BIT_DIGITAL  , CpsInp001+6, "p1 fire 3" },
+	{"P1 Weak Kick"     , BIT_DIGITAL  , CpsInp011+0, "p1 fire 4" },
+	{"P1 Medium Kick"   , BIT_DIGITAL  , CpsInp011+1, "p1 fire 5" },
+	{"P1 Strong Kick"   , BIT_DIGITAL  , CpsInp011+2, "p1 fire 6" },
+
+	{"P2 Coin"          , BIT_DIGITAL  , CpsInp020+5, "p2 coin"   },
+	{"P2 Start"         , BIT_DIGITAL  , CpsInp020+1, "p2 start"  },
+	{"P2 Up"            , BIT_DIGITAL  , CpsInp000+3, "p2 up"     },
+	{"P2 Down"          , BIT_DIGITAL  , CpsInp000+2, "p2 down"   },
+	{"P2 Left"          , BIT_DIGITAL  , CpsInp000+1, "p2 left"   },
+	{"P2 Right"         , BIT_DIGITAL  , CpsInp000+0, "p2 right"  },
+	{"P2 Weak Punch"    , BIT_DIGITAL  , CpsInp000+4, "p2 fire 1" },
+	{"P2 Medium Punch"  , BIT_DIGITAL  , CpsInp000+5, "p2 fire 2" },
+	{"P2 Strong Punch"  , BIT_DIGITAL  , CpsInp000+6, "p2 fire 3" },
+	{"P2 Weak Kick"     , BIT_DIGITAL  , CpsInp011+4, "p2 fire 4" },
+	{"P2 Medium Kick"   , BIT_DIGITAL  , CpsInp011+5, "p2 fire 5" },
+	{"P2 Strong Kick"   , BIT_DIGITAL  , CpsInp020+6, "p2 fire 6" },
+
+	{"Reset"            , BIT_DIGITAL  , &CpsReset  , "reset"     },
+	{"Diagnostic"       , BIT_DIGITAL  , CpsInp021+1, "diag"      },
+	{"Service"          , BIT_DIGITAL  , CpsInp021+2, "service"   },
+	{"Volume Up"        , BIT_DIGITAL  , &Cps2VolUp , "p1 fire 7" },
+	{"Volume Down"      , BIT_DIGITAL  , &Cps2VolDwn, "p1 fire 8" },
+	{"Dip A"            , BIT_DIPSWITCH, &AspectDIP , "dip"       },
+};
+
+STDINPUTINFO(Sfz3mix)
+
+// sfz3mix 0.20+ only!
+static struct BurnDIPInfo Sfz3mixDIPList[] =
+{
+	DIP_OFFSET(0x1d)
+	{0x00, 0xff, 0xff, 0x00, NULL			},
+
+	{0   , 0xfe, 0   ,    3, "Aspect Ratio"	},
+	{0x00, 0x01, 0x03, 0x00, "16:9"			},
+	{0x00, 0x01, 0x03, 0x01, "4:3"			},
+	{0x00, 0x01, 0x03, 0x02, "112:81"		},
+};
+
+STDDIPINFO(Sfz3mix)
 
 static struct BurnInputInfo NineXXInputList[] = {
 	{"P1 Coin"          , BIT_DIGITAL  , CpsInp020+4, "p1 coin"   },
@@ -7494,11 +7533,8 @@ STD_ROM_PICK(Ssf2u)
 STD_ROM_FN(Ssf2u)
 
 static struct BurnRomInfo Ssf2us2RomDesc[] = {
-#if !defined ROM_VERIFY
+	{ "ssfu.03a",      						0x080000, 0x72f29c33, BRF_OPT }, // has the standard ROM
 	{ "super stf 2 super ii rom-08 usa",    0x080000, 0xd48d35c9, CPS2_PRG_68K | BRF_ESS | BRF_PRG }, // the bootleg one seems to be overlayed
-# else
-	{ "ssfu.03a",      						0x080000, 0x72f29c33, CPS2_PRG_68K | BRF_ESS | BRF_PRG }, // has the standard ROM
-#endif
 	{ "ssfu.04a",      						0x080000, 0x935cea44, CPS2_PRG_68K | BRF_ESS | BRF_PRG },
 	{ "ssfu.05",       						0x080000, 0xa0acb28a, CPS2_PRG_68K | BRF_ESS | BRF_PRG },
 	{ "ssfu.06",       						0x080000, 0x47413dcf, CPS2_PRG_68K | BRF_ESS | BRF_PRG },
@@ -10710,7 +10746,7 @@ struct BurnDriver BurnDrvCpsMshvsfcph = {
 };
 
 struct BurnDriver BurnDrvCpsMsvsfbh = {
-	"msvsfbh", "mshvsf", NULL, NULL, "1997",
+	"msvsfbh", "mshvsf", NULL, NULL, "20??",
 	"Marvel Super Heroes vs Street Fighter (Boss Hack)\0", NULL, "hack", "CPS2",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK | BDF_HISCORE_SUPPORTED, 2, HARDWARE_CAPCOM_CPS2, GBF_VSFIGHT, FBF_SF,
@@ -11960,7 +11996,7 @@ struct BurnDriver BurnDrvCpsVsavu = {
 };
 
 struct BurnDriver BurnDrvCpsVsavae = {
-	"vsavae", "vsav", NULL, NULL, "1997",
+	"vsavae", "vsav", NULL, NULL, "2024",
 	"Vampire Savior - the lord of vampire (Aesthetic Edition v1.5, Hack)\0", NULL, "hack", "CPS2",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK | BDF_HISCORE_SUPPORTED, 2, HARDWARE_CAPCOM_CPS2, GBF_VSFIGHT, FBF_DSTLK,
@@ -13386,7 +13422,161 @@ static struct BurnRomInfo Sfz3jr2dRomDesc[] = {
 STD_ROM_PICK(Sfz3jr2d)
 STD_ROM_FN(Sfz3jr2d)
 
-// Street Fighter Zero 3 Mix v0.13 (hacked by Zero800)
+// Street Fighter Zero 3 Mix (v0.31, Hack) - hacked by Zero800
+// https://sfz3mix.github.io/
+
+/* static struct BurnSampleInfo Sfz3mixSampleDesc[] = {
+	{ "empty", SAMPLE_NOLOOP },
+	{ "L01",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L02",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L03",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L04",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L05",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L06",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L07",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L08",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L09",   SAMPLE_NOLOOP },
+	{ "L0A",   SAMPLE_NOLOOP },
+	{ "L0B",   SAMPLE_NOLOOP },
+	{ "L0C",   SAMPLE_NOLOOP },
+	{ "L0D",   SAMPLE_NOLOOP },
+	{ "L0E",   SAMPLE_NOLOOP },
+	{ "L0F",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L10",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L11",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L12",   SAMPLE_NOLOOP },
+	{ "L13",   SAMPLE_NOLOOP },
+	{ "L14",   SAMPLE_NOLOOP },
+	{ "L15",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L16",   SAMPLE_NOLOOP },
+	{ "L17",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L18",   SAMPLE_NOLOOP },
+	{ "L19",   SAMPLE_NOLOOP },
+	{ "L1A",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L1B",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L1C",   SAMPLE_NOLOOP },
+	{ "L1D",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L1E",   SAMPLE_NOLOOP },
+	{ "L1F",   SAMPLE_NOLOOP },
+	{ "L20",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L21",   SAMPLE_NOLOOP },
+	{ "L22",   SAMPLE_NOLOOP },
+	{ "L23",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L24",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L25",   SAMPLE_NOLOOP },
+	{ "L26",   SAMPLE_NOLOOP },
+	{ "L27",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L28",   SAMPLE_NOLOOP },
+	{ "L29",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L2A",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L2B",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L2C",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L2D",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L2E",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L2F",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L30",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L31",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L32",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L33",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L34",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L35",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L36",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L37",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L38",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L39",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L3A",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L3B",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L3C",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L3D",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L3E",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "L3F",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "empty", SAMPLE_NOLOOP },
+	{ "R01",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R02",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R03",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R04",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R05",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R06",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R07",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R08",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R09",   SAMPLE_NOLOOP },
+	{ "R0A",   SAMPLE_NOLOOP },
+	{ "R0B",   SAMPLE_NOLOOP },
+	{ "R0C",   SAMPLE_NOLOOP },
+	{ "R0D",   SAMPLE_NOLOOP },
+	{ "R0E",   SAMPLE_NOLOOP },
+	{ "R0F",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R10",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R11",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R12",   SAMPLE_NOLOOP },
+	{ "R13",   SAMPLE_NOLOOP },
+	{ "R14",   SAMPLE_NOLOOP },
+	{ "R15",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R16",   SAMPLE_NOLOOP },
+	{ "R17",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R18",   SAMPLE_NOLOOP },
+	{ "R19",   SAMPLE_NOLOOP },
+	{ "R1A",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R1B",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R1C",   SAMPLE_NOLOOP },
+	{ "R1D",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R1E",   SAMPLE_NOLOOP },
+	{ "R1F",   SAMPLE_NOLOOP },
+	{ "R20",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R21",   SAMPLE_NOLOOP },
+	{ "R22",   SAMPLE_NOLOOP },
+	{ "R23",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R24",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R25",   SAMPLE_NOLOOP },
+	{ "R26",   SAMPLE_NOLOOP },
+	{ "R27",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R28",   SAMPLE_NOLOOP },
+	{ "R29",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R2A",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R2B",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R2C",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R2D",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R2E",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R2F",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R30",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R31",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R32",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R33",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R34",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R35",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R36",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R37",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R38",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R39",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R3A",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R3B",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R3C",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R3D",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R3E",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "R3F",   SAMPLE_NOLOOP | SAMPLE_NODUMP },
+	{ "", 0 }
+};
+
+STD_SAMPLE_PICK(Sfz3mix)
+STD_SAMPLE_FN(Sfz3mix)*/
+
+static struct BurnRomInfo Sfz3mixRomDesc[] = {
+	{ "sz3mx.03",		0x0600000, 0x94c8f969, CPS2_PRG_68K | BRF_ESS | BRF_PRG }, // maincpu
+
+	{ "sz3mx.13m",		0x2000000, 0x59025f91, CPS2_GFX | BRF_GRA },               // gfx
+	{ "sz3mx.21m",		0x2000000, 0x914c7031, CPS2_GFX | BRF_GRA },               // gfx2
+
+	{ "sz3mx.01",		0x0080000, 0x52f98a5c, CPS2_PRG_Z80 | BRF_ESS | BRF_PRG }, // audiocpu
+
+	{ "sz3mx.11m",		0x1000000, 0x395edce2, CPS2_QSND | BRF_SND },              // qsound
+
+	{ "phoenix.key",	0x0000014, 0x2cf772b0, CPS2_ENCRYPTION_KEY },
+};
+
+STD_ROM_PICK(Sfz3mix)
+STD_ROM_FN(Sfz3mix)
+
+// Street Fighter Zero 3 Mix (v0.13, Hack) - hacked by Zero800
 // https://sfz3mix.github.io/
 
 static struct BurnRomInfo Sfz3mix13RomDesc[] = {
@@ -13962,7 +14152,7 @@ static INT32 Ssf2tPhoenixInit()
 	INT32 nRet;
 	
 	Ssf2t = 1;
-	
+
 	nCPS68KClockspeed = 10867500;
 	
 	nRet = PhoenixInit();
@@ -14412,11 +14602,41 @@ struct BurnDriver BurnDrvCpsSfz3jr2d = {
 	&CpsRecalcPal, 0x1000, 384, 224, 4, 3
 };
 
+static INT32 Cps2TurboInit()
+{
+	Cps2Turbo = 1;
+
+	INT32 rc = PhoenixInit();
+
+	if (!rc) {
+		BurnSampleInit(1);
+		for (int i = 0; i < 0x40; i++) {
+			// Left side
+			BurnSampleSetRoute(i + 0x00, BURN_SND_SAMPLE_ROUTE_1, 0.10, BURN_SND_ROUTE_LEFT);
+			BurnSampleSetRoute(i + 0x00, BURN_SND_SAMPLE_ROUTE_2, 0.10, BURN_SND_ROUTE_NONE);
+			// Right side
+			BurnSampleSetRoute(i + 0x40, BURN_SND_SAMPLE_ROUTE_1, 0.10, BURN_SND_ROUTE_RIGHT);
+			BurnSampleSetRoute(i + 0x40, BURN_SND_SAMPLE_ROUTE_2, 0.10, BURN_SND_ROUTE_NONE);
+		}
+	}
+	return rc;
+}
+
+struct BurnDriver BurnDrvCpsSfz3mix = {
+	"sfz3mix", "sfa3", NULL, NULL, "2024",
+	"Street Fighter Zero 3 Mix (v0.31, Hack)\0", NULL, "hack (Zero800)", "CPS2",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK | BDF_HISCORE_SUPPORTED, 2, HARDWARE_CAPCOM_CPS2, GBF_VSFIGHT, FBF_SF,
+	NULL, Sfz3mixRomInfo, Sfz3mixRomName, NULL, NULL, NULL, NULL, Sfz3mixInputInfo, Sfz3mixDIPInfo,
+	Cps2TurboInit, DrvExit, Cps2Frame, CpsRedraw, CpsAreaScan,
+	&CpsRecalcPal, 0x1000, 416, 234, 16, 9
+};
+
 struct BurnDriver BurnDrvCpsSfz3mix13 = {
 	"sfz3mix13", "sfa3", NULL, NULL, "2022",
 	"Street Fighter Zero 3 Mix (v0.13, Hack)\0", NULL, "hack (Zero800)", "CPS2",
 	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_CAPCOM_CPS2, GBF_VSFIGHT, FBF_SF,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK | BDF_HISCORE_SUPPORTED, 2, HARDWARE_CAPCOM_CPS2, GBF_VSFIGHT, FBF_SF,
 	NULL, Sfz3mix13RomInfo, Sfz3mix13RomName, NULL, NULL, NULL, NULL, Cps2FightingInputInfo, NULL,
 	PhoenixInit, DrvExit, Cps2Frame, CpsRedraw, CpsAreaScan,
 	&CpsRecalcPal, 0x1000, 384, 224, 4, 3
