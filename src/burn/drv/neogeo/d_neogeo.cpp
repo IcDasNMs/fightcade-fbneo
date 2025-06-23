@@ -20415,8 +20415,8 @@ STDROMPICKEXT(karnovrbh, karnovrbh, neogeo)
 STD_ROM_FN(karnovrbh)
 
 struct BurnDriver BurnDrvKarnovrbh = {
-	"karnovrbh", "karnovr", "neogeo", NULL, "1994",
-	"Karnov's Revenge / Fighter's History Dynamite (Boss Hack)\0", NULL, "Ydmis", "Neo Geo MVS",
+	"karnovrbh", "karnovr", "neogeo", NULL, "20??",
+	"Karnov's Revenge (Add hidden characters-Enable Bull v2)\0", NULL, "hack (Ydmis)", "Neo Geo MVS",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, 0,
 	NULL, karnovrbhRomInfo, karnovrbhRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
