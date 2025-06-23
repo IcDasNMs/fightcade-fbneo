@@ -20296,39 +20296,6 @@ struct BurnDriver BurnDrvTeot = {
 // Extra Roms - Homebrews, Hacks and more
 // --------------------------------------
 
-// Block Panic DX (HB, ver. 2025/01/01)
-// https://www.patreon.com/posts/block-panic-dx-119035418
-// 3 & 4 players not working (needs Multitap)
-
-static struct BurnRomInfo bpanicdxRomDesc[] = {
-	{ "bpanicdx.p1",	0x80000, 0x8f59134f, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-
-	{ "bpanicdx.s1",	0x20000, 0x387a8f43, 2 | BRF_GRA },           //  1 Text layer tiles
-
-	{ "bpanicdx.c1",	0x80000, 0x9463af81, 3 | BRF_GRA },           //  2 Sprite data
-	{ "bpanicdx.c2",	0x80000, 0xa290a403, 3 | BRF_GRA },           //  3
-
-	{ "bpanicdx.m1",	0x20000, 0xd74159c0, 4 | BRF_ESS | BRF_PRG }, //  4 Z80 code
-
-	{ "bpanicdx.v1",	0x80000, 0x55185687, 5 | BRF_SND },           //  5 Sound data
-	{ "bpanicdx.v2",	0x80000, 0x7211595d, 5 | BRF_SND },           //  6
-	{ "bpanicdx.v3",	0x80000, 0xe08afa9f, 5 | BRF_SND },           //  7
-	{ "bpanicdx.v4",	0x80000, 0x5a9d8d69, 5 | BRF_SND },           //  8
-};
-
-STDROMPICKEXT(bpanicdx, bpanicdx, neogeo)
-STD_ROM_FN(bpanicdx)
-
-struct BurnDriver BurnDrvBpanicdx = {
-	"bpanicdx", NULL, "neogeo", NULL, "2025",
-	"Block Panic DX (HB, ver. 2025/01/01)\0", NULL, "Blastar", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_PUZZLE, 0,
-	NULL, bpanicdxRomInfo, bpanicdxRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000,	304, 224, 4, 3
-};
-
 // Cyborg Force (HB)
 // NEO.BYTE.FORCE
 // 20230409
@@ -20358,36 +20325,6 @@ struct BurnDriver BurnDrvCyborgForce = {
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_RUNGUN | GBF_PLATFORM, 0,
 	NULL, cyborgforceRomInfo, cyborgforceRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000, 320, 224, 4, 3
-};
-
-// Flappy Chicken (HB, ver. 2023/04/30)
-// https://blastar.citavia.de/
-
-static struct BurnRomInfo flapchckRomDesc[] = {
-	{ "flapchck.p1",	0x80000, 0x2a7454a1, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-
-	{ "flapchck.s1",	0x20000, 0x3fd2b4d4, 2 | BRF_GRA },           //  1 Text layer tiles
-
-	{ "flapchck.c1",	0x80000, 0x4ecdb8ca, 3 | BRF_GRA },           //  2 Sprite data
-	{ "flapchck.c2",	0x80000, 0x47d06927, 3 | BRF_GRA },           //  3
-
-	{ "flapchck.m1",	0x20000, 0x5abc1bf6, 4 | BRF_ESS | BRF_PRG }, //  4 Z80 code
-
-	{ "flapchck.v1",	0x80000, 0xc5d09e58, 5 | BRF_SND },           //  5 Sound data
-	{ "flapchck.v2",	0x80000, 0xb9afe241, 5 | BRF_SND },           //  6
-};
-
-STDROMPICKEXT(flapchck, flapchck, neogeo)
-STD_ROM_FN(flapchck)
-
-struct BurnDriver BurnDrvFlapchck = {
-	"flapchck", NULL, "neogeo", NULL, "2023",
-	"Flappy Chicken (HB, ver. 2023/04/30)\0", NULL, "Blastar", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_PLATFORM, 0,
-	NULL, flapchckRomInfo, flapchckRomName, NULL, NULL, NULL, NULL, neodualInputInfo, neodualDIPInfo,
 	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
 	0x1000, 320, 224, 4, 3
 };
