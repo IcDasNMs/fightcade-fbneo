@@ -13757,9 +13757,6 @@ static struct BurnRomInfo VsavdRomDesc[] = {
 STD_ROM_PICK(Vsavd)
 STD_ROM_FN(Vsavd)
 
-STD_ROM_PICK(Vsavae)
-STD_ROM_FN(Vsavae)
-
 static struct BurnRomInfo Vhunt2dRomDesc[] = {
 //	{ "vh2j_d.06",     0x080000, 0xf320ea30, CPS2_PRG_68K | BRF_ESS | BRF_PRG }, // apparently a bad dump of vh2j.06, originally loaded instead of vh2j.07 which wasn't encrypted, and clearly not correct
 
