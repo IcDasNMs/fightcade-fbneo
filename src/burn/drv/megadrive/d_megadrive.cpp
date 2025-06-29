@@ -43832,6 +43832,25 @@ struct BurnDriver BurnDrvmd_sonic3kbrc = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
+// Squid Game (HB)
+// https://www.youtube.com/watch?v=6ZbGYgbG8Ac
+static struct BurnRomInfo md_squidgameRomDesc[] = {
+	{ "Squid Game (2021)(Pigsy's Retro Game Dev).bin", 524288, 0x9c54d636, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+};
+
+STD_ROM_PICK(md_squidgame)
+STD_ROM_FN(md_squidgame)
+
+struct BurnDriver BurnDrvmd_squidgame = {
+	"md_squidgame", NULL, NULL, NULL, "2021",
+	"Squid Game (HB)\0", NULL, "Pigsy's Retro Game Dev", "Sega Megadrive",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW | BDF_16BIT_ONLY, 2, HARDWARE_SEGA_MEGADRIVE, GBF_MINIGAMES, 0,
+	MegadriveGetZipName, md_squidgameRomInfo, md_squidgameRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
+	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
+	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
+};
+
 // Streets of Rage - Killer Difficulty (Hack, v0.9)
 // https://www.romhacking.net/hacks/1341/
 static struct BurnRomInfo md_sorkillerRomDesc[] = {

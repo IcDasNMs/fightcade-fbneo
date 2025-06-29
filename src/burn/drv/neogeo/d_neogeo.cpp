@@ -20391,7 +20391,7 @@ struct BurnDriver BurnDrvXenocrisis = {
 };
 
 
-// Karnov's Revenge / Fighter's History Dynamite (Boss Hack)
+// Karnov's Revenge (Add hidden characters-Enable Bull v2)
 // Modified by Ydmis | Makes the Ox playing by selecting the timer
 
 static struct BurnRomInfo karnovrbhRomDesc[] = {
@@ -22652,11 +22652,11 @@ struct BurnDriver BurnDrvMslug3cq = {
 	0x1000, 304, 224, 4, 3
 };
 
-// Metal Slug 3 (Legendary Unlimited Fire v6.0, Hack) - 2025-06-12
+// Metal Slug 3 (Legendary Unlimited Fire v6.0, Hack) - 2025-06-17
 // Modified by AKS
 
 static struct BurnRomInfo mslug3cqiRomDesc[] = {
-	{ "256-ph1cqi.p1",	0x100000, 0x98c63ec0, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "256-ph1cqi.p1",	0x100000, 0x7c352790, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
 	{ "256-ph2cqi.sp2",	0x800000, 0x87d0578d, 1 | BRF_ESS | BRF_PRG }, //  1 
 
 	{ "256-c1d.c1",		0x800000, 0x3540398c, 3 | BRF_GRA },           //  2 Sprite data

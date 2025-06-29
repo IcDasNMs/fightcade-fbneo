@@ -27703,6 +27703,10 @@ struct BurnDriver BurnDrvsms_voyage = {
 	256, 192, 4, 3
 };
 
+// --------------------------------------
+// Extra Roms - Homebrews, Hacks and more
+// --------------------------------------
+
 // Alex Kidd 3 - Curse in Miracle World (Global Hack, final version)
 
 static struct BurnRomInfo sms_alexkidd3fRomDesc[] = {
@@ -27718,6 +27722,24 @@ struct BurnDriver BurnDrvsms_alexkidd3f = {
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_HOMEBREW | BDF_HACK, 1, HARDWARE_SEGA_MASTER_SYSTEM, GBF_PLATFORM, 0,
 	SMSGetZipName, sms_alexkidd3fRomInfo, sms_alexkidd3fRomName, NULL, NULL, NULL, NULL, SMSInputInfo, SMSDIPInfo,
+	SMSInit, SMSExit, SMSFrame, SMSDraw, SMSScan, &SMSPaletteRecalc, 0x1E00,
+	256, 192, 4, 3
+};
+
+// Alex Kidd In Miracle World - Extended Edition (Hack, v1.3 Final)
+static struct BurnRomInfo sms_alexkiddeeRomDesc[] = {
+	{ "Alex Kidd In Miracle World - Extended Edition v1.3 Final (2024)(Adrian Gauna).sms",	524288, 0x1ae81c0b, BRF_PRG | BRF_ESS },
+};
+
+STD_ROM_PICK(sms_alexkiddee)
+STD_ROM_FN(sms_alexkiddee)
+
+struct BurnDriver BurnDrvsms_alexkiddee = {
+	"sms_alexkiddee", "sms_alexkidd", NULL, NULL, "2024",
+	"Alex Kidd In Miracle World - Extended Edition (Hack, v1.3 Final)\0", NULL, "Adrian Gauna", "Sega Master System",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 1, HARDWARE_SEGA_MASTER_SYSTEM, GBF_PLATFORM, 0,
+	SMSGetZipName, sms_alexkiddeeRomInfo, sms_alexkiddeeRomName, NULL, NULL, NULL, NULL, SMSInputInfo, SMSDIPInfo,
 	SMSInit, SMSExit, SMSFrame, SMSDraw, SMSScan, &SMSPaletteRecalc, 0x1E00,
 	256, 192, 4, 3
 };
