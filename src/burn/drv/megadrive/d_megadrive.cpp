@@ -30534,10 +30534,10 @@ STD_ROM_PICK(md_stonprot)
 STD_ROM_FN(md_stonprot)
 
 struct BurnDriver BurnDrvmd_stonprot = {
-	"md_stonprot", NULL, NULL, NULL, "1994",
+	"md_stonprot", "md_stonprotpiko", NULL, NULL, "1994",
 	"Stone Protectors (USA, Prototype)\0", NULL, "Vic Tokai", "Sega Megadrive",
 	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_PROTOTYPE, 2, HARDWARE_SEGA_MEGADRIVE, GBF_MISC, 0,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_PROTOTYPE | BDF_CLONE, 2, HARDWARE_SEGA_MEGADRIVE, GBF_MISC, 0,
 	MegadriveGetZipName, md_stonprotRomInfo, md_stonprotRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
 	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
@@ -42295,9 +42295,9 @@ struct BurnDriver BurnDrvmd_miniplanets = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// Ultimate Mortal Kombat Trilogy Hack r.5149
+// Ultimate Mortal Kombat Trilogy (Hack, Rev. 5149)
 static struct BurnRomInfo md_umk3tRomDesc[] = {
-	{ "UMKT_5149.bin", 0xA00000, 0x1d9d2eba, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+	{ "Ultimate Mortal Kombat Trilogy Rev 5149 (2017)(KABAL_MK).bin", 10485760, 0x1d9d2eba, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
 STD_ROM_PICK(md_umk3t)
@@ -42305,7 +42305,7 @@ STD_ROM_FN(md_umk3t)
 
 struct BurnDriver BurnDrvmd_umk3t = {
 	"md_umk3t", NULL, NULL, NULL, "2017",
-	"Ultimate Mortal Kombat Trilogy Hack rev.5149\0", NULL, "2017 KABAL_MK", "Sega Megadrive",
+	"Ultimate Mortal Kombat Trilogy (Hack, Rev. 5149)\0", NULL, "hack (KABAL_MK)", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_VSFIGHT, 0,
 	MegadriveGetZipName, md_umk3tRomInfo, md_umk3tRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
@@ -43533,9 +43533,9 @@ struct BurnDriver BurnDrvmd_tanzer = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// Water Margin - A Tale of Clouds and Wind (USA)
+// Water Margin - A Tale of Clouds and Wind (USA) (HB)
 static struct BurnRomInfo md_wmarginRomDesc[] = {
-	{ "Water Margin - A Tale of Clouds and Wind (USA).bin", 2097152, 0x7f93b916, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+	{ "Water Margin - A Tale of Clouds and Wind (U)(2015)(Piko Interactive).bin", 2097152, 0x7f93b916, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
 STD_ROM_PICK(md_wmargin)
@@ -43543,9 +43543,9 @@ STD_ROM_FN(md_wmargin)
 
 struct BurnDriver BurnDrvmd_wmargin = {
 	"md_wmargin", NULL, NULL, NULL, "2015",
-	"Water Margin - A Tale of Clouds and Wind (USA)\0", NULL, "Piko Interactive", "Sega Megadrive",
+	"Water Margin - A Tale of Clouds and Wind (USA) (HB)\0", NULL, "Piko Interactive", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_16BIT_ONLY, 2, HARDWARE_SEGA_MEGADRIVE, GBF_MISC, 0,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE, GBF_SCRFIGHT, 0,
 	MegadriveGetZipName, md_wmarginRomInfo, md_wmarginRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
 	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
@@ -43592,6 +43592,24 @@ struct BurnDriver BurnDrvmd_yazzie = {
 // --------------------------------------
 // Extra Roms - Homebrews, Hacks and more
 // --------------------------------------
+
+// Alice Sisters (HB)
+static struct BurnRomInfo md_alicesistersRomDesc[] = {
+	{ "Alice Sisters (2022)(PixelHeart).bin", 4194304, 0xd5b794ed, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+};
+
+STD_ROM_PICK(md_alicesisters)
+STD_ROM_FN(md_alicesisters)
+
+struct BurnDriver BurnDrvmd_alicesisters = {
+	"md_alicesisters", NULL, NULL, NULL, "2022",
+	"Alice Sisters (HB)\0", NULL, "PixelHeart", "Genesis / Mega Drive",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE, GBF_PLATFORM, 0,
+	MegadriveGetZipName, md_alicesistersRomInfo, md_alicesistersRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
+	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
+	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
+};
 
 // Bishoujo Super Street Fighter II: Glamor Queen (Hack, v2.9A)
 // https://ssf2tnf.blogspot.com/p/releases.html
@@ -43775,6 +43793,24 @@ struct BurnDriver BurnDrvmd_insanepain = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
+// International Karate plus Deluxe (HB)
+static struct BurnRomInfo md_ikplusdxRomDesc[] = {
+	{ "IK+ Deluxe (2019)(Z-Team).bin", 2883584, 0xbf949018, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+};
+
+STD_ROM_PICK(md_ikplusdx)
+STD_ROM_FN(md_ikplusdx)
+
+struct BurnDriver BurnDrvmd_ikplusdx = {
+	"md_ikplusdx", NULL, NULL, NULL, "2019",
+	"International Karate plus Deluxe (HB)\0", "Improved version of Amiga-Atari ST game", "Z-Team", "Genesis / Mega Drive",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE, GBF_VSFIGHT, 0,
+	MegadriveGetZipName, md_ikplusdxRomInfo, md_ikplusdxRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadrivePALDIPInfo,
+	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
+	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
+};
+
 // Kunio no Nekketsu School Fighters Beta (HB, Beta v.05b)
 // https://usagiru-orochi.itch.io/kunio-no-nekketsu-school-fighters
 
@@ -43791,6 +43827,24 @@ struct BurnDriver BurnDrvmd_knnsf = {
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE, GBF_VSFIGHT, 0,
 	MegadriveGetZipName, md_knnsfRomInfo, md_knnsfRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
+	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
+	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
+};
+
+// Lethal Wedding (HB, build 0446)
+static struct BurnRomInfo md_lweddingRomDesc[] = {
+	{ "Lethal Wedding (build 0446)(2020)(Mega Cat Studios).bin", 3014656, 0x6d372fe4, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+};
+
+STD_ROM_PICK(md_lwedding)
+STD_ROM_FN(md_lwedding)
+
+struct BurnDriver BurnDrvmd_lwedding = {
+	"md_lwedding", NULL, NULL, NULL, "2020",
+	"Lethal Wedding (HB, build 0446)\0", "beta version, unreleased game", "Mega Cat Studios", "Genesis / Mega Drive",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW | BDF_PROTOTYPE, 2, HARDWARE_SEGA_MEGADRIVE, GBF_RUNGUN, 0,
+	MegadriveGetZipName, md_lweddingRomInfo, md_lweddingRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
 	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
@@ -43882,6 +43936,24 @@ struct BurnDriver BurnDrvmd_sonic3kbrc = {
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE, 2, HARDWARE_SEGA_MEGADRIVE, GBF_PLATFORM, FBF_SONIC,
 	MegadriveGetZipName, md_sonic3kbrcRomInfo, md_sonic3kbrcRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
+	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
+	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
+};
+
+// Stone Protectors (HB)
+static struct BurnRomInfo md_stonprotpikoRomDesc[] = {
+	{ "Stone Protectors (2022)(Piko Int.).bin", 2097152, 0x43709ea7, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+};
+
+STD_ROM_PICK(md_stonprotpiko)
+STD_ROM_FN(md_stonprotpiko)
+
+struct BurnDriver BurnDrvmd_stonprotpiko = {
+	"md_stonprotpiko", NULL, NULL, NULL, "2022",
+	"Stone Protectors (HB)\0", "Original title by Vic Tokai", "Piko Interactive", "Genesis / Mega Drive",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE, GBF_SCRFIGHT, 0,
+	MegadriveGetZipName, md_stonprotpikoRomInfo, md_stonprotpikoRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
 	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
@@ -44161,6 +44233,24 @@ struct BurnDriver BurnDrvmd_telehugs = {
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE, GBF_RUNGUN, 0,
 	MegadriveGetZipName, md_telehugsRomInfo, md_telehugsRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
+	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
+	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
+};
+
+// Ultimate Mortal Kombat Trilogy (Hack, Rev. 5125, Older)
+static struct BurnRomInfo md_umk3toRomDesc[] = {
+	{ "Ultimate Mortal Kombat Trilogy Rev 5125 (2014)(KABAL_MK).bin", 10485760, 0xd083dbba, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+};
+
+STD_ROM_PICK(md_umk3to)
+STD_ROM_FN(md_umk3to)
+
+struct BurnDriver BurnDrvmd_umk3to = {
+	"md_umk3to", "md_umk3t", NULL, NULL, "2014",
+	"Ultimate Mortal Kombat Trilogy (Hack, Rev. 5125, Older)\0", NULL, "hack (KABAL_MK)", "Sega Megadrive",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_VSFIGHT, 0,
+	MegadriveGetZipName, md_umk3toRomInfo, md_umk3toRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
 	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
