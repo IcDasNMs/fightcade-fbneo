@@ -19710,11 +19710,12 @@ struct BurnDriver BurnDrvKf2k23rd = {
 	0x1000,	304, 224, 4, 3
 };
 
-// The King of Fighters '99 - Remix Pro V2.0 Final (Hack By FCHT - FightChina Hackteam)
+// The King of Fighters '99 - Millennium Battle (Remix Pro v2.01 Final, Hack)
+// Bug fixes by Ice Flame Fantasy - 20220215
 
 static struct BurnRomInfo kof99rp2fRomDesc[] = {
-	{ "251-p1rp.p1",	0x100000, 0x1c5fd0ad, 1 | BRF_ESS | BRF_PRG }, // 0 68K code
-	{ "251-p2rp.sp2",	0x400000, 0x01e111b3, 1 | BRF_ESS | BRF_PRG }, // 1
+	{ "251-p1rp.p1",	0x100000, 0x815f0b12, 1 | BRF_ESS | BRF_PRG }, // 0 68K code
+	{ "251-p2rp.sp2",	0x400000, 0x0d35fb8f, 1 | BRF_ESS | BRF_PRG }, // 1
 
 	{ "251-s1rp.s1",	0x020000, 0xca942904, 2 | BRF_GRA },           // 2 Text layer tiles
 
@@ -19740,7 +19741,7 @@ STD_ROM_FN(kof99rp2f)
 
 struct BurnDriver BurnDrvKof99rp2f = {
 	"kof99rp2f", "kof99", "neogeo", NULL, "2006",
-	"The King of Fighters '99 Remix Pro V2.0 Final (Hack By FCHT)\0", NULL, "hack", "Neo Geo MVS",
+	"The King of Fighters '99 - Millennium Battle (Remix Pro v2.01 Final, Hack)\0", NULL, "hack (FCHT)", "Neo Geo MVS",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_KOF,
 	NULL, kof99rp2fRomInfo, kof99rp2fRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
@@ -21954,10 +21955,10 @@ struct BurnDriver BurnDrvMslugfc2 = {
 	0x1000,	304, 224, 4, 3
 };
 
-// Metal Slug (Origins Random Item, Hack) - 2025-07-03
+// Metal Slug (Origins Random Item, Hack) - 2025-07-18
 
 static struct BurnRomInfo mslugdyf2RomDesc[] = {
-	{ "201-p1dyf2.p1",	0x200000, 0xe3a12ef9, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "201-p1dyf2.p1",	0x200000, 0x380258a9, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
 
 	{ "201-s1.s1",		0x020000, 0x2f55958d, 2 | BRF_GRA },           //  1 Text layer tiles
 

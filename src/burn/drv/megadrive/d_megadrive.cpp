@@ -42297,7 +42297,7 @@ struct BurnDriver BurnDrvmd_miniplanets = {
 
 // Ultimate Mortal Kombat Trilogy (Hack, Rev. 5149)
 static struct BurnRomInfo md_umk3tRomDesc[] = {
-	{ "Ultimate Mortal Kombat Trilogy Rev 5149 (2017)(KABAL_MK).bin", 10485760, 0x1d9d2eba, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+	{ "Ultimate Mortal Kombat Trilogy (Rev 5149)(2017)(KABAL_MK).bin", 10485760, 0x1d9d2eba, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
 STD_ROM_PICK(md_umk3t)
@@ -43702,9 +43702,9 @@ struct BurnDriver BurnDrvmd_fatfuryone = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// Final Fight MD (HB, v0.83b)
+// Final Fight MD (HB, v0.86b)
 static struct BurnRomInfo md_ffightmdRomDesc[] = {
-	{ "Final Fight MD v0.83b (2025)(MXRetroDev - CFX).bin", 4063232, 0xcde690d4, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+	{ "Final Fight MD v0.86b (2025)(MXRetroDev - CFX).bin", 3932160, 0x791b4d0f, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
 STD_ROM_PICK(md_ffightmd)
@@ -43712,7 +43712,7 @@ STD_ROM_FN(md_ffightmd)
 
 struct BurnDriver BurnDrvmd_ffightmd = {
 	"md_ffightmd", NULL, NULL, NULL, "2025",
-	"Final Fight MD (HB, v0.83b)\0", "Patreon release", "MXRetroDev - CFX", "Genesis / Mega Drive",
+	"Final Fight MD (HB, v0.86b)\0", "Patreon release", "MXRetroDev - CFX", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE, GBF_SCRFIGHT, 0,
 	MegadriveGetZipName, md_ffightmdRomInfo, md_ffightmdRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
@@ -44239,7 +44239,7 @@ struct BurnDriver BurnDrvmd_telehugs = {
 
 // Ultimate Mortal Kombat Trilogy (Hack, Rev. 5125, Older)
 static struct BurnRomInfo md_umk3toRomDesc[] = {
-	{ "Ultimate Mortal Kombat Trilogy Rev 5125 (2014)(KABAL_MK).bin", 10485760, 0xd083dbba, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+	{ "Ultimate Mortal Kombat Trilogy (Rev 5125)(2014)(KABAL_MK).bin", 10485760, 0xd083dbba, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
 STD_ROM_PICK(md_umk3to)

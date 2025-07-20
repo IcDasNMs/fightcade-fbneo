@@ -27707,6 +27707,24 @@ struct BurnDriver BurnDrvsms_voyage = {
 // Extra Roms - Homebrews, Hacks and more
 // --------------------------------------
 
+// 4lex Kidd In Nightmare World (GlobalHack)
+static struct BurnRomInfo sms_4lexkiddnwRomDesc[] = {
+	{ "4lex Kidd In Nightmare World (GlobalHack)(2023)(pinkeyeFR).sms",	524288, 0xd2586223, BRF_PRG | BRF_ESS },
+};
+
+STD_ROM_PICK(sms_4lexkiddnw)
+STD_ROM_FN(sms_4lexkiddnw)
+
+struct BurnDriver BurnDrvsms_4lexkiddnw = {
+	"sms_4lexkiddnw", NULL, NULL, NULL, "2023",
+	"4lex Kidd In Nightmare World (GlobalHack)\0", NULL, "pinkeyeFR", "Sega Master System",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HACK | BDF_HOMEBREW, 1, HARDWARE_SEGA_MASTER_SYSTEM, GBF_PLATFORM, 0,
+	SMSGetZipName, sms_4lexkiddnwRomInfo, sms_4lexkiddnwRomName, NULL, NULL, NULL, NULL, SMSInputInfo, SMSDIPInfo,
+	SMSInit, SMSExit, SMSFrame, SMSDraw, SMSScan, &SMSPaletteRecalc, 0x1E00,
+	256, 192, 4, 3
+};
+
 // Alex Kidd 3 - Curse in Miracle World (Global Hack, final version)
 
 static struct BurnRomInfo sms_alexkidd3fRomDesc[] = {
@@ -27740,6 +27758,24 @@ struct BurnDriver BurnDrvsms_alexkiddee = {
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 1, HARDWARE_SEGA_MASTER_SYSTEM, GBF_PLATFORM, 0,
 	SMSGetZipName, sms_alexkiddeeRomInfo, sms_alexkiddeeRomName, NULL, NULL, NULL, NULL, SMSInputInfo, SMSDIPInfo,
+	SMSInit, SMSExit, SMSFrame, SMSDraw, SMSScan, &SMSPaletteRecalc, 0x1E00,
+	256, 192, 4, 3
+};
+
+// Stella in Adventure World (GlobalHack)
+static struct BurnRomInfo sms_stellaRomDesc[] = {
+	{ "Stella in Adventure World (2024-25)(TSP).sms",	524288, 0x2efda49b, BRF_PRG | BRF_ESS },
+};
+
+STD_ROM_PICK(sms_stella)
+STD_ROM_FN(sms_stella)
+
+struct BurnDriver BurnDrvsms_stella = {
+	"sms_stella", NULL, NULL, NULL, "2024-25",
+	"Stella in Adventure World (GlobalHack)\0", NULL, "TSP", "Sega Master System",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW | BDF_HACK, 1, HARDWARE_SEGA_MASTER_SYSTEM, GBF_PLATFORM, 0,
+	SMSGetZipName, sms_stellaRomInfo, sms_stellaRomName, NULL, NULL, NULL, NULL, SMSInputInfo, SMSDIPInfo,
 	SMSInit, SMSExit, SMSFrame, SMSDraw, SMSScan, &SMSPaletteRecalc, 0x1E00,
 	256, 192, 4, 3
 };
