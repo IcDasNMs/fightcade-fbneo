@@ -18804,13 +18804,14 @@ struct BurnDriver BurnDrvMslug5w = {
 };
 
 
-// Kof'98 Mix (2011-10-01)
+// The King of Fighters '98 - The Slugfest / King of Fighters '98 - dream match never ends (Unlimited, Hack)
+// Modified by Yashional
 
 static struct BurnRomInfo kof98mixRomDesc[] = {
-	{ "242-p1mix.p1",	0x100000, 0x4a0525b1, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "242-p2mix.sp2",	0x400000, 0x75aeef82, 1 | BRF_ESS | BRF_PRG }, //  1
+	{ "242-p1mix.p1",	0x100000, 0x8f3da74e, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "242-p2mix.sp2",	0x400000, 0x73d3505d, 1 | BRF_ESS | BRF_PRG }, //  1
 
-	{ "242-s1mix.s1",	0x020000, 0x07999beb, 2 | BRF_GRA },		   //  2 Text layer tiles
+	{ "242-s1mix.s1",	0x020000, 0x9acd571d, 2 | BRF_GRA },		   //  2 Text layer tiles
 
 	{ "242-c1.c1",		0x800000, 0xe564ecd6, 3 | BRF_GRA },           //  3 Sprite data
 	{ "242-c2.c2",		0x800000, 0xbd959b60, 3 | BRF_GRA },           //  4
@@ -18820,8 +18821,8 @@ static struct BurnRomInfo kof98mixRomDesc[] = {
 	{ "242-c6.c6",		0x800000, 0xda07b6a2, 3 | BRF_GRA },           //  8
 	{ "242-c7mix.c7",	0x800000, 0x374eb904, 3 | BRF_GRA },           //  9
 	{ "242-c8mix.c8",	0x800000, 0xeddd2789, 3 | BRF_GRA },           // 10
-	{ "242-c9mix.c9",	0x800000, 0x83ef6611, 3 | BRF_GRA },           // 11
-	{ "242-c10mix.c10",	0x800000, 0xc22c67f8, 3 | BRF_GRA },           // 12
+	{ "242-c9mix.c9",	0x800000, 0x1823dfa3, 3 | BRF_GRA },           // 11
+	{ "242-c10mix.c10",	0x800000, 0x6a04ab8c, 3 | BRF_GRA },           // 12
 
 	{ "242-mg1.m1",		0x040000, 0x4e7a6b1b, 4 | BRF_ESS | BRF_PRG }, // 13 Z80 code
 
@@ -18834,21 +18835,13 @@ static struct BurnRomInfo kof98mixRomDesc[] = {
 STDROMPICKEXT(kof98mix, kof98mix, neogeo)
 STD_ROM_FN(kof98mix)
 
-static INT32 kof98mixInit()
-{
-	NeoCallbackActive->pInstallHandlers = kof98InstallHandler;
-//	NeoCallbackActive->pScan = kof98Scan;
-
-	return NeoInit();
-}
-
 struct BurnDriver BurnDrvKof98mix = {
-	"kof98mix", "kof98", "neogeo", NULL, "2011",
-	"The King of Fighters '98 Mix (2011-10-01)\0", NULL, "hack", "Miscellaneous",
+	"kof98mix", "kof98", "neogeo", NULL, "2015",
+	"The King of Fighters '98 - The Slugfest / King of Fighters '98 - dream match never ends (GOTVG Unlimited, Hack)\0", NULL, "hack (Yashional)", "Neo Geo MVS",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HISCORE_SUPPORTED, 2, HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_KOF,
 	NULL, kof98mixRomInfo, kof98mixRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	kof98mixInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
 	0x1000,	304, 224, 4, 3
 };
 
@@ -21958,7 +21951,7 @@ struct BurnDriver BurnDrvMslugfc2 = {
 // Metal Slug (Origins Random Item, Hack) - 2025-07-18
 
 static struct BurnRomInfo mslugdyf2RomDesc[] = {
-	{ "201-p1dyf2.p1",	0x200000, 0x380258a9, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "201-p1dyf2.p1",	0x200000, 0x84c96797, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
 
 	{ "201-s1.s1",		0x020000, 0x2f55958d, 2 | BRF_GRA },           //  1 Text layer tiles
 
@@ -22347,12 +22340,12 @@ struct BurnDriver BurnDrvMslugxdg = {
 	0x1000, 304, 224, 4, 3
 };
 
-// Metal Slug X (Legendary Unlimited Fire v7.0, Hack) - 2025-07-06
+// Metal Slug X (Legendary Unlimited Fire v7.0, Hack) - 2025-07-11
 // Modified by AKS & SAKURA
 
 static struct BurnRomInfo mslugxcqiRomDesc[] = {
-	{ "250-p1cqi.p1",	0x100000, 0x4fc439b6, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "250-p2cqi.ep1",	0x800000, 0xcc71939a, 1 | BRF_ESS | BRF_PRG }, //  1
+	{ "250-p1cqi.p1",	0x100000, 0xab07db9b, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "250-p2cqi.ep1",	0x800000, 0x307f1787, 1 | BRF_ESS | BRF_PRG }, //  1
 
 	{ "250-s1sc.s1",	0x020000, 0x03bce893, 2 | BRF_GRA },           //  2 Text layer tiles
 
@@ -22653,12 +22646,12 @@ struct BurnDriver BurnDrvMslug3cq = {
 	0x1000, 304, 224, 4, 3
 };
 
-// Metal Slug 3 (Legendary Unlimited Fire v7.0, Hack) - 2025-07-06
+// Metal Slug 3 (Legendary Unlimited Fire v7.0, Hack) - 2025-07-14
 // Modified by AKS
 
 static struct BurnRomInfo mslug3cqiRomDesc[] = {
-	{ "256-ph1cqi.p1",	0x100000, 0x62c572e0, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "256-ph2cqi.sp2",	0x800000, 0x679274ad, 1 | BRF_ESS | BRF_PRG }, //  1 
+	{ "256-ph1cqi.p1",	0x100000, 0xf4c15b2b, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "256-ph2cqi.sp2",	0x800000, 0xb0a9fda3, 1 | BRF_ESS | BRF_PRG }, //  1 
 
 	{ "256-c1d.c1",		0x800000, 0x3540398c, 3 | BRF_GRA },           //  2 Sprite data
 	{ "256-c2d.c2",		0x800000, 0xbdd220f0, 3 | BRF_GRA },           //  3
@@ -22876,12 +22869,12 @@ struct BurnDriver BurnDrvMslug4lwq = {
 	0x1000,	304, 224, 4, 3
 };
 
-// Metal Slug 4 (Legendary Unlimited Fire v7.0, Hack) - 2025-07-06
+// Metal Slug 4 (Legendary Unlimited Fire v7.0, Hack) - 2025-07-07
 // Modified by AKS & SAKURA
 
 static struct BurnRomInfo mslug4zjhlRomDesc[] = {
 	{ "263-p1zjh.p1",	0x100000, 0x98bdd962, 1 | BRF_ESS | BRF_PRG },  //  0 68K code
-	{ "263-p2zjh.sp2",	0x800000, 0xdca90ac3, 1 | BRF_ESS | BRF_PRG },  //  1
+	{ "263-p2zjh.sp2",	0x800000, 0x4d8ff476, 1 | BRF_ESS | BRF_PRG },  //  1
 	
 	{ "263-s1d.s1",		0x020000, 0xa9446774, 2 | BRF_GRA },            //  2 Text layer tiles
 

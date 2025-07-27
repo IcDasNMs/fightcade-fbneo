@@ -32368,7 +32368,7 @@ struct BurnDriver BurnDrvnes_blazrang = {
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
 
-// Catmercs - Big Bug Invasion (HB, RC1)
+// Catmercs: Big Bug Invasion (HB, RC1)
 static struct BurnRomInfo nes_catmercsRomDesc[] = {
 	{ "Catmercs - Big Bug Invasion RC1 (2023)(Team Disposable).nes",          65552, 0xa0f31631, BRF_ESS | BRF_PRG },
 };
@@ -32378,10 +32378,65 @@ STD_ROM_FN(nes_catmercs)
 
 struct BurnDriver BurnDrvnes_catmercs = {
 	"nes_catmercs", NULL, NULL, NULL, "2023",
-	"Catmercs - Big Bug Invasion (HB, RC1)\0", NULL, "Team Disposable", "Miscellaneous",
+	"Catmercs: Big Bug Invasion (HB, RC1)\0", NULL, "Team Disposable", "Miscellaneous",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_VERSHOOT, 0,
 	NESGetZipName, nes_catmercsRomInfo, nes_catmercsRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
+	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
+	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
+};
+
+// DataMan (HB)
+static struct BurnRomInfo nes_datamanRomDesc[] = {
+	{ "DataMan (2024)(Darkbits, Broke Studio).nes",          131088, 0xefde1705, BRF_ESS | BRF_PRG },
+};
+
+STD_ROM_PICK(nes_dataman)
+STD_ROM_FN(nes_dataman)
+
+struct BurnDriver BurnDrvnes_dataman = {
+	"nes_dataman", NULL, NULL, NULL, "2024",
+	"DataMan (HB)\0", NULL, "Darkbits - Broke Studio", "NES / Famicom",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_RUNGUN, 0,
+	NESGetZipName, nes_datamanRomInfo, nes_datamanRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
+	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
+	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
+};
+
+// Famicom De Pon (HB)
+static struct BurnRomInfo nes_famdeponRomDesc[] = {
+	{ "Famicom De Pon (2020)(Okunyon).nes",          40976, 0xe2f88d81, BRF_ESS | BRF_PRG },
+};
+
+STD_ROM_PICK(nes_famdepon)
+STD_ROM_FN(nes_famdepon)
+
+struct BurnDriver BurnDrvnes_famdepon = {
+	"nes_famdepon", NULL, NULL, NULL, "2020",
+	"Famicom De Pon (HB)\0", NULL, "Okunyon", "NES / Famicom",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_PUZZLE, 0,
+	NESGetZipName, nes_famdeponRomInfo, nes_famdeponRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
+	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
+	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
+};
+
+
+// HBC Phutball (HB)
+static struct BurnRomInfo nes_hbcpballRomDesc[] = {
+	{ "HBC Phutball (2022)(Wendel Scardua).nes",          65552, 0xb2f98884, BRF_ESS | BRF_PRG },
+};
+
+STD_ROM_PICK(nes_hbcpball)
+STD_ROM_FN(nes_hbcpball)
+
+struct BurnDriver BurnDrvnes_hbcpball = {
+	"nes_hbcpball", NULL, NULL, NULL, "2022",
+	"HBC Phutball (HB)\0", NULL, "Wendel Scardua", "NES / Famicom",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_PUZZLE, 0,
+	NESGetZipName, nes_hbcpballRomInfo, nes_hbcpballRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
 	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
@@ -32584,10 +32639,9 @@ struct BurnDriver BurnDrvnes_pentablocat = {
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
 
-// Tecmo Super Bowl Tapmeter - Modified by: Bruddog
-
+// Tecmo Super Bowl Tapmeter (Hack)
 static struct BurnRomInfo nes_tsbtapmeterRomDesc[] = {
-	{ "Tecmo Super Bowl Tapmeter v1.0.0 (2016)(Bruddog).nes",          393232, 0x18f884f0, BRF_ESS | BRF_PRG },
+	{ "Tecmo Super Bowl Tapmeter (2016)(Bruddog).nes",          393232, 0x18f884f0, BRF_ESS | BRF_PRG },
 };
 
 STD_ROM_PICK(nes_tsbtapmeter)
@@ -32595,7 +32649,7 @@ STD_ROM_FN(nes_tsbtapmeter)
 
 struct BurnDriver BurnDrvnes_tsbtapmeter = {
 	"nes_tsbtapmeter", "nes_tecmosuperbowl", NULL, NULL, "2016",
-	"Tecmo Super Bowl Tapmeter (v1.0.0, hack)\0", NULL, "Bruddog", "Miscellaneous",
+	"Tecmo Super Bowl Tapmeter (Hack)\0", NULL, "Bruddog", "Miscellaneous",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_NES, GBF_SPORTSMISC, 0,
 	NESGetZipName, nes_tsbtapmeterRomInfo, nes_tsbtapmeterRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
