@@ -42305,7 +42305,7 @@ STD_ROM_FN(md_umk3t)
 
 struct BurnDriver BurnDrvmd_umk3t = {
 	"md_umk3t", NULL, NULL, NULL, "2017",
-	"Ultimate Mortal Kombat Trilogy (Hack, Rev. 5149)\0", NULL, "hack (KABAL_MK)", "Genesis / Mega Drive",
+	"Ultimate Mortal Kombat Trilogy (Hack, Rev. 5149)\0", "Hack of Ultimate Mortal Kombat 3", "hack (KABAL_MK)", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_VSFIGHT, 0,
 	MegadriveGetZipName, md_umk3tRomInfo, md_umk3tRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
@@ -42730,19 +42730,19 @@ struct BurnDriver BurnDrvmd_s3comp = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// Mortal Kombat Revelations v1.0 Hack By Smoke
+// Mortal Kombat Revelations (Hack)
 static struct BurnRomInfo md_mkrRomDesc[] = {
-	{ "Mortal Kombat Revelations (Hack Ver. 1.0 By Smoke).bin", 0x987A70, 0x318B81F2, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+	{ "Mortal Kombat Revelations (2012)(Smoke).bin", 9992816, 0x318b81f2, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
 STD_ROM_PICK(md_mkr)
 STD_ROM_FN(md_mkr)
 
 struct BurnDriver BurnDrvmd_mkr = {
-	"md_mkr", "md_umk3t", NULL, NULL, "2012",
-	"Mortal Kombat Revelations (Hack, Version 1.0)\0", NULL, "2012 SMOKE", "Genesis / Mega Drive",
+	"md_mkr", NULL, NULL, NULL, "2012",
+	"Mortal Kombat Revelations (Hack)\0", "Hack of Ultimate Mortal Kombat 3", "Smoke", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_VSFIGHT, 0,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_VSFIGHT, 0,
 	MegadriveGetZipName, md_mkrRomInfo, md_mkrRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
 	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
@@ -44237,20 +44237,21 @@ struct BurnDriver BurnDrvmd_telehugs = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// Ultimate Mortal Kombat Trilogy (Hack, Rev. 5125, Older)
-static struct BurnRomInfo md_umk3toRomDesc[] = {
+// Ultimate Mortal Kombat Trilogy (Hack, Rev. 5125)
+// https://www.romhacking.net/hacks/1059/
+static struct BurnRomInfo md_umk3taRomDesc[] = {
 	{ "Ultimate Mortal Kombat Trilogy (Rev 5125)(2014)(KABAL_MK).bin", 10485760, 0xd083dbba, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
-STD_ROM_PICK(md_umk3to)
-STD_ROM_FN(md_umk3to)
+STD_ROM_PICK(md_umk3ta)
+STD_ROM_FN(md_umk3ta)
 
-struct BurnDriver BurnDrvmd_umk3to = {
-	"md_umk3to", "md_umk3t", NULL, NULL, "2014",
-	"Ultimate Mortal Kombat Trilogy (Hack, Rev. 5125, Older)\0", NULL, "hack (KABAL_MK)", "Genesis / Mega Drive",
+struct BurnDriver BurnDrvmd_umk3ta = {
+	"md_umk3ta", "md_umk3t", NULL, NULL, "2014",
+	"Ultimate Mortal Kombat Trilogy (Hack, Rev. 5125)\0", "Hack of Ultimate Mortal Kombat 3", "hack (KABAL_MK)", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_VSFIGHT, 0,
-	MegadriveGetZipName, md_umk3toRomInfo, md_umk3toRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
+	MegadriveGetZipName, md_umk3taRomInfo, md_umk3taRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
 	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
