@@ -32406,6 +32406,42 @@ struct BurnDriver BurnDrvnes_contrafntg = {
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
 
+// Contra: Herculean Task (Aoi Version, Hack)
+static struct BurnRomInfo nes_contrahtaRomDesc[] = {
+	{ "Contra - Herculean Task Aoi Version (2025)(AzStar, CZXInc).nes",          262160, 0xd623d9ba, BRF_ESS | BRF_PRG },
+};
+
+STD_ROM_PICK(nes_contrahta)
+STD_ROM_FN(nes_contrahta)
+
+struct BurnDriver BurnDrvnes_contrahta = {
+	"nes_contrahta", "nes_contra", NULL, NULL, "2025",
+	"Contra: Herculean Task (Aoi Version, Hack)\0", NULL, "AzStar, CZXInc", "NES / Famicom",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_NES, GBF_PLATFORM | GBF_RUNGUN, 0,
+	NESGetZipName, nes_contrahtaRomInfo, nes_contrahtaRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
+	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
+	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
+};
+
+// Contra: Herculean Task (Normal Version, Hack)
+static struct BurnRomInfo nes_contrahtnRomDesc[] = {
+	{ "Contra - Herculean Task Normal Version (2025)(AzStar, CZXInc).nes",          262160, 0x9f56b88f, BRF_ESS | BRF_PRG },
+};
+
+STD_ROM_PICK(nes_contrahtn)
+STD_ROM_FN(nes_contrahtn)
+
+struct BurnDriver BurnDrvnes_contrahtn = {
+	"nes_contrahtn", "nes_contra", NULL, NULL, "2025",
+	"Contra: Herculean Task (Normal Version, Hack)\0", NULL, "AzStar, CZXInc", "NES / Famicom",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_NES, GBF_PLATFORM | GBF_RUNGUN, 0,
+	NESGetZipName, nes_contrahtnRomInfo, nes_contrahtnRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
+	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
+	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
+};
+
 // DataMan (HB)
 static struct BurnRomInfo nes_datamanRomDesc[] = {
 	{ "DataMan (2024)(Darkbits, Broke Studio).nes",          131088, 0xefde1705, BRF_ESS | BRF_PRG },

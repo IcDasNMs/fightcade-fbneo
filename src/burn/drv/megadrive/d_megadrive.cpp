@@ -43551,18 +43551,18 @@ struct BurnDriver BurnDrvmd_wmargin = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// Cave Story Doukutsu (HB, English v0.8.0)
-// https://github.com/andwn/cave-story-md/releases/tag/v0.8.0
+// Cave Story Doukutsu (HB, English v0.8.5)
+// https://github.com/andwn/cave-story-md/releases/tag/v0.8.5
 static struct BurnRomInfo md_cavestoryRomDesc[] = {
-	{ "Cave Story Doukutsu v0.8.0 (EN)(2022)(Studio Pixel).bin", 4194304, 0xd476a108, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+	{ "Cave Story Doukutsu v0.8.5 (EN)(2025)(Studio Pixel).bin", 4194304, 0x75c4bc1d, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
 STD_ROM_PICK(md_cavestory)
 STD_ROM_FN(md_cavestory)
 
 struct BurnDriver BurnDrvmd_cavestory = {
-	"md_cavestory", NULL, NULL, NULL, "2022",
-	"Cave Story Doukutsu (HB, English v0.8.0)\0", NULL, "Studio Pixel", "Genesis / Mega Drive",
+	"md_cavestory", NULL, NULL, NULL, "2025",
+	"Cave Story Doukutsu (HB, English v0.8.5)\0", NULL, "Studio Pixel", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 1, HARDWARE_SEGA_MEGADRIVE, GBF_PLATFORM | GBF_MISC, 0,
 	MegadriveGetZipName, md_cavestoryRomInfo, md_cavestoryRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
@@ -44179,11 +44179,10 @@ struct BurnDriver BurnDrvmd_sor2rcgor = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// SoR 2 - Cadillacs and Dinosaurs edition (Hack, v1.0)
+// Streets of Rage 2 - Cadillacs and Dinosaurs Edition (Hack)
 // https://www.romhacking.net/hacks/8646/
-
 static struct BurnRomInfo md_sor2dinoRomDesc[] = {
-	{ "Streets of Rage 2 - Cadillacs and Dinosaurs edition v1.0 (2024)(FengLao).bin", 2603092, 0x279ee8a6, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+	{ "Streets of Rage 2 - Cadillacs and Dinosaurs Edition (2024)(FengLao).bin", 2603092, 0x279ee8a6, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
 STD_ROM_PICK(md_sor2dino)
@@ -44191,7 +44190,7 @@ STD_ROM_FN(md_sor2dino)
 
 struct BurnDriver BurnDrvmd_sor2dino = {
 	"md_sor2dino", "md_sor2", NULL, NULL, "2024",
-	"Streets of Rage 2 - Cadillacs and Dinosaurs edition (Hack, v1.0)\0", NULL, "hack (FengLao)", "Genesis / Mega Drive",
+	"Streets of Rage 2 - Cadillacs and Dinosaurs Edition (Hack)\0", NULL, "hack (FengLao)", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_SCRFIGHT, 0,
 	MegadriveGetZipName, md_sor2dinoRomInfo, md_sor2dinoRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
