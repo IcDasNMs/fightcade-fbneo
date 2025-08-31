@@ -32658,6 +32658,24 @@ struct BurnDriver BurnDrvnes_pentablocat = {
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
 
+// Perfect Diamond (HB)
+static struct BurnRomInfo nes_perfectdiamondRomDesc[] = {
+	{ "Perfect Diamond (2025)(Enjoyance Games).nes",          131088, 0xe221d945, BRF_ESS | BRF_PRG },
+};
+
+STD_ROM_PICK(nes_perfectdiamond)
+STD_ROM_FN(nes_perfectdiamond)
+
+struct BurnDriver BurnDrvnes_perfectdiamond = {
+	"nes_perfectdiamond", NULL, NULL, NULL, "2025",
+	"Perfect Diamond (HB)\0", NULL, "Enjoyance Games", "NES / Famicom",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_PUZZLE, 0,
+	NESGetZipName, nes_perfectdiamondRomInfo, nes_perfectdiamondRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
+	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
+	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
+};
+
 // Super Kart Fighter (Hack)
 static struct BurnRomInfo nes_skartfighterRomDesc[] = {
 	{ "Super Kart Fighter Hack (2022)(Mr. Streetwize).nes",          393232, 0xce36e36d, BRF_ESS | BRF_PRG },
