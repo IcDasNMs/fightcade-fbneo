@@ -32532,6 +32532,24 @@ struct BurnDriver BurnDrvnes_hoops = {
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
 
+// Hurdles! (HB)
+static struct BurnRomInfo nes_hurdlesRomDesc[] = {
+	{ "Hurdles! (2025)(AUVIMA Software).nes",          40976, 0x4b724112, BRF_ESS | BRF_PRG },
+};
+
+STD_ROM_PICK(nes_hurdles)
+STD_ROM_FN(nes_hurdles)
+
+struct BurnDriver BurnDrvnes_hurdles = {
+	"nes_hurdles", NULL, NULL, NULL, "2025",
+	"Hurdles! (HB)\0", NULL, "AUVIMA Software", "NES / Famicom",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_ACTION, 0,
+	NESGetZipName, nes_hurdlesRomInfo, nes_hurdlesRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
+	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
+	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
+};
+
 // Kart Fighter (Unl)
 static struct BurnRomInfo nes_kartfighterRomDesc[] = {
 	{ "Kart Fighter (Unl).nes",          393232, 0x4877213a, BRF_ESS | BRF_PRG },
