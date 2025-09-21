@@ -43593,6 +43593,24 @@ struct BurnDriver BurnDrvmd_yazzie = {
 // Extra Roms - Homebrews, Hacks and more
 // --------------------------------------
 
+// 2 Ciclopes e Amigos - New Challengers (HB, Portuguese)
+static struct BurnRomInfo md_2cnfncRomDesc[] = {
+	{ "2 Ciclopes e Amigos - New Challengers PT (2020)(Nemezes).bin", 1627296, 0x18fd5a36, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+};
+
+STD_ROM_PICK(md_2cnfnc)
+STD_ROM_FN(md_2cnfnc)
+
+struct BurnDriver BurnDrvmd_2cnfnc = {
+	"md_2cnfnc", NULL, NULL, NULL, "2020",
+	"2 Ciclopes e Amigos - New Challengers (HB, Portuguese)\0", NULL, "Nemezes", "Genesis / Mega Drive",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE, GBF_VSFIGHT, 0,
+	MegadriveGetZipName, md_2cnfncRomInfo, md_2cnfncRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
+	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
+	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
+};
+
 // Alice Sisters (HB)
 static struct BurnRomInfo md_alicesistersRomDesc[] = {
 	{ "Alice Sisters (2022)(PixelHeart).bin", 4194304, 0xd5b794ed, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
@@ -43702,9 +43720,9 @@ struct BurnDriver BurnDrvmd_fatfuryone = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// Final Fight MD (HB, v0.88b)
+// Final Fight MD (HB, v0.89b)
 static struct BurnRomInfo md_ffightmdRomDesc[] = {
-	{ "Final Fight MD v0.88b (2025)(MXRetroDev - CFX).bin", 3932160, 0xfa21d81e, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+	{ "Final Fight MD v0.89b (2025)(MXRetroDev - CFX).bin", 3932160, 0xab36a032, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
 STD_ROM_PICK(md_ffightmd)
@@ -43712,7 +43730,7 @@ STD_ROM_FN(md_ffightmd)
 
 struct BurnDriver BurnDrvmd_ffightmd = {
 	"md_ffightmd", NULL, NULL, NULL, "2025",
-	"Final Fight MD (HB, v0.88b)\0", "Patreon release", "MXRetroDev - CFX", "Genesis / Mega Drive",
+	"Final Fight MD (HB, v0.89b)\0", "Patreon release", "MXRetroDev - CFX", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE, GBF_SCRFIGHT, 0,
 	MegadriveGetZipName, md_ffightmdRomInfo, md_ffightmdRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
@@ -43812,21 +43830,20 @@ struct BurnDriver BurnDrvmd_ikplusdx = {
 };
 
 // Kunio no Nekketsu School Fighters Beta (HB, Beta v.05b)
-// https://usagiru-orochi.itch.io/kunio-no-nekketsu-school-fighters
 
-static struct BurnRomInfo md_knnsfRomDesc[] = {
+static struct BurnRomInfo md_knnsfbRomDesc[] = {
 	{ "Kunio no Nekketsu School Fighters Beta v.05b (2023)(UsagiRu).bin", 4194304, 0x1054a215, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
-STD_ROM_PICK(md_knnsf)
-STD_ROM_FN(md_knnsf)
+STD_ROM_PICK(md_knnsfb)
+STD_ROM_FN(md_knnsfb)
 
-struct BurnDriver BurnDrvmd_knnsf = {
-	"md_knnsf", NULL, NULL, NULL, "2023",
+struct BurnDriver BurnDrvmd_knnsfb = {
+	"md_knnsfb", NULL, NULL, NULL, "2023",
 	"Kunio no Nekketsu School Fighters (HB, Beta v.05b)\0", NULL, "UsagiRu", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE, GBF_VSFIGHT, 0,
-	MegadriveGetZipName, md_knnsfRomInfo, md_knnsfRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
+	MegadriveGetZipName, md_knnsfbRomInfo, md_knnsfbRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
 	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
