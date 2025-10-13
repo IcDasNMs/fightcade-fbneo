@@ -3696,8 +3696,8 @@ static struct BurnDIPInfo Sf2jDIPList[]=
 	CPS1_DIFFICULTY_1(0x1c)
 
 	{0   , 0xfe, 0   , 2   , "2 Players Game"         },
-	{0x1c, 0x01, 0x08, 0x00, "1 Credit/No Continue"   },
-	{0x1c, 0x01, 0x08, 0x08, "2 Credits/Winner Continue"},
+	{0x1c, 0x01, 0x08, 0x00, "2 Credits/Winner Continue"   },
+	{0x1c, 0x01, 0x08, 0x08, "1 Credit/No Continue"	  },
 
 	// Dip C
 	{0   , 0xfe, 0   , 2   , "Free Play"              },
@@ -3726,6 +3726,55 @@ static struct BurnDIPInfo Sf2jDIPList[]=
 };
 
 STDDIPINFO(Sf2j)
+
+static struct BurnDIPInfo Sf2cejDIPList[]=
+{
+	// Defaults
+	{0x1b, 0xff, 0xff, 0x00, NULL                     },
+	{0x1c, 0xff, 0xff, 0x03, NULL                     },
+	{0x1d, 0xff, 0xff, 0x60, NULL                     },
+
+	// Dip A
+	CPS1_COINAGE_1(0x1b)
+
+	{0   , 0xfe, 0   , 2   , "2C to Start, 1 to Cont" },
+	{0x1b, 0x01, 0x40, 0x00, "Off"                    },
+	{0x1b, 0x01, 0x40, 0x40, "On"                     },
+
+	// Dip B
+	CPS1_DIFFICULTY_1(0x1c)
+
+	{0   , 0xfe, 0   , 2   , "2 Players Game"         },
+	{0x1c, 0x01, 0x08, 0x00, "1 Credit/No Continue"   },
+	{0x1c, 0x01, 0x08, 0x08, "2 Credits/Winner Continue"	},
+
+	// Dip C
+	{0   , 0xfe, 0   , 2   , "Free Play"              },
+	{0x1d, 0x01, 0x04, 0x00, "Off"                    },
+	{0x1d, 0x01, 0x04, 0x04, "On"                     },
+
+	{0   , 0xfe, 0   , 2   , "Freeze"                 },
+	{0x1d, 0x01, 0x08, 0x00, "Off"                    },
+	{0x1d, 0x01, 0x08, 0x08, "On"                     },
+
+	{0   , 0xfe, 0   , 2   , "Flip Screen"            },
+	{0x1d, 0x01, 0x10, 0x00, "Off"                    },
+	{0x1d, 0x01, 0x10, 0x10, "On"                     },
+
+	{0   , 0xfe, 0   , 2   , "Demo Sound"             },
+	{0x1d, 0x01, 0x20, 0x00, "Off"                    },
+	{0x1d, 0x01, 0x20, 0x20, "On"                     },
+
+	{0   , 0xfe, 0   , 2   , "Allow Continue"         },
+	{0x1d, 0x01, 0x40, 0x00, "Off"                    },
+	{0x1d, 0x01, 0x40, 0x40, "On"                     },
+
+	{0   , 0xfe, 0   , 2   , "Game Mode"              },
+	{0x1d, 0x01, 0x80, 0x00, "Game"                   },
+	{0x1d, 0x01, 0x80, 0x80, "Test"                   },
+};
+
+STDDIPINFO(Sf2cej)
 
 static struct BurnDIPInfo Sf2bhhDIPList[]=
 {
@@ -15175,6 +15224,7 @@ static const struct GameConfig ConfigTable[] =
 	{ "sf2v0042"    , CPS_B_21_DEF, mapper_S9263B, 0, NULL                },
 	{ "sf2v0043"    , CPS_B_21_DEF, mapper_S9263B, 0, NULL                },
 	{ "sf2gm"       , CPS_B_21_DEF, mapper_S9263B, 0, NULL                },
+	{ "sf2cre"      , CPS_B_21_DEF, mapper_S9263B, 0, NULL                },
 	{ "sf2dongb"    , CPS_B_21_DEF, mapper_S9263B, 0, NULL                },
 	{ "sf2acc"      , CPS_B_21_DEF, mapper_S9263B, 0, NULL                },
 	{ "sf2acca"     , CPS_B_21_DEF, mapper_S9263B, 0, NULL                },
@@ -21622,7 +21672,7 @@ struct BurnDriver BurnDrvCpsSf2ceja = {
 	"Street Fighter II' - Champion Edition (street fighter 2' 920322 Japan)\0", NULL, "Capcom", "CPS1",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HISCORE_SUPPORTED, 2, HARDWARE_CAPCOM_CPS1, GBF_VSFIGHT, FBF_SF,
-	NULL, Sf2cejaRomInfo, Sf2cejaRomName, NULL, NULL, NULL, NULL, Sf2InputInfo, Sf2DIPInfo,
+	NULL, Sf2cejaRomInfo, Sf2cejaRomName, NULL, NULL, NULL, NULL, Sf2InputInfo, Sf2cejDIPInfo,
 	TwelveMhzInit, DrvExit, Cps1Frame, CpsRedraw, CpsAreaScan,
 	&CpsRecalcPal, 0x1000, 384, 224, 4, 3
 };
@@ -21632,7 +21682,7 @@ struct BurnDriver BurnDrvCpsSf2cejb = {
 	"Street Fighter II' - Champion Edition (street fighter 2' 920513 Japan)\0", NULL, "Capcom", "CPS1",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HISCORE_SUPPORTED, 2, HARDWARE_CAPCOM_CPS1, GBF_VSFIGHT, FBF_SF,
-	NULL, Sf2cejbRomInfo, Sf2cejbRomName, NULL, NULL, NULL, NULL, Sf2InputInfo, Sf2DIPInfo,
+	NULL, Sf2cejbRomInfo, Sf2cejbRomName, NULL, NULL, NULL, NULL, Sf2InputInfo, Sf2cejDIPInfo,
 	TwelveMhzInit, DrvExit, Cps1Frame, CpsRedraw, CpsAreaScan,
 	&CpsRecalcPal, 0x1000, 384, 224, 4, 3
 };
@@ -21642,7 +21692,7 @@ struct BurnDriver BurnDrvCpsSf2cejc = {
 	"Street Fighter II' - Champion Edition (street fighter 2' 920803 Japan)\0", NULL, "Capcom", "CPS1",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HISCORE_SUPPORTED, 2, HARDWARE_CAPCOM_CPS1, GBF_VSFIGHT, FBF_SF,
-	NULL, Sf2cejcRomInfo, Sf2cejcRomName, NULL, NULL, NULL, NULL, Sf2InputInfo, Sf2DIPInfo,
+	NULL, Sf2cejcRomInfo, Sf2cejcRomName, NULL, NULL, NULL, NULL, Sf2InputInfo, Sf2cejDIPInfo,
 	TwelveMhzInit, DrvExit, Cps1Frame, CpsRedraw, CpsAreaScan,
 	&CpsRecalcPal, 0x1000, 384, 224, 4, 3
 };
@@ -21892,7 +21942,7 @@ struct BurnDriver BurnDrvCpsSf2hfj = {
 	"Street Fighter II' Turbo - Hyper Fighting (street fighter 2' T 921209 Japan)\0", NULL, "Capcom", "CPS1",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HISCORE_SUPPORTED, 2, HARDWARE_CAPCOM_CPS1, GBF_VSFIGHT, FBF_SF,
-	NULL, Sf2hfjRomInfo, Sf2hfjRomName, NULL, NULL, NULL, NULL, Sf2InputInfo, Sf2jDIPInfo,
+	NULL, Sf2hfjRomInfo, Sf2hfjRomName, NULL, NULL, NULL, NULL, Sf2InputInfo, Sf2cejDIPInfo,
 	Sf2hfInit, DrvExit, Cps1Frame, CpsRedraw, CpsAreaScan,
 	&CpsRecalcPal, 0x1000, 384, 224, 4, 3
 };
@@ -23878,6 +23928,55 @@ struct BurnDriver BurnDrvCpsSf2gm = {
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_BOOTLEG | BDF_HACK | BDF_HISCORE_SUPPORTED, 2, HARDWARE_CAPCOM_CPS1, GBF_VSFIGHT, FBF_SF,
 	NULL, Sf2gmRomInfo, Sf2gmRomName, NULL, NULL, NULL, NULL, Sf2InputInfo, Sf2DIPInfo,
+	TwelveMhzInit, DrvExit, Cps1Frame, CpsRedraw, CpsAreaScan,
+	&CpsRecalcPal, 0x1000, 384, 224, 4, 3
+};
+
+// Street Fighter II': Champion Re-Edit (Hack, v0.29.7)
+// https://sf2cre.blogspot.com
+// Modified by Persona
+
+static struct BurnRomInfo Sf2creRomDesc[] = {
+	{ "s92re_23b.8f",	0x080000, 0xffa481c9, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
+	{ "s92re_22b.7f",	0x080000, 0xe2944558, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
+	{ "s92re_21a.6f",	0x080000, 0xc9c4acb8, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
+
+	{ "s92_01.3a",		0x080000, 0x03b0d852, BRF_GRA | CPS1_TILES },
+	{ "s92_02.4a",		0x080000, 0x840289ec, BRF_GRA | CPS1_TILES },
+	{ "s92_03.5a",		0x080000, 0xcdb5f027, BRF_GRA | CPS1_TILES },
+	{ "s92_04.6a",		0x080000, 0xe2799472, BRF_GRA | CPS1_TILES },
+	{ "s92_05.7a",		0x080000, 0xba8a2761, BRF_GRA | CPS1_TILES },
+	{ "s92_06.8a",		0x080000, 0xe584bfb5, BRF_GRA | CPS1_TILES },
+	{ "s92_07.9a",		0x080000, 0x21e3f87d, BRF_GRA | CPS1_TILES },
+	{ "s92_08.10a",		0x080000, 0xbefc47df, BRF_GRA | CPS1_TILES },
+	{ "s92_10.3c",		0x080000, 0x960687d5, BRF_GRA | CPS1_TILES },
+	{ "s92_11.4c",		0x080000, 0x978ecd18, BRF_GRA | CPS1_TILES },
+	{ "s92_12.5c",		0x080000, 0xd6ec9a0a, BRF_GRA | CPS1_TILES },
+	{ "s92_13.6c",		0x080000, 0xed2c67f6, BRF_GRA | CPS1_TILES },
+
+	{ "s92_09.12a",		0x010000, 0x08f6b60e, BRF_PRG | CPS1_Z80_PROGRAM },
+
+	{ "s92_18.11c",		0x020000, 0x7f162009, BRF_SND | CPS1_OKIM6295_SAMPLES },
+	{ "s92_19.12c",		0x020000, 0xbeade53f, BRF_SND | CPS1_OKIM6295_SAMPLES },
+	
+	A_BOARD_PLDS
+	
+	{ "s9263b.1a",		0x000117, 0x0a7ecfe0, BRF_OPT },	// b-board PLDs
+	{ "iob1.12d",		0x000117, 0x3abc0700, BRF_OPT },
+	{ "bprg1.11d",		0x000117, 0x31793da7, BRF_OPT },
+	{ "ioc1.ic7",		0x000104, 0xa399772d, BRF_OPT },	// c-board PLDs
+	{ "c632.ic1",		0x000117, 0x0fbd9270, BRF_OPT },
+};
+
+STD_ROM_PICK(Sf2cre)
+STD_ROM_FN(Sf2cre)
+
+struct BurnDriver BurnDrvCpsSf2cre = {
+	"sf2cre", "sf2ce", NULL, NULL, "2025",
+	"Street Fighter II': Champion Re-Edit (Hack, v0.29.7)\0", NULL, "hack (Persona)", "CPS1",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK | BDF_HISCORE_SUPPORTED, 2, HARDWARE_CAPCOM_CPS1, GBF_VSFIGHT, FBF_SF,
+	NULL, Sf2creRomInfo, Sf2creRomName, NULL, NULL, NULL, NULL, Sf2InputInfo, Sf2cejDIPInfo,
 	TwelveMhzInit, DrvExit, Cps1Frame, CpsRedraw, CpsAreaScan,
 	&CpsRecalcPal, 0x1000, 384, 224, 4, 3
 };
