@@ -10475,7 +10475,7 @@ struct BurnDriver BurnDrvCpsRmancp2j = {
 	&CpsRecalcPal, 0x1000, 384, 224, 4, 3
 };
 
-struct BurnDriver BurnDrvCpsMarsMatrix = {
+struct BurnDriver BurnDrvCpsMmatrix = {
 	"mmatrix", NULL, NULL, NULL, "2000",
 	"Mars Matrix (000412 USA)\0", NULL, "Capcom / Takumi", "CPS2",
 	NULL, NULL, NULL, NULL,
@@ -10485,7 +10485,7 @@ struct BurnDriver BurnDrvCpsMarsMatrix = {
 	&CpsRecalcPal, 0x1000, 384, 224, 4, 3
 };
 
-struct BurnDriver BurnDrvCpsMarsMatrixJ = {
+struct BurnDriver BurnDrvCpsMmatrixj = {
 	"mmatrixj", "mmatrix", NULL, NULL, "2000",
 	"Mars Matrix (000412 Japan)\0", NULL, "Capcom / Takumi", "CPS2",
 	NULL, NULL, NULL, NULL,
