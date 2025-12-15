@@ -43847,6 +43847,24 @@ struct BurnDriver BurnDrvmd_ikplusdx = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
+// International Superstar Soccer Deluxe NTSC Mod (Hack)
+static struct BurnRomInfo md_issdxnmRomDesc[] = {
+	{ "International Superstar Soccer Deluxe NTSC Mod (2019)(GhostlyDark).bin", 2097152, 0x77505365, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+};
+
+STD_ROM_PICK(md_issdxnm)
+STD_ROM_FN(md_issdxnm)
+
+struct BurnDriver BurnDrvmd_issdxnm = {
+	"md_issdxnm", "md_issdx", NULL, NULL, "2019",
+	"International Superstar Soccer Deluxe NTSC Mod (Hack)\0", NULL, "hack (GhostlyDark)", "Genesis / Mega Drive",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 4, HARDWARE_SEGA_MEGADRIVE | HARDWARE_SEGA_MEGADRIVE_TEAMPLAYER, GBF_SPORTSFOOTBALL, 0,
+	MegadriveGetZipName, md_issdxnmRomInfo, md_issdxnmRomName, NULL, NULL, NULL, NULL, Megadrive4pInputInfo, Megadrive4pDIPInfo,
+	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
+	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
+};
+
 // Kunio no Nekketsu School Fighters Beta (HB, Beta v.05b)
 
 static struct BurnRomInfo md_knnsfbRomDesc[] = {
@@ -43856,7 +43874,7 @@ static struct BurnRomInfo md_knnsfbRomDesc[] = {
 STD_ROM_PICK(md_knnsfb)
 STD_ROM_FN(md_knnsfb)
 
-struct BurnDriver BurnDrvmd_knnsfb = {
+struct BurnDriverD BurnDrvmd_knnsfb = {
 	"md_knnsfb", NULL, NULL, NULL, "2023",
 	"Kunio no Nekketsu School Fighters (HB, Beta v.05b)\0", NULL, "UsagiRu", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
