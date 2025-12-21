@@ -20323,6 +20323,68 @@ struct BurnDriver BurnDrvCyborgForce = {
 	0x1000, 320, 224, 4, 3
 };
 
+// Double Dragon One (Beta 3.2 Version)
+// https://ozzyouzo.itch.io/double-dragon
+
+static struct BurnRomInfo doubled1RomDesc[] = {
+	{ "doubled-p1.bin",		0x0100000, 0x5991da92, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "doubled-p2.bin",		0x0400000, 0x7e5ed6b8, 1 | BRF_ESS | BRF_PRG }, //  1
+
+	{ "doubled-s1.bin",		0x0020000, 0x714afb4b, 2 | BRF_GRA },           //  2 Text layer tiles
+
+	{ "doubled-c1.bin",		0x1000000, 0xfd883db8, 3 | BRF_GRA },           //  3 Sprite data
+	{ "doubled-c2.bin",		0x1000000, 0x718050d3, 3 | BRF_GRA },           //  4
+
+	{ "doubled-m1.bin",		0x0010000, 0x43295479, 4 | BRF_ESS | BRF_PRG }, //  5 Z80 code
+
+	{ "doubled-v1.bin",		0x0800000, 0xf01e97dc, 5 | BRF_SND },           //  6 Sound data
+	{ "doubled-v2.bin",		0x0800000, 0x79156c41, 5 | BRF_SND },           //  7
+};
+
+STDROMPICKEXT(doubled1, doubled1, neogeo)
+STD_ROM_FN(doubled1)
+
+struct BurnDriver BurnDrvDoubled1 = {
+	"doubled1", NULL, "neogeo", NULL, "2025",
+	"Double Dragon One (Beta 3.2 Version)\0", NULL, "OzzyOuzo", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_SNK_NEOGEO, GBF_SCRFIGHT, 0,
+	NULL, doubled1RomInfo, doubled1RomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000,	304, 224, 4, 3
+};
+
+// Violent Vengeance: The Universe Hero (Beta 1.4)
+// https://ozzyouzo.itch.io/violentv
+
+static struct BurnRomInfo violentvRomDesc[] = {
+	{ "violentv-p1.bin",	0x0100000, 0xfc6852b8, 1 | BRF_ESS | BRF_PRG }, 	//  0 68K code
+	{ "violentv-p2.bin",	0x0800000, 0xa810b0ab, 1 | BRF_ESS | BRF_PRG }, 	//  1
+
+	{ "violentv-s1.bin",	0x0020000, 0xf7302142, 2 | BRF_GRA },           	//  2 Text layer tiles
+
+	{ "violentv-c1.bin",	0x1000000, 0xa5b714a5, 3 | BRF_GRA },           	//  3 Sprite data
+	{ "violentv-c2.bin",	0x1000000, 0x9c9b726c, 3 | BRF_GRA },           	//  4
+
+	{ "violentv-m1.bin",	0x0010000, 0x988f0366, 4 | BRF_ESS | BRF_PRG }, 	//  5 Z80 code
+
+	{ "violentv-v1.bin",	0x0800000, 0xf8def124, 5 | BRF_SND },           	//  6 Sound data
+	{ "violentv-v2.bin",	0x0800000, 0x357babe6, 5 | BRF_SND },           	//  7
+};
+
+STDROMPICKEXT(violentv, violentv, neogeo)
+STD_ROM_FN(violentv)
+
+struct BurnDriver BurnDrvViolentv = {
+	"violentv", NULL, "neogeo", NULL, "2025",
+	"Violent Vengeance: The Universe Hero (Beta 1.4)\0", NULL, "OzzyOuzo", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, 0,
+	NULL, violentvRomInfo, violentvRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000, 320, 224, 4, 3
+};
+
 // Yo-Yo Shuriken (HB)
 // https://drludos.itch.io/yo-yo-shuriken-neo-geo
 
@@ -20840,38 +20902,39 @@ struct BurnDriver BurnDrvKof2kxxx = {
 
 // The King of Fighters 2001 (Ultimate, Hack)
 // Modified by 西岐赏金猎人, 臂力哥
-// GOTVG 20250531
+// GOTVG 20251021
 
 static struct BurnRomInfo kf2k1ultRomDesc[] = {
-	{ "262-p1ult.p1",		0x100000, 0x2f5662b8, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "262-p2ult.sp2",		0x500000, 0xda344c08, 1 | BRF_ESS | BRF_PRG }, //  1
+	{ "262-p1ult.p1",		0x100000, 0x890d6430, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "262-p2ult.sp2",		0x500000, 0x5c68722f, 1 | BRF_ESS | BRF_PRG }, //  1
 
-	{ "262-s1ult.s1",		0x020000, 0x18a0449b, 2 | BRF_GRA },           //  2 Text layer tiles
+	{ "262-s1ult.s1",		0x020000, 0x0d40cbd7, 2 | BRF_GRA },           //  2 Text layer tiles
 
-	{ "262-c1ult.c1",		0x800000, 0x8b531868, 3 | BRF_GRA },           //  3 Sprite data
-	{ "262-c2ult.c2",		0x800000, 0x947e7421, 3 | BRF_GRA },           //  4
-	{ "262-c3ult.c3",		0x800000, 0x26b67ec6, 3 | BRF_GRA },           //  5
-	{ "262-c4ult.c4",		0x800000, 0x7dc77374, 3 | BRF_GRA },           //  6
-	{ "262-c5ult.c5",		0x800000, 0xc08c3279, 3 | BRF_GRA },           //  7
-	{ "262-c6ult.c6",		0x800000, 0xcad8b68c, 3 | BRF_GRA },           //  8
-	{ "262-c7ult.c7",		0x800000, 0x8641cd8b, 3 | BRF_GRA },           //  9
-	{ "262-c8ult.c8",		0x800000, 0x6a21a2b8, 3 | BRF_GRA },           // 10
-	{ "262-c9ult.c9",		0x800000, 0x1a4d9823, 3 | BRF_GRA },           // 11
-	{ "262-c10ult.c10",		0x800000, 0x74fc85e9, 3 | BRF_GRA },           // 12
+	{ "262-c1ult.c1",		0x800000, 0x0bbc2797, 3 | BRF_GRA },           //  3 Sprite data
+	{ "262-c2ult.c2",		0x800000, 0xae956e69, 3 | BRF_GRA },           //  4
+	{ "262-c3ult.c3",		0x800000, 0xcaedac56, 3 | BRF_GRA },           //  5
+	{ "262-c4ult.c4",		0x800000, 0x4326b247, 3 | BRF_GRA },           //  6
+	{ "262-c5ult.c5",		0x800000, 0xf4524440, 3 | BRF_GRA },           //  7
+	{ "262-c6ult.c6",		0x800000, 0xb53fac2e, 3 | BRF_GRA },           //  8
+	{ "262-c7ult.c7",		0x800000, 0x05989309, 3 | BRF_GRA },           //  9
+	{ "262-c8ult.c8",		0x800000, 0x04c029ec, 3 | BRF_GRA },           // 10
+	{ "262-c9ult.c9",		0x800000, 0xb0bba382, 3 | BRF_GRA },           // 11
+	{ "262-c10ult.c10",		0x800000, 0x056b86e0, 3 | BRF_GRA },           // 12
 	{ "265-c7d.c7",			0x800000, 0x8a5b561c, 3 | BRF_GRA },           // 13
 	{ "265-c8d.c8",			0x800000, 0xbef667a3, 3 | BRF_GRA },           // 14
 	{ "262-c13ult.c13",		0x800000, 0x421998ab, 3 | BRF_GRA },           // 15
 	{ "262-c14ult.c14",		0x800000, 0x9b169e23, 3 | BRF_GRA },           // 16
 
-	{ "262-m1ult.m1",		0x020000, 0x7027def2, 4 | BRF_ESS | BRF_PRG }, // 17 Z80 code
+	{ "262-m1ult.m1",		0x020000, 0xaadfddc9, 4 | BRF_ESS | BRF_PRG }, // 17 Z80 code
 
-	{ "262-v1ult-08-e0.v1",	0x400000, 0x44532d73, 5 | BRF_SND },     // 18 Sound data
-	{ "262-v2ult-08-e0.v2",	0x400000, 0xc063647a, 5 | BRF_SND },     // 19
-	{ "262-v3ult-08-e0.v3",	0x400000, 0x44a334b8, 5 | BRF_SND },     // 20
-	{ "262-v4ult-08-e0.v4",	0x400000, 0x93abe5f4, 5 | BRF_SND },     // 21
+	{ "262-v1ult-08-e0.v1",	0x400000, 0xe9ce9305, 5 | BRF_SND },     // 18 Sound data
+	{ "262-v2ult-08-e0.v2",	0x400000, 0x1c65cdc7, 5 | BRF_SND },     // 19
+	{ "262-v3ult-08-e0.v3",	0x400000, 0x24d04db1, 5 | BRF_SND },     // 20
+	{ "262-v4ult-08-e0.v4",	0x400000, 0xcba0f4af, 5 | BRF_SND },     // 21
 	{ "262-v5ult-08-e0.v5",	0x400000, 0x84d06192, 5 | BRF_SND },     // 22
-	{ "262-v6ult-08-e0.v6",	0x400000, 0x17bf22ae, 5 | BRF_SND },     // 23
-	{ "262-v7ult-08-e0.v7",	0x400000, 0xf7021b3c, 5 | BRF_SND },     // 24
+	{ "262-v6ult-08-e0.v6",	0x400000, 0xdd2704e5, 5 | BRF_SND },     // 23
+	{ "262-v7ult-08-e0.v7",	0x400000, 0x0d22f0f0, 5 | BRF_SND },     // 24
+//	{ "262-v8ult-08-e0.v8",	0x400000, 0x7d5b6975, 5 | BRF_SND },     // 25 0xFF fill
 };
 
 STDROMPICKEXT(kf2k1ult, kf2k1ult, neogeo)
