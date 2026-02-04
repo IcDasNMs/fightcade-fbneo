@@ -43902,6 +43902,25 @@ struct BurnDriver BurnDrvmd_lwedding = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
+// Mortal Kombat Arcade Edition (Hack, v1.0d)
+// https://romhackplaza.org/romhacks/mortal-kombat-arcade-edition-genesis/
+static struct BurnRomInfo md_mkaeRomDesc[] = {
+	{ "Mortal Kombat Arcade Edition v1.0d (2026)(Master Linkuei).bin", 4194304, 0x8688c9b2, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+};
+
+STD_ROM_PICK(md_mkae)
+STD_ROM_FN(md_mkae)
+
+struct BurnDriver BurnDrvmd_mkae = {
+	"md_mkae", "md_mk", NULL, NULL, "2026",
+	"Mortal Kombat Arcade Edition (Hack, v1.0d)\0", NULL, "hack (Master Linkuei)", "Genesis / Mega Drive",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_VSFIGHT, 0,
+	MegadriveGetZipName, md_mkaeRomInfo, md_mkaeRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
+	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
+	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
+};
+
 // Mortal Kombat Arcade Edition (Hack, v2.2)
 // https://romhackplaza.org/romhacks/mortal-kombat-arcade-edition-enhanced-genesis-2/
 static struct BurnRomInfo md_mkaeeRomDesc[] = {
@@ -43936,6 +43955,24 @@ struct BurnDriver BurnDrvmd_mk2wuec = {
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_VSFIGHT, 0,
 	MegadriveGetZipName, md_mk2wuecRomInfo, md_mk2wuecRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
+	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
+	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
+};
+
+// Pop'n Wizz (HB, v2)
+static struct BurnRomInfo md_popnwizzRomDesc[] = {
+	{ "Pop'n Wizz v2 (2026)(format_c).bin", 393216, 0x17654df8, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+};
+
+STD_ROM_PICK(md_popnwizz)
+STD_ROM_FN(md_popnwizz)
+
+struct BurnDriver BurnDrvmd_popnwizz = {
+	"md_popnwizz", NULL, NULL, NULL, "2026",
+	"Pop'n Wizz (HB, v2)\0", NULL, "format_c", "Genesis / Mega Drive",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE, GBF_PUZZLE, 0,
+	MegadriveGetZipName, md_popnwizzRomInfo, md_popnwizzRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
 	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };

@@ -32604,6 +32604,24 @@ struct BurnDriver BurnDrvnes_littleleague = {
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
 
+// Mega Kaiju Boom Ball (HB, v1.1)
+static struct BurnRomInfo nes_megakaijubbRomDesc[] = {
+	{ "Mega Kaiju Boom Ball v1.1 (2025)(Orebody Inc.).nes",          524304, 0x00181827, BRF_ESS | BRF_PRG },
+};
+
+STD_ROM_PICK(nes_megakaijubb)
+STD_ROM_FN(nes_megakaijubb)
+
+struct BurnDriver BurnDrvnes_megakaijubb = {
+	"nes_megakaijubb", NULL, NULL, NULL, "2025",
+	"Mega Kaiju Boom Ball (HB, v1.1)\0", NULL, "Orebody Inc.", "NES / Famicom",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_BREAKOUT, 0,
+	NESGetZipName, nes_megakaijubbRomInfo, nes_megakaijubbRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
+	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
+	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
+};
+
 // Mischief Castle (HB, v1.01)
 static struct BurnRomInfo nes_miscastleRomDesc[] = {
 	{ "Mischief Castle v1.01 (2024)(kn56k).nes",          524304, 0xd27dcd86, BRF_ESS | BRF_PRG },
