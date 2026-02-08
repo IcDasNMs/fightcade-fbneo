@@ -32386,6 +32386,25 @@ struct BurnDriver BurnDrvnes_catmercs = {
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
 
+// Color Match Combat (HB, V2)
+
+static struct BurnRomInfo nes_colormatcbRomDesc[] = {
+	{ "Color Match Combat V2 (2024)(Johnybot).nes",          40976, 0x12b377a2, BRF_ESS | BRF_PRG },
+};
+
+STD_ROM_PICK(nes_colormatcb)
+STD_ROM_FN(nes_colormatcb)
+
+struct BurnDriver BurnDrvnes_colormatcb = {
+	"nes_colormatcb", NULL, NULL, NULL, "2024",
+	"Color Match Combat (HB, V2)\0", NULL, "Johnybot", "NES / Famicom",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_PUZZLE, 0,
+	NESGetZipName, nes_colormatcbRomInfo, nes_colormatcbRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
+	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
+	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
+};
+
 // Contra - Fun Together Version 2.0.0N
 // Modified by CZXInc
 
@@ -32474,6 +32493,25 @@ struct BurnDriver BurnDrvnes_famdepon = {
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_PUZZLE, 0,
 	NESGetZipName, nes_famdeponRomInfo, nes_famdeponRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
+	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
+	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
+};
+
+// Fire Wall (HB)
+
+static struct BurnRomInfo nes_firewallRomDesc[] = {
+	{ "Fire Wall (2023)(Nevyn).nes",          40976, 0xf3b75307, BRF_ESS | BRF_PRG },
+};
+
+STD_ROM_PICK(nes_firewall)
+STD_ROM_FN(nes_firewall)
+
+struct BurnDriver BurnDrvnes_firewall = {
+	"nes_firewall", NULL, NULL, NULL, "2023",
+	"Fire Wall (HB)\0", NULL, "Nevyn", "NES / Famicom",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_RUNGUN, 0,
+	NESGetZipName, nes_firewallRomInfo, nes_firewallRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
 	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
@@ -32745,6 +32783,25 @@ struct BurnDriver BurnDrvnes_smbroop = {
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_NES, GBF_PLATFORM, 0,
 	NESGetZipName, nes_smbroopRomInfo, nes_smbroopRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
+	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
+	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
+};
+
+// Super Strife (HB, v1.2)
+
+static struct BurnRomInfo nes_superstrifeRomDesc[] = {
+	{ "Super Strife v1.2 (2023)(Mazionach).nes",          32784, 0xb939baf3, BRF_ESS | BRF_PRG },
+};
+
+STD_ROM_PICK(nes_superstrife)
+STD_ROM_FN(nes_superstrife)
+
+struct BurnDriver BurnDrvnes_superstrife = {
+	"nes_superstrife", NULL, NULL, NULL, "2023",
+	"Super Strife (HB, v1.2)\0", NULL, "Mazionach", "NES / Famicom",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_PLATFORM | GBF_RUNGUN, 0,
+	NESGetZipName, nes_superstrifeRomInfo, nes_superstrifeRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
 	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
