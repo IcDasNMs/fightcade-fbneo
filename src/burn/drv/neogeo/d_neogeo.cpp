@@ -17520,7 +17520,7 @@ struct BurnDriver BurnDrvSamsh5pf = {
 	"samsh5pf", "samsh5sp", "neogeo", NULL, "2020",
 	"Samurai Shodown V Perfect / Samurai Spirits Zero Perfect (bootleg, hack)\0", NULL, "bootleg", "Neo Geo MVS",
 	L"Samurai Shodown V Perfect\0\u30B5\u30E0\u30E9\u30A4\u30B9\u30D4\u30EA\u30C3\u30C4\u96F6 Perfect (bootleg, hack)\0", NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_SAMSHO,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_BOOTLEG | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_SAMSHO,
 	NULL, samsh5pfRomInfo, samsh5pfRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
 	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
 	0x1000,	304, 224, 4, 3
@@ -20146,37 +20146,39 @@ struct BurnDriver BurnDrvWakuwak7bh = {
 };
 
 // Real Bout Fatal Fury 2 - The Newcomers / Real Bout Garou Densetsu 2 - the newcomers (Secret Character Hack) (NGM-2400)
+// Enable Alfred v3 and Fix Alfred's player 2 color
+// Modified by Eddids[FCHT]
 
-static struct BurnRomInfo rbff2bhRomDesc[] = {
-	{ "240-p1bs.p1",  0x100000, 0xd01854fa, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "240-p2bs.sp2", 0x400000, 0xc063193d, 1 | BRF_ESS | BRF_PRG }, //  1
+static struct BurnRomInfo rbff2bsRomDesc[] = {
+	{ "240-p1bs.p1",	0x100000, 0xd01854fa, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "240-p2bs.sp2",	0x400000, 0xc063193d, 1 | BRF_ESS | BRF_PRG }, //  1
 
-	{ "240-s1bh.s1",  0x020000, 0x141a8492, 2 | BRF_GRA },           //  2 Text layer tiles
+	{ "240-s1.s1",		0x020000, 0xda3b40de, 2 | BRF_GRA },           //  2 Text layer tiles
 
-	{ "240-c1.c1",    0x800000, 0xeffac504, 3 | BRF_GRA },           //  3 Sprite data
-	{ "240-c2.c2",    0x800000, 0xed182d44, 3 | BRF_GRA },           //  4 
-	{ "240-c3.c3",    0x800000, 0x22e0330a, 3 | BRF_GRA },           //  5 
-	{ "240-c4.c4",    0x800000, 0xc19a07eb, 3 | BRF_GRA },           //  6 
-	{ "240-c5.c5",    0x800000, 0x244dff5a, 3 | BRF_GRA },           //  7 
-	{ "240-c6.c6",    0x800000, 0x4609e507, 3 | BRF_GRA },           //  8 
+	{ "240-c1.c1",		0x800000, 0xeffac504, 3 | BRF_GRA },           //  3 Sprite data
+	{ "240-c2.c2",		0x800000, 0xed182d44, 3 | BRF_GRA },           //  4 
+	{ "240-c3.c3",		0x800000, 0x22e0330a, 3 | BRF_GRA },           //  5 
+	{ "240-c4.c4",		0x800000, 0xc19a07eb, 3 | BRF_GRA },           //  6 
+	{ "240-c5bs.c5",	0x800000, 0x21831787, 3 | BRF_GRA },           //  7 
+	{ "240-c6bs.c6",	0x800000, 0x06b2d1da, 3 | BRF_GRA },           //  8 
 
-	{ "240-m1.m1",    0x040000, 0xed482791, 4 | BRF_ESS | BRF_PRG }, //  9 Z80 code
+	{ "240-m1.m1",		0x040000, 0xed482791, 4 | BRF_ESS | BRF_PRG }, //  9 Z80 code
 
-	{ "240-v1.v1",    0x400000, 0xf796265a, 5 | BRF_SND },           // 10 Sound data
-	{ "240-v2.v2",    0x400000, 0x2cb3f3bb, 5 | BRF_SND },           // 11 
-	{ "240-v3.v3",    0x400000, 0x8fe1367a, 5 | BRF_SND },           // 12 
-	{ "240-v4.v4",    0x200000, 0x996704d8, 5 | BRF_SND },           // 13 
+	{ "240-v1.v1",		0x400000, 0xf796265a, 5 | BRF_SND },           // 10 Sound data
+	{ "240-v2.v2",		0x400000, 0x2cb3f3bb, 5 | BRF_SND },           // 11 
+	{ "240-v3.v3",		0x400000, 0x8fe1367a, 5 | BRF_SND },           // 12 
+	{ "240-v4.v4",		0x200000, 0x996704d8, 5 | BRF_SND },           // 13 
 };
 
-STDROMPICKEXT(rbff2bh, rbff2bh, neogeo)
-STD_ROM_FN(rbff2bh)
+STDROMPICKEXT(rbff2bs, rbff2bs, neogeo)
+STD_ROM_FN(rbff2bs)
 
-struct BurnDriver BurnDrvRbff2bh = {
-	"rbff2bh", "rbff2", "neogeo", NULL, "1998",
-	"Real Bout Fatal Fury 2 - The Newcomers / Real Bout Garou Densetsu 2 - the newcomers (Secret Character Hack) (NGM-2400)\0", NULL, "SNK", "Neo Geo MVS",
-	L"Real Bout Fatal Fury 2 - The Newcomers\0Real Bout \u9913\u72FC\u4F1D\u8AAC\uFF12 (Secret Character Hack) (NGM-2400)\0", NULL, NULL, NULL,
+struct BurnDriver BurnDrvRbff2bs = {
+	"rbff2bs", "rbff2", "neogeo", NULL, "200?",
+	"Real Bout Fatal Fury 2 - The Newcomers / Real Bout Garou Densetsu 2 - the newcomers (Secret Character, Hack)\0", NULL, "hack", "Neo Geo MVS",
+	L"Real Bout Fatal Fury 2 - The Newcomers\0Real Bout \u9913\u72FC\u4F1D\u8AAC\uFF12 (Secret Character, Hack)\0", NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK | BDF_HISCORE_SUPPORTED, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_FATFURY,
-	NULL, rbff2bhRomInfo, rbff2bhRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	NULL, rbff2bsRomInfo, rbff2bsRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
 	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
 	0x1000, 320, 224, 4, 3
 };
@@ -20902,48 +20904,48 @@ struct BurnDriver BurnDrvKof2kxxx = {
 };
 
 
-// The King of Fighters 2001 (Ultimate, Hack)
+// The King of Fighters 2001 (All Boss Plus, Hack)
 // Modified by 西岐赏金猎人, 臂力哥
-// GOTVG 20251021
+// 20260409
 
 static struct BurnRomInfo kf2k1ultRomDesc[] = {
-	{ "262-p1ult.p1",		0x100000, 0x890d6430, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "262-p2ult.sp2",		0x500000, 0x5c68722f, 1 | BRF_ESS | BRF_PRG }, //  1
+	{ "262-p1ult.p1",		0x100000, 0x034b41a5, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "262-p2ult.sp2",		0x500000, 0x245b84ae, 1 | BRF_ESS | BRF_PRG }, //  1
 
-	{ "262-s1ult.s1",		0x020000, 0x0d40cbd7, 2 | BRF_GRA },           //  2 Text layer tiles
+	{ "262-s1ult.s1",		0x020000, 0x6efe7dc8, 2 | BRF_GRA },           //  2 Text layer tiles
 
-	{ "262-c1ult.c1",		0x800000, 0x0bbc2797, 3 | BRF_GRA },           //  3 Sprite data
-	{ "262-c2ult.c2",		0x800000, 0xae956e69, 3 | BRF_GRA },           //  4
-	{ "262-c3ult.c3",		0x800000, 0xcaedac56, 3 | BRF_GRA },           //  5
-	{ "262-c4ult.c4",		0x800000, 0x4326b247, 3 | BRF_GRA },           //  6
-	{ "262-c5ult.c5",		0x800000, 0xf4524440, 3 | BRF_GRA },           //  7
-	{ "262-c6ult.c6",		0x800000, 0xb53fac2e, 3 | BRF_GRA },           //  8
-	{ "262-c7ult.c7",		0x800000, 0x05989309, 3 | BRF_GRA },           //  9
-	{ "262-c8ult.c8",		0x800000, 0x04c029ec, 3 | BRF_GRA },           // 10
-	{ "262-c9ult.c9",		0x800000, 0xb0bba382, 3 | BRF_GRA },           // 11
-	{ "262-c10ult.c10",		0x800000, 0x056b86e0, 3 | BRF_GRA },           // 12
+	{ "262-c1ult.c1",		0x800000, 0x6a3a091c, 3 | BRF_GRA },           //  3 Sprite data
+	{ "262-c2ult.c2",		0x800000, 0xd4ee100d, 3 | BRF_GRA },           //  4
+	{ "262-c3ult.c3",		0x800000, 0xe68f1a56, 3 | BRF_GRA },           //  5
+	{ "262-c4ult.c4",		0x800000, 0x733f8f29, 3 | BRF_GRA },           //  6
+	{ "262-c5ult.c5",		0x800000, 0x421278cf, 3 | BRF_GRA },           //  7
+	{ "262-c6ult.c6",		0x800000, 0x9e8fa8b5, 3 | BRF_GRA },           //  8
+	{ "262-c7ult.c7",		0x800000, 0x2078f017, 3 | BRF_GRA },           //  9
+	{ "262-c8ult.c8",		0x800000, 0x89a56587, 3 | BRF_GRA },           // 10
+	{ "262-c9ult.c9",		0x800000, 0x8ca54442, 3 | BRF_GRA },           // 11
+	{ "262-c10ult.c10",		0x800000, 0x37a0d99d, 3 | BRF_GRA },           // 12
 	{ "265-c7d.c7",			0x800000, 0x8a5b561c, 3 | BRF_GRA },           // 13
 	{ "265-c8d.c8",			0x800000, 0xbef667a3, 3 | BRF_GRA },           // 14
-	{ "262-c13ult.c13",		0x800000, 0x421998ab, 3 | BRF_GRA },           // 15
-	{ "262-c14ult.c14",		0x800000, 0x9b169e23, 3 | BRF_GRA },           // 16
+	{ "262-c13ult.c13",		0x800000, 0x2a3a1468, 3 | BRF_GRA },           // 15
+	{ "262-c14ult.c14",		0x800000, 0xee0e5d28, 3 | BRF_GRA },           // 16
 
-	{ "262-m1ult.m1",		0x020000, 0xaadfddc9, 4 | BRF_ESS | BRF_PRG }, // 17 Z80 code
+	{ "262-m1ult.m1",		0x020000, 0x2a8352f6, 4 | BRF_ESS | BRF_PRG }, // 17 Z80 code
 
-	{ "262-v1ult-08-e0.v1",	0x400000, 0xe9ce9305, 5 | BRF_SND },     // 18 Sound data
-	{ "262-v2ult-08-e0.v2",	0x400000, 0x1c65cdc7, 5 | BRF_SND },     // 19
-	{ "262-v3ult-08-e0.v3",	0x400000, 0x24d04db1, 5 | BRF_SND },     // 20
-	{ "262-v4ult-08-e0.v4",	0x400000, 0xcba0f4af, 5 | BRF_SND },     // 21
-	{ "262-v5ult-08-e0.v5",	0x400000, 0x84d06192, 5 | BRF_SND },     // 22
-	{ "262-v6ult-08-e0.v6",	0x400000, 0xdd2704e5, 5 | BRF_SND },     // 23
-	{ "262-v7ult-08-e0.v7",	0x400000, 0x0d22f0f0, 5 | BRF_SND },     // 24
-//	{ "262-v8ult-08-e0.v8",	0x400000, 0x7d5b6975, 5 | BRF_SND },     // 25 0xFF fill
+	{ "262-v1ult-08-e0.v1",	0x400000, 0x164d1b2a, 5 | BRF_SND },     // 18 Sound data
+	{ "262-v2ult-08-e0.v2",	0x400000, 0x7cc9251e, 5 | BRF_SND },     // 19
+	{ "262-v3ult-08-e0.v3",	0x400000, 0x5dd46eb9, 5 | BRF_SND },     // 20
+	{ "262-v4ult-08-e0.v4",	0x400000, 0x8e651432, 5 | BRF_SND },     // 21
+	{ "262-v5ult-08-e0.v5",	0x400000, 0xd65f6522, 5 | BRF_SND },     // 22
+	{ "262-v6ult-08-e0.v6",	0x400000, 0x7b72324c, 5 | BRF_SND },     // 23
+	{ "262-v7ult-08-e0.v7",	0x400000, 0x2bc74bd0, 5 | BRF_SND },     // 24
+	{ "262-v8ult-08-e0.v8",	0x400000, 0x3988bee9, 5 | BRF_SND },     // 25
 };
 
 STDROMPICKEXT(kf2k1ult, kf2k1ult, neogeo)
 STD_ROM_FN(kf2k1ult)
 
 struct BurnDriver BurnDrvKf2k1ult = {
-	"kf2k1ult", "kof2001", "neogeo", NULL, "2025",
+	"kf2k1ult", "kof2001", "neogeo", NULL, "2025-26",
 	"The King of Fighters 2001 (All Boss Plus, Hack)\0", NULL, "hack", "Neo Geo MVS",
 	NULL, NULL, L"\u897f\u5c90\u8d4f\u91d1\u730e\u4eba, \u81c2\u529b\u54e5", NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_KOF,
@@ -21916,22 +21918,22 @@ struct BurnDriver BurnDrvKof99sk = {
 };
 
 
-// Neo Turf Masters / Big Tournament Golf: Scotland Course (Hack, v1.05)
+// Neo Turf Masters / Big Tournament Golf: Scotland Course (Hack, v1.08)
 
 static struct BurnRomInfo turfmastscRomDesc[] = {
-	{ "200-p1sc.p1",	0x200000, 0x2afa257b, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "200-p1sc.p1",	0x200000, 0xc1c9751c, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
 
 	{ "200-s1.s1",		0x020000, 0x9a5402b2, 2 | BRF_GRA },           //  1
 
-	{ "200-c1sc.c1",	0x400000, 0x31b37bde, 3 | BRF_GRA },           //  2 Sprite data
-	{ "200-c2sc.c2",	0x400000, 0x924aaad5, 3 | BRF_GRA },           //  3
+	{ "200-c1sc.c1",	0x400000, 0xbb2a69a7, 3 | BRF_GRA },           //  2 Sprite data
+	{ "200-c2sc.c2",	0x400000, 0x443e13c5, 3 | BRF_GRA },           //  3
 
-	{ "200-m1sc.m1",	0x020000, 0x455fedf8, 4 | BRF_ESS | BRF_PRG }, //  4 Z80 code
+	{ "200-m1sc.m1",	0x020000, 0x932b54e8, 4 | BRF_ESS | BRF_PRG }, //  4 Z80 code
 
 	{ "200-v1.v1",		0x200000, 0x00fd48d2, 5 | BRF_SND },           //  5 Sound data
-	{ "200-v2sc.v2",	0x200000, 0xcaf341a8, 5 | BRF_SND },           //  6
+	{ "200-v2sc.v2",	0x200000, 0x8be97582, 5 | BRF_SND },           //  6
 	{ "200-v3.v3",		0x200000, 0x7abca053, 5 | BRF_SND },           //  7
-	{ "200-v4sc.v4",	0x200000, 0x3ee02c5f, 5 | BRF_SND },           //  8
+	{ "200-v4sc.v4",	0x200000, 0xe894954f, 5 | BRF_SND },           //  8
 };
 
 STDROMPICKEXT(turfmastsc, turfmastsc, neogeo)
@@ -21939,7 +21941,7 @@ STD_ROM_FN(turfmastsc)
 
 struct BurnDriver BurnDrvTurfmastsc = {
 	"turfmastsc", "turfmast", "neogeo", NULL, "2026",
-	"Neo Turf Masters / Big Tournament Golf: Scotland Course (Hack, v1.05)\0", NULL, "dericmiller", "Neo Geo MVS",
+	"Neo Turf Masters / Big Tournament Golf: Scotland Course (Hack, v1.08)\0", NULL, "dericmiller", "Neo Geo MVS",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_SWAPP, GBF_SPORTSMISC, 0,
 	NULL, turfmastscRomInfo, turfmastscRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
