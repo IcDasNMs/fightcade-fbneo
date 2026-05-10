@@ -21155,7 +21155,7 @@ struct BurnDriver BurnDrvKof94tea = {
 // GOTVG 20030205
 
 static struct BurnRomInfo kof96plsRomDesc[] = {
-	{ "214-p1p.p1",		0x100000, 0x76fc560c, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "214-p1pl.p1",	0x100000, 0x76fc560c, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
 	{ "214-p2.sp2",		0x200000, 0x002ccb73, 1 | BRF_ESS | BRF_PRG }, //  1
 
 	{ "214-s1.s1",		0x020000, 0x1254cbdb, 2 | BRF_GRA },           //  2 Text layer tiles

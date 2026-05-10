@@ -15191,6 +15191,46 @@ struct BurnDriver BurnDrvCpsXmvsfu1d = {
 
 // other bootlegs
 
+// Dungeons & Dragons - tower of doom (Plus, Hack)
+// GOTVG 20160825
+
+static struct BurnRomInfo DdtoddpRomDesc[] = {
+	{ "dadedp.03c",		0x080000, 0x748d17d3, CPS2_PRG_68K | BRF_ESS | BRF_PRG },
+	{ "daded.04c",		0x080000, 0x306f14fc, CPS2_PRG_68K | BRF_ESS | BRF_PRG },
+	{ "daded.05c",		0x080000, 0x8c6b8328, CPS2_PRG_68K | BRF_ESS | BRF_PRG },
+	{ "dadedp.06a",		0x080000, 0x1005b2d7, CPS2_PRG_68K | BRF_ESS | BRF_PRG },
+	{ "dadd.07a",		0x080000, 0x0f0df6cc, CPS2_PRG_68K | BRF_ESS | BRF_PRG },
+
+	{ "dad.13m",		0x200000, 0xda3cb7d6, CPS2_GFX | BRF_GRA },
+	{ "dad.15m",		0x200000, 0x92b63172, CPS2_GFX | BRF_GRA },
+	{ "dad.17m",		0x200000, 0xb98757f5, CPS2_GFX | BRF_GRA },
+	{ "dad.19m",		0x200000, 0x8121ce46, CPS2_GFX | BRF_GRA },
+	{ "dad.14m",		0x100000, 0x837e6f3f, CPS2_GFX | BRF_GRA },
+	{ "dad.16m",		0x100000, 0xf0916bdb, CPS2_GFX | BRF_GRA },
+	{ "dad.18m",		0x100000, 0xcef393ef, CPS2_GFX | BRF_GRA },
+	{ "dad.20m",		0x100000, 0x8953fe9e, CPS2_GFX | BRF_GRA },
+
+	{ "dad.01",			0x020000, 0x3f5e2424, CPS2_PRG_Z80 | BRF_ESS | BRF_PRG },
+
+	{ "dad.11m",		0x200000, 0x0c499b67, CPS2_QSND | BRF_SND },
+	{ "dad.12m",		0x200000, 0x2f0b5a4e, CPS2_QSND | BRF_SND },
+	
+	{ "phoenix.key",	0x000014, 0x2cf772b0, CPS2_ENCRYPTION_KEY },
+};
+
+STD_ROM_PICK(Ddtoddp)
+STD_ROM_FN(Ddtoddp)
+
+struct BurnDriver BurnDrvCpsDdtoddp = {
+	"ddtoddp", "ddtod", NULL, NULL, "2016",
+	"Dungeons & Dragons - tower of doom (Plus, Hack)\0", NULL, "hack", "CPS2",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK | BDF_HISCORE_SUPPORTED, 4, HARDWARE_CAPCOM_CPS2, GBF_SCRFIGHT, 0,
+	NULL, DdtoddpRomInfo, DdtoddpRomName, NULL, NULL, NULL, NULL, DdtodInputInfo, NULL,
+	PhoenixInit, DrvExit, Cps2Frame, CpsRedraw, CpsAreaScan,
+	&CpsRecalcPal, 0x1000, 384, 224, 4, 3
+};
+
 // Final Fight Anniversary Edition (CPS2 hardware)
 // Grego and Gnawtor
 static struct BurnRomInfo Ffightaec2RomDesc[] = {
