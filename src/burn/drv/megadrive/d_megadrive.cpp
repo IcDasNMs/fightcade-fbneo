@@ -44346,21 +44346,21 @@ struct BurnDriver BurnDrvmd_sor2dino = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// Bare Knuckle III - Definitive Patch (Hack)
-// https://romhackplaza.org/romhacks/bare-knuckle-iii-definitive-patch-genesis/
-static struct BurnRomInfo md_bk3defpatRomDesc[] = {
-	{ "Bare Knuckle III - Definitive Patch (2026)(GSaurus, LoneGamer88, Twilight Translations).bin", 3146096, 0x16b323ae, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+// Mighty Morphin Power Rangers in Streets of Rage 2 (Hack)
+// https://www.romhacking.net/hacks/9578/
+static struct BurnRomInfo md_sor2mmprRomDesc[] = {
+	{ "Mighty Morphin Power Rangers in Streets of Rage 2 (2026)(Vesta - PPI_Akiko).bin", 4193756, 0x06a98572, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
-STD_ROM_PICK(md_bk3defpat)
-STD_ROM_FN(md_bk3defpat)
+STD_ROM_PICK(md_sor2mmpr)
+STD_ROM_FN(md_sor2mmpr)
 
-struct BurnDriver BurnDrvmd_bk3defpat = {
-	"md_bk3defpat", "md_sor3", NULL, NULL, "2026",
-	"Bare Knuckle III - Definitive Patch (Hack)\0", NULL, "GSaurus, LoneGamer88, Twilight Translations", "Genesis / Mega Drive",
+struct BurnDriver BurnDrvmd_sor2mmpr = {
+	"md_sor2mmpr", "md_sor2", NULL, NULL, "2026",
+	"Mighty Morphin Power Rangers in Streets of Rage 2 (Hack)\0", NULL, "hack (Vesta - PPI_Akiko)", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_SCRFIGHT, 0,
-	MegadriveGetZipName, md_bk3defpatRomInfo, md_bk3defpatRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
+	MegadriveGetZipName, md_sor2mmprRomInfo, md_sor2mmprRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
 	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
@@ -44381,6 +44381,26 @@ struct BurnDriver BurnDrvmd_sor2xmor = {
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_SCRFIGHT, 0,
 	MegadriveGetZipName, md_sor2xmorRomInfo, md_sor2xmorRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
+	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
+	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
+};
+
+
+// Bare Knuckle III - Definitive Patch (Hack)
+// https://romhackplaza.org/romhacks/bare-knuckle-iii-definitive-patch-genesis/
+static struct BurnRomInfo md_bk3defpatRomDesc[] = {
+	{ "Bare Knuckle III - Definitive Patch (2026)(GSaurus, LoneGamer88, Twilight Translations).bin", 3146096, 0x16b323ae, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+};
+
+STD_ROM_PICK(md_bk3defpat)
+STD_ROM_FN(md_bk3defpat)
+
+struct BurnDriver BurnDrvmd_bk3defpat = {
+	"md_bk3defpat", "md_sor3", NULL, NULL, "2026",
+	"Bare Knuckle III - Definitive Patch (Hack)\0", NULL, "GSaurus, LoneGamer88, Twilight Translations", "Genesis / Mega Drive",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_SCRFIGHT, 0,
+	MegadriveGetZipName, md_bk3defpatRomInfo, md_bk3defpatRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
 	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
@@ -44422,10 +44442,10 @@ struct BurnDriver BurnDrvmd_umk3ta = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// Ultimate X-Men (Hack)
+// Ultimate X-Men (Hack, Enhanced)
 // https://www.romhacking.net/hacks/5639/
 static struct BurnRomInfo md_uxmenRomDesc[] = {
-	{ "Ultimate X-Men (2021)(BillyTime! Games).bin", 1048576, 0x4528a2bb, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+	{ "Ultimate X-Men - Enhanced (2021)(BillyTime! Games).bin", 1048576, 0x4528a2bb, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
 STD_ROM_PICK(md_uxmen)
@@ -44433,7 +44453,7 @@ STD_ROM_FN(md_uxmen)
 
 struct BurnDriver BurnDrvmd_uxmen = {
 	"md_uxmen", "md_xmen", NULL, NULL, "2021",
-	"Ultimate X-Men (Hack)\0", NULL, "BillyTime! Games", "Genesis / Mega Drive",
+	"Ultimate X-Men (Hack, Enhanced)\0", NULL, "BillyTime! Games", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_SCRFIGHT | GBF_PLATFORM, 0,
 	MegadriveGetZipName, md_uxmenRomInfo, md_uxmenRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
@@ -44441,10 +44461,10 @@ struct BurnDriver BurnDrvmd_uxmen = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// Ultimate X-Men 2 - Clone Wars (Hack)
+// Ultimate X-Men 2 - Clone Wars (Hack, Enhanced)
 // https://romhackplaza.org/romhacks/ultimate-x-men-2-genesis/
 static struct BurnRomInfo md_uxmen2RomDesc[] = {
-	{ "Ultimate X-Men 2 - Clone Wars (2025)(BillyTime! Games).bin", 2621440, 0x5b2031de, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+	{ "Ultimate X-Men 2 - Clone Wars - Enhanced (2025)(BillyTime! Games).bin", 2621440, 0x5b2031de, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
 STD_ROM_PICK(md_uxmen2)
@@ -44452,7 +44472,7 @@ STD_ROM_FN(md_uxmen2)
 
 struct BurnDriver BurnDrvmd_uxmen2 = {
 	"md_uxmen2", "md_xmen2", NULL, NULL, "2025",
-	"Ultimate X-Men 2 - Clone Wars (Hack)\0", NULL, "hack (BillyTime! Games)", "Genesis / Mega Drive",
+	"Ultimate X-Men 2 - Clone Wars (Hack, Enhanced)\0", NULL, "hack (BillyTime! Games)", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 2, HARDWARE_SEGA_MEGADRIVE, GBF_PLATFORM | GBF_SCRFIGHT, 0,
 	MegadriveGetZipName, md_uxmen2RomInfo, md_uxmen2RomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
