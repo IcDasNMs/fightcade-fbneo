@@ -1999,13 +1999,89 @@ static struct BurnRomInfo ridheroRomDesc[] = {
 STDROMPICKEXT(ridhero, ridhero, neogeo)
 STD_ROM_FN(ridhero)
 
+// Very incomplete simulation of system link - just enough to make AES mode work correctly. When this is properly emulated, please remove! 
+static UINT8 ridheroLinkStatus = 0;
+
+// Dip 0 bits 5,4,3 are important for this, bit 5 sets whether to use the link or not, 4 & 3 inverted is the machine ID (~dip & 0x18)
+
+static UINT8 __fastcall ridheroLinkRead(UINT32 sekAddress)
+{
+	UINT8 ret = 0;
+
+	switch (sekAddress)
+	{
+		case 0x200000: // status read? always read to D4
+			ridheroLinkStatus ^= 0x08;
+			ret = ridheroLinkStatus;
+			break;
+			
+		case 0x200001: // result read? always read to D1
+			ret = 0; // returning 0x80 gives us more
+			break;
+	}
+
+//	bprintf (0, _T("Link Read: %5.5x %2.2x PC(%5.5x)\n"), sekAddress, ret, SekGetPC(-1));
+
+	return ret;
+}
+
+static void __fastcall ridheroLinkWrite(UINT32 sekAddress, UINT8 byteValue)
+{
+//	bprintf (0, _T("Link Write: %5.5x, %2.2x PC(%5.5x)\n"), sekAddress, byteValue, SekGetPC(-1));
+
+	switch (sekAddress)
+	{
+		case 0x200001:
+		{
+			switch (byteValue & 0xf0) // command
+			{
+				case 0x00: // ?
+				case 0x10: // send my cabinet ID#
+				case 0x20: // request partner cabinet ID# ?
+					// $b10a tests (result & 0xfc) and branches if it is zero
+				case 0x40: // ?
+				case 0x50: // ?
+				case 0x70: // prepare to receive my Cabinet ID# ?
+				case 0xb0: // ?
+				case 0xc0: // c0-ff ?
+				return;
+			}		
+		}
+		return;
+	}
+}
+
+static void ridheroInstallHandlers()
+{
+	SekMapHandler(7,    0x200000,    0x200001,  MAP_READ | MAP_WRITE);
+	SekSetReadByteHandler(7,  ridheroLinkRead);
+	SekSetWriteByteHandler(7, ridheroLinkWrite);
+}
+
+static INT32 ridheroScan(INT32 nAction, INT32*)
+{
+	if (nAction & ACB_MEMORY_RAM) {
+		SCAN_VAR(ridheroLinkStatus);
+	}
+
+	return 0;
+}
+
+static INT32 ridheroInit()
+{
+	NeoCallbackActive->pInstallHandlers = ridheroInstallHandlers;
+	NeoCallbackActive->pScan = ridheroScan;
+
+	return NeoInit();
+}
+
 struct BurnDriver BurnDrvRidhero = {
 	"ridhero", NULL, "neogeo", NULL, "1990",
 	"Riding Hero (NGM-006)(NGH-006)\0", NULL, "SNK", "Neo Geo MVS",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_HISCORE_SUPPORTED, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_RACING, 0,
 	NULL, ridheroRomInfo, ridheroRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	ridheroInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
 	0x1000, 304, 224, 4, 3
 };
 
@@ -2044,7 +2120,7 @@ struct BurnDriver BurnDrvRidheroh = {
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HISCORE_SUPPORTED, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_RACING, 0,
 	NULL, ridherohRomInfo, ridherohRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	ridheroInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
 	0x1000, 304, 224, 4, 3
 };
 
@@ -17376,14 +17452,14 @@ struct BurnDriver BurnDrvSamsho2sp = {
 	0x1000, 320, 224, 4, 3
 };
 
-// Samurai Shodown II / Shin Samurai Spirits - Haohmaru Jigokuhen (Perfect V. 2.5, Hack)
+// Samurai Shodown II / Shin Samurai Spirits - Haohmaru Jigokuhen (Perfect V. 2.6, Hack)
 // Modified by Bear
-// 20260104
+// 20260516
 
 static struct BurnRomInfo samsho2peRomDesc[] = {
-	{ "063-p1pe.p1",	0x100000, 0xe4dd1c44, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "063-p2pe.sp2",	0x100000, 0x68ef2a4a, 1 | BRF_ESS | BRF_PRG }, //  1
-	{ "063-p3pe.p3",	0x020000, 0x2c311c74, 1 | BRF_ESS | BRF_PRG }, //  2 Extra ROM
+	{ "063-p1pe.p1",	0x100000, 0xf828c04c, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "063-p2pe.sp2",	0x100000, 0x7594e942, 1 | BRF_ESS | BRF_PRG }, //  1
+	{ "063-p3pe.p3",	0x020000, 0x7dd8bada, 1 | BRF_ESS | BRF_PRG }, //  2 Extra ROM
 
 	{ "063-s1.s1",		0x020000, 0x64a5cd66, 2 | BRF_GRA },           //  3 Text layer tiles
 
@@ -17409,8 +17485,8 @@ STD_ROM_FN(samsho2pe)
 
 struct BurnDriver BurnDrvSamsho2pe = {
 	"samsho2pe", "samsho2", "neogeo", NULL, "2023-26",
-	"Samurai Shodown II / Shin Samurai Spirits - Haohmaru jigokuhen (Perfect V. 2.5, hack)\0", NULL, "hack (Bear)", "Neo Geo MVS",
-	L"Samurai Shodown II\0\u771F Samurai Spirits - \u8987\u738B\u4E38\u5730\u7344\u5909 (Perfect V. 2.5, hack)\0", NULL, NULL, NULL,
+	"Samurai Shodown II / Shin Samurai Spirits - Haohmaru jigokuhen (Perfect V. 2.6, hack)\0", NULL, "hack (Bear)", "Neo Geo MVS",
+	L"Samurai Shodown II\0\u771F Samurai Spirits - \u8987\u738B\u4E38\u5730\u7344\u5909 (Perfect V. 2.6, hack)\0", NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_SAMSHO,
 	NULL, samsho2peRomInfo, samsho2peRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
 	samsho2spInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
@@ -21945,6 +22021,37 @@ struct BurnDriver BurnDrvTurfmastsc = {
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_SWAPP, GBF_SPORTSMISC, 0,
 	NULL, turfmastscRomInfo, turfmastscRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000,	304, 224, 4, 3
+};
+
+// Zintrick / Oshidashi Zentrix (bootleg of CD version, multi-V)
+
+static struct BurnRomInfo zintrckbpRomDesc[] = {
+	{ "zin-p1p.bin",	0x100000, 0x654342e6, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+
+	{ "zin-s1p.bin",	0x020000, 0x56d16afa, 2 | BRF_GRA },           //  1 Text layer tiles
+
+	{ "zin-c1.bin",		0x200000, 0x76aee189, 3 | BRF_GRA },           //  2 Sprite data
+	{ "zin-c2.bin",		0x200000, 0x844ed4b3, 3 | BRF_GRA },           //  3 
+
+	{ "zin-m1p.bin",	0x020000, 0xa1c68361, 4 | BRF_ESS | BRF_PRG }, //  4 Z80 code
+
+	{ "zin-v1p.bin",	0x400000, 0xcd257055, 5 | BRF_SND },           //  5 Sound data
+	{ "zin-v2p.bin",	0x400000, 0x5d8f89ab, 5 | BRF_SND },           //  6
+	{ "zin-v3p.bin",	0x400000, 0x4626b4ff, 5 | BRF_SND },           //  7
+	{ "zin-v4p.bin",	0x400000, 0x48666336, 5 | BRF_SND },           //  8
+};
+
+STDROMPICKEXT(zintrckbp, zintrckbp, neogeo)
+STD_ROM_FN(zintrckbp)
+
+struct BurnDriver BurnDrvZintrckbp = {
+	"zintrckbp", "zintrckb", "neogeo", NULL, "1996",
+	"Zintrick / Oshidashi Zentrix (bootleg of CD version, multi-V)\0", NULL, "hack / bootleg", "Neo Geo MVS",
+	L"Zintrick\0\u62BC\u3057\u51FA\u3057\u30B8\u30F3\u30C8\u30EA\u30C3\u30AF (bootleg of CD version, multi-V)\0", NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_BOOTLEG | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_PUZZLE, 0,
+	NULL, zintrckbpRomInfo, zintrckbpRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
 	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
 	0x1000,	304, 224, 4, 3
 };
