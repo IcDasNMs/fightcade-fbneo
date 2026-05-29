@@ -15162,6 +15162,7 @@ struct BurnDriver BurnDrvFatfury3bh = {
 	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
 	0x1000, 320, 224, 4, 3
 };
+
 // Crossed Swords 2 (bootleg CD to cartridge conversion)
 
 static struct BurnRomInfo crswd2blRomDesc[] = {
@@ -15181,7 +15182,7 @@ STDROMPICKEXT(crswd2bl, crswd2bl, neogeo)
 STD_ROM_FN(crswd2bl)
 
 struct BurnDriver BurnDrvCrswd2bl = {
-	"crswd2bl", NULL, "neogeo", NULL, "1991",
+	"crswd2bl", NULL, "neogeo", NULL, "1996",
 	"Crossed Swords 2 (bootleg CD to cartridge conversion)\0", NULL, "bootleg (Razoola)", "Neo Geo MVS",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_HISCORE_SUPPORTED, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_SWAPP, GBF_SCRFIGHT, 0,
@@ -15283,9 +15284,9 @@ static struct BurnRomInfo froman2bRomDesc[] = {
 	{ "098.c1", 0x400000, 0x29148bf7, 3 | BRF_GRA },           //  2 Sprite data
 	{ "098.c2", 0x400000, 0x226b1263, 3 | BRF_GRA },           //  3 
 
-	{ "098.m1", 0x020000, 0xda4878cf, 4 | BRF_ESS | BRF_PRG }, //  8 Z80 code
+	{ "098.m1", 0x020000, 0xda4878cf, 4 | BRF_ESS | BRF_PRG }, //  4 Z80 code
 
-	{ "098.v1", 0x100000, 0x6f8ccddc, 5 | BRF_SND },           //  9 Sound data
+	{ "098.v1", 0x100000, 0x6f8ccddc, 5 | BRF_SND },           //  5 Sound data
 };
 
 STDROMPICKEXT(froman2b, froman2b, neogeo)
@@ -17452,14 +17453,14 @@ struct BurnDriver BurnDrvSamsho2sp = {
 	0x1000, 320, 224, 4, 3
 };
 
-// Samurai Shodown II / Shin Samurai Spirits - Haohmaru Jigokuhen (Perfect V. 2.6, Hack)
+// Samurai Shodown II / Shin Samurai Spirits - Haohmaru Jigokuhen (Perfect V. 2.7, Hack)
 // Modified by Bear
-// 20260516
+// 20260528
 
 static struct BurnRomInfo samsho2peRomDesc[] = {
-	{ "063-p1pe.p1",	0x100000, 0xf828c04c, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "063-p2pe.sp2",	0x100000, 0x7594e942, 1 | BRF_ESS | BRF_PRG }, //  1
-	{ "063-p3pe.p3",	0x020000, 0x7dd8bada, 1 | BRF_ESS | BRF_PRG }, //  2 Extra ROM
+	{ "063-p1pe.p1",	0x100000, 0x141bc590, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "063-p2pe.sp2",	0x100000, 0x8a0163d7, 1 | BRF_ESS | BRF_PRG }, //  1
+	{ "063-p3pe.p3",	0x020000, 0x5a51a63c, 1 | BRF_ESS | BRF_PRG }, //  2 Extra ROM
 
 	{ "063-s1.s1",		0x020000, 0x64a5cd66, 2 | BRF_GRA },           //  3 Text layer tiles
 
@@ -17485,8 +17486,8 @@ STD_ROM_FN(samsho2pe)
 
 struct BurnDriver BurnDrvSamsho2pe = {
 	"samsho2pe", "samsho2", "neogeo", NULL, "2023-26",
-	"Samurai Shodown II / Shin Samurai Spirits - Haohmaru jigokuhen (Perfect V. 2.6, hack)\0", NULL, "hack (Bear)", "Neo Geo MVS",
-	L"Samurai Shodown II\0\u771F Samurai Spirits - \u8987\u738B\u4E38\u5730\u7344\u5909 (Perfect V. 2.6, hack)\0", NULL, NULL, NULL,
+	"Samurai Shodown II / Shin Samurai Spirits - Haohmaru jigokuhen (Perfect V. 2.7, hack)\0", NULL, "hack (Bear)", "Neo Geo MVS",
+	L"Samurai Shodown II\0\u771F Samurai Spirits - \u8987\u738B\u4E38\u5730\u7344\u5909 (Perfect V. 2.7, hack)\0", NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_SAMSHO,
 	NULL, samsho2peRomInfo, samsho2peRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
 	samsho2spInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
@@ -20527,6 +20528,38 @@ struct BurnDriver BurnDrvXenocrisis = {
 };
 
 
+// Crossed Swords 2 (bootleg of CD version, full CD audio)
+// https://www.arcade-projects.com/threads/crossed-sword-ii-mvs-full-cd-audio-release.37356/
+
+static struct BurnRomInfo crswd2blpRomDesc[] = {
+	{ "054-p1p.p1",	0x200000, 0xaa14d534, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+
+	{ "054-s1.s1",	0x020000, 0x22e02ddd, 2 | BRF_GRA },           //  1 Text layer tiles
+
+	{ "054-c1.c1",	0x400000, 0x8221b712, 3 | BRF_GRA },           //  2 Sprite data
+	{ "054-c2.c2",	0x400000, 0xd6c6183d, 3 | BRF_GRA },           //  3
+	
+	{ "054-m1p.m1",	0x020000, 0x53412b7a, 4 | BRF_ESS | BRF_PRG }, //  4 Z80 code
+
+	{ "054-v1p.v1",	0x400000, 0x72364102, 5 | BRF_SND },           //  5 Sound data
+	{ "054-v2p.v2",	0x400000, 0x501d65cc, 5 | BRF_SND },           //  6
+	{ "054-v3p.v3",	0x400000, 0x913be857, 5 | BRF_SND },           //  7
+	{ "054-v4p.v4",	0x400000, 0x278220ce, 5 | BRF_SND },           //  8
+};
+
+STDROMPICKEXT(crswd2blp, crswd2blp, neogeo)
+STD_ROM_FN(crswd2blp)
+
+struct BurnDriver BurnDrvCrswd2blp = {
+	"crswd2blp", "crswd2bl", "neogeo", NULL, "1996",
+	"Crossed Swords 2 (bootleg of CD version, full CD audio)\0", NULL, "bootleg (Razoola)", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_BOOTLEG | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_SWAPP, GBF_SCRFIGHT, 0,
+	NULL, crswd2blpRomInfo, crswd2blpRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000,	304, 224, 4, 3
+};
+
 // Karnov's Revenge (Add hidden characters-Enable Bull v2)
 // Modified by Ydmis | Makes the Ox playing by selecting the timer
 
@@ -22026,11 +22059,12 @@ struct BurnDriver BurnDrvTurfmastsc = {
 };
 
 // Zintrick / Oshidashi Zentrix (bootleg of CD version, multi-V)
+// https://www.arcade-projects.com/threads/zintrick-with-tracks.36825/
 
 static struct BurnRomInfo zintrckbpRomDesc[] = {
 	{ "zin-p1p.bin",	0x100000, 0x654342e6, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
 
-	{ "zin-s1p.bin",	0x020000, 0x56d16afa, 2 | BRF_GRA },           //  1 Text layer tiles
+	{ "211-s1.bin",		0x020000, 0x56d16afa, 2 | BRF_GRA },           //  1 Text layer tiles
 
 	{ "zin-c1.bin",		0x200000, 0x76aee189, 3 | BRF_GRA },           //  2 Sprite data
 	{ "zin-c2.bin",		0x200000, 0x844ed4b3, 3 | BRF_GRA },           //  3 
