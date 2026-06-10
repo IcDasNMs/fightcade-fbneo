@@ -20594,589 +20594,6 @@ struct BurnDriver BurnDrvKarnovrbh = {
 };
 
 
-// Metal Slug Unity (Added Timer)
-// Modified by Alice愛麗絲/合金弹头爱克斯/CXZInc
-
-static struct BurnRomInfo mslugunityRomDesc[] = {
-	{ "201-p1uni.p1",   0x200000, 0xa3186dfd, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-
-	{ "201-s1.s1",      0x020000, 0x2f55958d, 2 | BRF_GRA },           //  1 Text layer tiles
-
-	{ "201-c1.c1",      0x400000, 0x72813676, 3 | BRF_GRA },           //  2 Sprite data
-	{ "201-c2.c2",      0x400000, 0x96f62574, 3 | BRF_GRA },           //  3
-	{ "201-c3.c3",      0x400000, 0x5121456a, 3 | BRF_GRA },           //  4
-	{ "201-c4.c4",      0x400000, 0xf4ad59a3, 3 | BRF_GRA },           //  5
-
-	{ "201-m1.m1",      0x020000, 0xc28b3253, 4 | BRF_ESS | BRF_PRG }, //  6 Z80 code
-
-	{ "201-v1.v1",      0x400000, 0x23d22ed1, 5 | BRF_SND },           //  7 Sound data
-	{ "201-v2.v2",      0x400000, 0x472cf9db, 5 | BRF_SND },           //  8
-};
-
-STDROMPICKEXT(mslugunity, mslugunity, neogeo)
-STD_ROM_FN(mslugunity)
-
-struct BurnDriver BurnDrvMslugunity = {
-	"mslugunity", "mslug", "neogeo", NULL, "2021",
-	"Metal Slug Unity (Added Timer)\0", NULL, "hack", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_SWAPP, GBF_RUNGUN, FBF_MSLUG,
-	NULL, mslugunityRomInfo, mslugunityRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000,	304, 224, 4, 3
-};
-
-
-// Metal Slug 2 Unity (Added Timer)
-// Modified by Alice愛麗絲/合金弹头爱克斯/CXZInc
-
-static struct BurnRomInfo mslug2unityRomDesc[] = {
-	{ "241-p1uni.p1",    0x100000, 0x1562cf23, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "241-p2.sp2",      0x200000, 0x38883f44, 1 | BRF_ESS | BRF_PRG }, //  1 
-
-	{ "241-s1.s1",       0x020000, 0xf3d32f0f, 2 | BRF_GRA },           //  2 Text layer tiles
-
-	{ "241-c1.c1",       0x800000, 0x394b5e0d, 3 | BRF_GRA },           //  3 Sprite data
-	{ "241-c2.c2",       0x800000, 0xe5806221, 3 | BRF_GRA },           //  4 
-	{ "241-c3.c3",       0x800000, 0x9f6bfa6f, 3 | BRF_GRA },           //  5 
-	{ "241-c4.c4",       0x800000, 0x7d3e306f, 3 | BRF_GRA },           //  6 
-
-	{ "241-m1.m1",       0x020000, 0x94520ebd, 4 | BRF_ESS | BRF_PRG }, //  7 Z80 code
-
-	{ "241-v1.v1",       0x400000, 0x99ec20e8, 5 | BRF_SND },           //  8 Sound data
-	{ "241-v2.v2",       0x400000, 0xecb16799, 5 | BRF_SND },           //  9 
-};
-
-STDROMPICKEXT(mslug2unity, mslug2unity, neogeo)
-STD_ROM_FN(mslug2unity)
-
-struct BurnDriver BurnDrvMslug2unity = {
-	"mslug2unity", "mslug2", "neogeo", NULL, "2021",
-	"Metal Slug 2 Unity (Added Timer)\0", NULL, "hack", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_RUNGUN, FBF_MSLUG,
-	NULL, mslug2unityRomInfo, mslug2unityRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000, 304, 224, 4, 3
-};
-
-// Metal Slug X Unity (Added Timer)
-// Modified by Alice愛麗絲/合金弹头爱克斯/CXZInc
-
-static struct BurnRomInfo mslugxunityRomDesc[] = {
-	{ "250-p1uni.p1",   0x100000, 0x36102d34, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "250-p2.ep1",     0x400000, 0x1fda2e12, 1 | BRF_ESS | BRF_PRG }, //  1 
-
-	{ "250-s1.s1",      0x020000, 0xfb6f441d, 2 | BRF_GRA },           //  2 Text layer tiles
-
-	{ "250-c1.c1",      0x800000, 0x09a52c6f, 3 | BRF_GRA },           //  3 Sprite data
-	{ "250-c2.c2",      0x800000, 0x31679821, 3 | BRF_GRA },           //  4 
-	{ "250-c3.c3",      0x800000, 0xfd602019, 3 | BRF_GRA },           //  5 
-	{ "250-c4.c4",      0x800000, 0x31354513, 3 | BRF_GRA },           //  6 
-	{ "250-c5.c5",      0x800000, 0xa4b56124, 3 | BRF_GRA },           //  7 
-	{ "250-c6.c6",      0x800000, 0x83e3e69d, 3 | BRF_GRA },           //  8 
-
-	{ "250-m1.m1",      0x020000, 0xfd42a842, 4 | BRF_ESS | BRF_PRG }, //  9 Z80 code
-
-	{ "250-v1.v1",      0x400000, 0xc79ede73, 5 | BRF_SND },           // 10 Sound data
-	{ "250-v2.v2",      0x400000, 0xea9aabe1, 5 | BRF_SND },           // 11 
-	{ "250-v3.v3",      0x200000, 0x2ca65102, 5 | BRF_SND },           // 12 
-};
-
-STDROMPICKEXT(mslugxunity, mslugxunity, neogeo)
-STD_ROM_FN(mslugxunity)
-
-struct BurnDriver BurnDrvMslugxunity = {
-	"mslugxunity", "mslugx", "neogeo", NULL, "2021",
-	"Metal Slug X Unity (Added Timer)\0", NULL, "hack", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK | BDF_HISCORE_SUPPORTED, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_RUNGUN, FBF_MSLUG,
-	NULL, mslugxunityRomInfo, mslugxunityRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	mslugxInit, NeoExit, NeoFrame, NeoRender, mslugxScan, &NeoRecalcPalette,
-	0x1000, 304, 224, 4, 3
-};
-
-
-// Metal Slug 3 Unity (Added Timer)
-// Modified by Alice愛麗絲/合金弹头爱克斯/CXZInc
-
-static struct BurnRomInfo mslug3unityRomDesc[] = {
-	{ "ms3uni.neo-sma",     0x040000, 0x3c6c536b, 9 | BRF_ESS | BRF_PRG }, //  0 68K code		/ stored in the custom chip
-	/* The SMA for this release has a green colour marking; the older revision has a white colour marking */
-	{ "256-pg1.p1",         0x400000, 0xb07edfd5, 1 | BRF_ESS | BRF_PRG }, //  1 				/ TC5332202
-	{ "256-pg2uni.p2",      0x400000, 0xea0c22b6, 1 | BRF_ESS | BRF_PRG }, //  2 				/ TC5332202
-	/* The Encrypted Boards do not have an s1 rom, data for it comes from the Cx ROMs */
-	/* Encrypted */
-	{ "256-c1.c1",          0x800000, 0x5a79c34e, 3 | BRF_GRA },           //  3 Sprite data	/ TC5364202
-	{ "256-c2.c2",          0x800000, 0x944c362c, 3 | BRF_GRA },           //  4 				/ TC5364202
-	{ "256-c3.c3",          0x800000, 0x6e69d36f, 3 | BRF_GRA },           //  5 				/ TC5364202		
-	{ "256-c4.c4",          0x800000, 0xb755b4eb, 3 | BRF_GRA },           //  6 				/ TC5364202
-	{ "256-c5.c5",          0x800000, 0x7aacab47, 3 | BRF_GRA },           //  7 				/ TC5364202
-	{ "256-c6.c6",          0x800000, 0xc698fd5d, 3 | BRF_GRA },           //  8 				/ TC5364202	
-	{ "256-c7.c7",          0x800000, 0xcfceddd2, 3 | BRF_GRA },           //  9 				/ TC5364202
-	{ "256-c8.c8",          0x800000, 0x4d9be34c, 3 | BRF_GRA },           // 10 				/ TC5364202
-
-	{ "256-m1.m1",          0x080000, 0xeaeec116, 4 | BRF_ESS | BRF_PRG }, // 11 Z80 code		/ mask rom TC534000
-
-	{ "256-v1.v1",          0x400000, 0xf2690241, 5 | BRF_SND },           // 12 Sound data 	/ TC5332204
-	{ "256-v2.v2",          0x400000, 0x7e2a10bd, 5 | BRF_SND },           // 13 				/ TC5332204
-	{ "256-v3.v3",          0x400000, 0x0eaec17c, 5 | BRF_SND },           // 14 				/ TC5332204
-	{ "256-v4.v4",          0x400000, 0x9b4b22d4, 5 | BRF_SND },           // 15 				/ TC5332204
-};
-
-STDROMPICKEXT(mslug3unity, mslug3unity, neogeo)
-STD_ROM_FN(mslug3unity)
-
-struct BurnDriver BurnDrvMslug3unity = {
-	"mslug3unity", "mslug3", "neogeo", NULL, "2021",
-	"Metal Slug 3 Unity (Added Timer)\0", NULL, "hack", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK | BDF_HISCORE_SUPPORTED, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC42 | HARDWARE_SNK_SMA_PROTECTION, GBF_RUNGUN, FBF_MSLUG,
-	NULL, mslug3unityRomInfo, mslug3unityRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	mslug3Init, NeoSMAExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000, 304, 224, 4, 3
-};
-
-// Metal Slug 4 Unity (Added Timer)
-// Modified by Alice愛麗絲/合金弹头爱克斯/CXZInc
-
-static struct BurnRomInfo mslug4unityRomDesc[] = {
-	{ "263-p1uni.p1",   0x100000, 0xef3501b6, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "263-p2.sp2",     0x400000, 0xfdb7aed8, 1 | BRF_ESS | BRF_PRG }, //  1
-
-	/* The Encrypted Boards do not have an s1 rom, data for it comes from the Cx ROMs */
-	/* Encrypted */
-	{ "263-c1.c1",      0x800000, 0x84865f8a, 3 | BRF_GRA },           //  2 Sprite data
-	{ "263-c2.c2",      0x800000, 0x81df97f2, 3 | BRF_GRA },           //  3
-	{ "263-c3.c3",      0x800000, 0x1a343323, 3 | BRF_GRA },           //  4
-	{ "263-c4.c4",      0x800000, 0x942cfb44, 3 | BRF_GRA },           //  5
-	{ "263-c5.c5",      0x800000, 0xa748854f, 3 | BRF_GRA },           //  6
-	{ "263-c6.c6",      0x800000, 0x5c8ba116, 3 | BRF_GRA },           //  7
-
-	/* Encrypted */
-	{ "263-m1.m1",      0x020000, 0x46ac8228, 4 | BRF_ESS | BRF_PRG }, //  8 Z80 code
-
-	/* Encrypted */
-	{ "263-v1.v1",      0x800000, 0x01e9b9cd, 5 | BRF_SND },           //  9 Sound data
-	{ "263-v2.v2",      0x800000, 0x4ab2bf81, 5 | BRF_SND },           // 10
-};
-
-STDROMPICKEXT(mslug4unity, mslug4unity, neogeo)
-STD_ROM_FN(mslug4unity)
-
-struct BurnDriver BurnDrvMslug4unity = {
-	"mslug4unity", "mslug4", "neogeo", NULL, "2021",
-	"Metal Slug 4 Unity (Added Timer)\0", NULL, "hack", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC50 | HARDWARE_SNK_ENCRYPTED_M1, GBF_RUNGUN, FBF_MSLUG,
-	NULL, mslug4unityRomInfo, mslug4unityRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	mslug4Init, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000, 304, 224, 4, 3
-};
-
-// Metal Slug 5 Unity (Added Timer)
-// Modified by Alice愛麗絲/合金弹头爱克斯/CXZInc
-
-static struct BurnRomInfo mslug5unityRomDesc[] = {
-	{ "268-p1cruni.p1",   0x400000, 0xced9f5a8, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "268-p2cruni.p2",   0x400000, 0x1c08dbb6, 1 | BRF_ESS | BRF_PRG }, //  1
-
-	/* The Encrypted Boards do not have an s1 rom, data for it comes from the Cx ROMs */
-	/* Encrypted */
-	{ "268-c1c.c1",       0x800000, 0xab7c389a, 3 | BRF_GRA },           //  2 Sprite data
-	{ "268-c2c.c2",       0x800000, 0x3560881b, 3 | BRF_GRA },           //  3
-	{ "268-c3c.c3",       0x800000, 0x3af955ea, 3 | BRF_GRA },           //  4
-	{ "268-c4c.c4",       0x800000, 0xc329c373, 3 | BRF_GRA },           //  5
-	{ "268-c5c.c5",       0x800000, 0x959c8177, 3 | BRF_GRA },           //  6
-	{ "268-c6c.c6",       0x800000, 0x010a831b, 3 | BRF_GRA },           //  7
-	{ "268-c7c.c7",       0x800000, 0x6d72a969, 3 | BRF_GRA },           //  8
-	{ "268-c8c.c8",       0x800000, 0x551d720e, 3 | BRF_GRA },           //  9
-
-	/* Encrypted */
-	{ "268-m1.m1",        0x080000, 0x4a5a6e0e, 4 | BRF_ESS | BRF_PRG },
-
-	/* Encrypted */
-	{ "268-v1c.v1",       0x800000, 0xae31d60c, 5 | BRF_SND },           // 11 Sound data
-	{ "268-v2c.v2",       0x800000, 0xc40613ed, 5 | BRF_SND },           // 12
-};
-
-STDROMPICKEXT(mslug5unity, mslug5unity, neogeo)
-STD_ROM_FN(mslug5unity)
-
-struct BurnDriver BurnDrvMslug5unity = {
-	"mslug5unity", "mslug5", "neogeo", NULL, "2021",
-	"Metal Slug 5 Unity (Added Timer)\0", NULL, "hack", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC50 | HARDWARE_SNK_ALTERNATE_TEXT | HARDWARE_SNK_P32 | HARDWARE_SNK_ENCRYPTED_M1, GBF_RUNGUN, FBF_MSLUG,
-	NULL, mslug5unityRomInfo, mslug5unityRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	mslug5Init, NeoPVCExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000, 304, 224, 4, 3
-};
-
-
-// The King of Fighters 2001 - PS2 Krizalid Edition (Hack)
-// Modified by Eddids
-// 20210130
-
-static struct BurnRomInfo kf2k1pkzRomDesc[] = {
-	{ "262-p1pkz.p1",		0x100000, 0xb6df1dac, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "262-p2pkz.sp2",		0x400000, 0x4cb062de, 1 | BRF_ESS | BRF_PRG }, //  1
-
-	{ "262-s1pkz.s1",		0x020000, 0x73efb81d, 2 | BRF_GRA },           //  2 Text layer tiles
-
-	{ "262-c1d.c1",			0x800000, 0x103225b1, 3 | BRF_GRA },           //  3 Sprite Data
-	{ "262-c2d.c2",			0x800000, 0xf9d05d99, 3 | BRF_GRA },           //  4
-	{ "262-c3d.c3",			0x800000, 0x4c7ec427, 3 | BRF_GRA },           //  5
-	{ "262-c4d.c4",			0x800000, 0x1d237aa6, 3 | BRF_GRA },           //  6
-	{ "262-c5d.c5",			0x800000, 0xc2256db5, 3 | BRF_GRA },           //  7
-	{ "262-c6d.c6",			0x800000, 0x8d6565a9, 3 | BRF_GRA },           //  8
-	{ "262-c7pkz.c7",		0x800000, 0xc29bc0f3, 3 | BRF_GRA },           //  9
-	{ "262-c8pkz.c8",		0x800000, 0x3f1b51d2, 3 | BRF_GRA },           // 10
-	{ "262-c9pkz.c9",		0x800000, 0xe9bb1f55, 3 | BRF_GRA },           // 11
-	{ "262-c10pkz.c10",		0x800000, 0x3853693b, 3 | BRF_GRA },           // 12
-
-	{ "262-m1pkz.m1",		0x020000, 0x6d5a43db, 4 | BRF_ESS | BRF_PRG }, // 13 Z80 code
-
-	{ "262-v1-08-e0.v1",	0x400000, 0x83d49ecf, 5 | BRF_SND },           // 14 Sound data
-	{ "262-v2-08-e0.v2",	0x400000, 0x003f1843, 5 | BRF_SND },           // 15
-	{ "262-v3-08-e0.v3",	0x400000, 0x2ae38dbe, 5 | BRF_SND },           // 16
-	{ "262-v4pkz-08-e0.v4",	0x400000, 0x912f3f3b, 5 | BRF_SND },           // 17
-};
-
-STDROMPICKEXT(kf2k1pkz, kf2k1pkz, neogeo)
-STD_ROM_FN(kf2k1pkz)
-
-struct BurnDriver BurnDrvKf2k1pkz = {
-	"kf2k1pkz", "kof2001", "neogeo", NULL, "2021",
-	"The King of Fighters 2001 - PS2 Krizalid Edition (Hack)\0", "hack only enable in AES mode", "hack", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_KOF,
-	NULL, kf2k1pkzRomInfo, kf2k1pkzRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neoaesDIPInfo,
-	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000, 304, 224, 4, 3
-};
-
-// The King of Fighters 2001 Remix Pro v1.02 Final
-// Version 2004-03-01 Hack By Jason,Kim & Raymonose
-
-static struct BurnRomInfo kof2k1rpRomDesc[] = {
-	{ "262-p1rp.p1",		0x100000, 0xe9e42e55, 1 | BRF_ESS | BRF_PRG },		//  0 68K code
-	{ "262-p2rp.sp2",		0x400000, 0x91668d86, 1 | BRF_ESS | BRF_PRG },		//  1
-
-	{ "262-s1rp.s1",		0x020000, 0x492f5efe, 2 | BRF_GRA },				//  2 Text layer tiles
-
-	/* Encrypted */
-	{ "262-c1-08-e0.c1",	0x800000, 0x99cc785a, 3 | BRF_GRA },				//  3 Sprite data
-	{ "262-c2-08-e0.c2",	0x800000, 0x50368cbf, 3 | BRF_GRA },				//  4
-	{ "262-c3-08-e0.c3",	0x800000, 0xfb14ff87, 3 | BRF_GRA },				//  5
-	{ "262-c4-08-e0.c4",	0x800000, 0x4397faf8, 3 | BRF_GRA },				//  6
-	{ "262-c5-08-e0.c5",	0x800000, 0x91f24be4, 3 | BRF_GRA },				//  7
-	{ "262-c6-08-e0.c6",	0x800000, 0xa31e4403, 3 | BRF_GRA },				//  8
-	{ "262-c7-08-e0.c7",	0x800000, 0x54d9d1ec, 3 | BRF_GRA },				//  9
-	{ "262-c8-08-e0.c8",	0x800000, 0x59289a6b, 3 | BRF_GRA },				// 10
-
-	{ "262-m1d.m1",			0x020000, 0x2fb0a8a5, 4 | BRF_ESS | BRF_PRG },	// 11 Z80 code
-
-	{ "262-v1-08-e0.v1",	0x400000, 0x83d49ecf, 5 | BRF_SND },				// 12 Sound data
-	{ "262-v2-08-e0.v2",	0x400000, 0x003f1843, 5 | BRF_SND },				// 13
-	{ "262-v3-08-e0.v3",	0x400000, 0x2ae38dbe, 5 | BRF_SND },				// 14
-	{ "262-v4-08-e0.v4",	0x400000, 0x26ec4dd9, 5 | BRF_SND },				// 15
-};
-
-STDROMPICKEXT(kof2k1rp, kof2k1rp, neogeo)
-STD_ROM_FN(kof2k1rp)
-
-struct BurnDriver BurnDrvKof2k1rp = {
-	"kof2k1rp", "kof2001", "neogeo", NULL, "Version 2004-03-01",
-	"The King of Fighters 2001 Remix Pro v1.02 Final (Hack By Jason, Kim & Raymonose)\0", NULL, "hack", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC50, GBF_VSFIGHT, FBF_KOF,
-	NULL, kof2k1rpRomInfo, kof2k1rpRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	kof2001Init, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000, 304, 224, 4, 3
-};
-
-// The King of Fighters 2000 Special BC
-// Hack by GSC2007,EGCG,AILLIS
-// Imitate KOF14 BC System
-
-static struct BurnRomInfo kof2000bcRomDesc[] = {
-	{ "257-p1bc.p1",	0x100000, 0x737d5b20, 1 | BRF_ESS | BRF_PRG }, //  0 64k Code
-	{ "257-p2sp.sp2",	0x400000, 0x48a1a381, 1 | BRF_ESS | BRF_PRG }, //  1
-
-	{ "257-c1.c1",		0x800000, 0xcef1cdfa, 3 | BRF_GRA },           //  2 Sprite data
-	{ "257-c2.c2",		0x800000, 0xf7bf0003, 3 | BRF_GRA },           //  3
-	{ "257-c3.c3",		0x800000, 0x101e6560, 3 | BRF_GRA },           //  4
-	{ "257-c4.c4",		0x800000, 0xbd2fc1b1, 3 | BRF_GRA },           //  5
-	{ "257-c5.c5",		0x800000, 0x89775412, 3 | BRF_GRA },           //  6
-	{ "257-c6.c6",		0x800000, 0xfa7200d5, 3 | BRF_GRA },           //  7
-	{ "257-c7.c7",		0x800000, 0x7da11fe4, 3 | BRF_GRA },           //  8
-	{ "257-c8.c8",		0x800000, 0xb1afa60b, 3 | BRF_GRA },           //  9
-
-	{ "257-m1.m1",		0x040000, 0x4b749113, 4 | BRF_ESS | BRF_PRG }, // 10 Z80 code
-
-	{ "257-v1.v1",		0x400000, 0x17cde847, 5 | BRF_SND },           // 11 Sound data
-	{ "257-v2.v2",		0x400000, 0x1afb20ff, 5 | BRF_SND },           // 12
-	{ "257-v3.v3",		0x400000, 0x4605036a, 5 | BRF_SND },           // 13
-	{ "257-v4.v4",		0x400000, 0x764bbd6b, 5 | BRF_SND },           // 14
-};
-
-STDROMPICKEXT(kof2000bc, kof2000bc, neogeo)
-STD_ROM_FN(kof2000bc)
-
-struct BurnDriver BurnDrvKof2000bc = {
-	"kof2000bc", "kof2000", "neogeo", NULL, "2021",
-	"The King of Fighters 2000 Special BC (Hack By GSC2007, EGCG, AILLIS)\0", "Press AD for Start BC Mode", "hack", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC50 | HARDWARE_SNK_ALTERNATE_TEXT | HARDWARE_SNK_ENCRYPTED_M1, GBF_VSFIGHT, FBF_KOF,
-	NULL, kof2000bcRomInfo, kof2000bcRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	kof2000nInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000,	304, 224, 4, 3
-};
-
-// The King of Fighters 2000 (Special, Hack)
-// Modified by GSC2007 & EGCG
-// GOTVG 20230306
-
-static struct BurnRomInfo kof2kspRomDesc[] = {
-	{ "257-p1sp.p1",	0x100000, 0xa9742061, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "257-p2sp.sp2",	0x400000, 0x48a1a381, 1 | BRF_ESS | BRF_PRG }, //  1
-	
-	{ "257-c1d.c1",		0x800000, 0xabcdd424, 3 | BRF_GRA },           //  2 Sprite data
-	{ "257-c2d.c2",		0x800000, 0xcda33778, 3 | BRF_GRA },           //  3
-	{ "257-c3d.c3",		0x800000, 0x087fb15b, 3 | BRF_GRA },           //  4
-	{ "257-c4d.c4",		0x800000, 0xfe9dfde4, 3 | BRF_GRA },           //  5
-	{ "257-c5d.c5",		0x800000, 0x03ee4bf4, 3 | BRF_GRA },           //  6
-	{ "257-c6d.c6",		0x800000, 0x8599cc5b, 3 | BRF_GRA },           //  7
-	{ "257-c7sp.c7",	0x800000, 0x110f72a3, 3 | BRF_GRA },           //  8
-	{ "257-c8sp.c8",	0x800000, 0x4347f6af, 3 | BRF_GRA },           //  9
-
-	{ "257-m1d.m1",		0x040000, 0xd404db70, 4 | BRF_ESS | BRF_PRG }, // 10 Z80 code
-
-	{ "257-v1.v1",		0x400000, 0x17cde847, 5 | BRF_SND },           // 11 Sound data
-	{ "257-v2.v2",		0x400000, 0x1afb20ff, 5 | BRF_SND },           // 12
-	{ "257-v3.v3",		0x400000, 0x4605036a, 5 | BRF_SND },           // 13
-	{ "257-v4.v4",		0x400000, 0x764bbd6b, 5 | BRF_SND },           // 14
-};
-
-STDROMPICKEXT(kof2ksp, kof2ksp, neogeo)
-STD_ROM_FN(kof2ksp)
-
-struct BurnDriver BurnDrvKof2ksp = {
-	"kof2ksp", "kof2000", "neogeo", NULL, "2023",
-	"The King of Fighters 2000 (Special, Hack)\0", NULL, "hack (GSC2007 & EGCG)", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_ALTERNATE_TEXT, GBF_VSFIGHT, FBF_KOF,
-	NULL, kof2kspRomInfo, kof2kspRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000, 304, 224, 4, 3
-};
-
-// The King of Fighters 2000 SP XXX (Hack)
-
-static struct BurnRomInfo kof2kxxxRomDesc[] = {
-	{ "257-p1xxx.p1",    0x100000, 0xb88cd5eb, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "257-p2xxx.sp2",   0x400000, 0x1a10f2be, 1 | BRF_ESS | BRF_PRG }, //  1
-
-	/* The Encrypted Boards do not have an s1 rom, data for it comes from the Cx ROMs */
-	/* Encrypted */
-	{ "257-c1xxx.c1",    0x800000, 0x3006a5e4, 3 | BRF_GRA },           //  2 Sprite data
-	{ "257-c2xxx.c2",    0x800000, 0x366fd118, 3 | BRF_GRA },           //  3
-	{ "257-c3xxx.c3",    0x800000, 0x5b16d7e3, 3 | BRF_GRA },           //  4
-	{ "257-c4xxx.c4",    0x800000, 0x7e57dfc1, 3 | BRF_GRA },           //  5
-	{ "257-c5xxx.c5",    0x800000, 0x671904f4, 3 | BRF_GRA },           //  6
-	{ "257-c6xxx.c6",    0x800000, 0x68adf255, 3 | BRF_GRA },           //  7
-	{ "257-c7xxx.c7",    0x800000, 0x8c6b22b3, 3 | BRF_GRA },           //  8
-	{ "257-c8xxx.c8",    0x800000, 0x6223bd1d, 3 | BRF_GRA },           //  9
-
-	/* Encrypted */
-	{ "257-m1.m1",       0x040000, 0x4b749113, 4 | BRF_ESS | BRF_PRG }, // 10 Z80 code
-
-	/* Encrypted */
-	{ "257-v1.v1",       0x400000, 0x17cde847, 5 | BRF_SND },           // 11 Sound data
-	{ "257-v2.v2",       0x400000, 0x1afb20ff, 5 | BRF_SND },           // 12
-	{ "257-v3.v3",       0x400000, 0x4605036a, 5 | BRF_SND },           // 13
-	{ "257-v4.v4",       0x400000, 0x764bbd6b, 5 | BRF_SND },           // 14
-};
-
-STDROMPICKEXT(kof2kxxx, kof2kxxx, neogeo)
-STD_ROM_FN(kof2kxxx)
-
-struct BurnDriver BurnDrvKof2kxxx = {
-	"kof2kxxx", "kof2000", "neogeo", NULL, "2016",
-	"The King of Fighters 2000 SP XXX (Hack, Ver. 2016-01-04)\0", NULL, "hack", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC50 | HARDWARE_SNK_ALTERNATE_TEXT | HARDWARE_SNK_ENCRYPTED_M1, GBF_VSFIGHT, FBF_KOF,
-	NULL, kof2kxxxRomInfo, kof2kxxxRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	kof2000nInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000,	304, 224, 4, 3
-};
-
-
-// The King of Fighters 2001 (All Boss Plus, Hack)
-// Modified by 西岐赏金猎人, 臂力哥
-// 20260409
-
-static struct BurnRomInfo kf2k1ultRomDesc[] = {
-	{ "262-p1ult.p1",		0x100000, 0x034b41a5, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "262-p2ult.sp2",		0x500000, 0x245b84ae, 1 | BRF_ESS | BRF_PRG }, //  1
-
-	{ "262-s1ult.s1",		0x020000, 0x6efe7dc8, 2 | BRF_GRA },           //  2 Text layer tiles
-
-	{ "262-c1ult.c1",		0x800000, 0x6a3a091c, 3 | BRF_GRA },           //  3 Sprite data
-	{ "262-c2ult.c2",		0x800000, 0xd4ee100d, 3 | BRF_GRA },           //  4
-	{ "262-c3ult.c3",		0x800000, 0xe68f1a56, 3 | BRF_GRA },           //  5
-	{ "262-c4ult.c4",		0x800000, 0x733f8f29, 3 | BRF_GRA },           //  6
-	{ "262-c5ult.c5",		0x800000, 0x421278cf, 3 | BRF_GRA },           //  7
-	{ "262-c6ult.c6",		0x800000, 0x9e8fa8b5, 3 | BRF_GRA },           //  8
-	{ "262-c7ult.c7",		0x800000, 0x2078f017, 3 | BRF_GRA },           //  9
-	{ "262-c8ult.c8",		0x800000, 0x89a56587, 3 | BRF_GRA },           // 10
-	{ "262-c9ult.c9",		0x800000, 0x8ca54442, 3 | BRF_GRA },           // 11
-	{ "262-c10ult.c10",		0x800000, 0x37a0d99d, 3 | BRF_GRA },           // 12
-	{ "265-c7d.c7",			0x800000, 0x8a5b561c, 3 | BRF_GRA },           // 13
-	{ "265-c8d.c8",			0x800000, 0xbef667a3, 3 | BRF_GRA },           // 14
-	{ "262-c13ult.c13",		0x800000, 0x2a3a1468, 3 | BRF_GRA },           // 15
-	{ "262-c14ult.c14",		0x800000, 0xee0e5d28, 3 | BRF_GRA },           // 16
-
-	{ "262-m1ult.m1",		0x020000, 0x2a8352f6, 4 | BRF_ESS | BRF_PRG }, // 17 Z80 code
-
-	{ "262-v1ult-08-e0.v1",	0x400000, 0x164d1b2a, 5 | BRF_SND },     // 18 Sound data
-	{ "262-v2ult-08-e0.v2",	0x400000, 0x7cc9251e, 5 | BRF_SND },     // 19
-	{ "262-v3ult-08-e0.v3",	0x400000, 0x5dd46eb9, 5 | BRF_SND },     // 20
-	{ "262-v4ult-08-e0.v4",	0x400000, 0x8e651432, 5 | BRF_SND },     // 21
-	{ "262-v5ult-08-e0.v5",	0x400000, 0xd65f6522, 5 | BRF_SND },     // 22
-	{ "262-v6ult-08-e0.v6",	0x400000, 0x7b72324c, 5 | BRF_SND },     // 23
-	{ "262-v7ult-08-e0.v7",	0x400000, 0x2bc74bd0, 5 | BRF_SND },     // 24
-	{ "262-v8ult-08-e0.v8",	0x400000, 0x3988bee9, 5 | BRF_SND },     // 25
-};
-
-STDROMPICKEXT(kf2k1ult, kf2k1ult, neogeo)
-STD_ROM_FN(kf2k1ult)
-
-struct BurnDriver BurnDrvKf2k1ult = {
-	"kf2k1ult", "kof2001", "neogeo", NULL, "2025-26",
-	"The King of Fighters 2001 (All Boss Plus, Hack)\0", NULL, "hack", "Neo Geo MVS",
-	NULL, NULL, L"\u897f\u5c90\u8d4f\u91d1\u730e\u4eba, \u81c2\u529b\u54e5", NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_KOF,
-	NULL, kf2k1ultRomInfo, kf2k1ultRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000, 304, 224, 4, 3
-};
-
-
-// The King of Fighters 2002 (Climax, Hack)
-// Modified by GSC2007
-// GOTVG 20161204
-
-static struct BurnRomInfo kf2k2mixRomDesc[] = {
-	{ "265-p1mix.p1",	0x100000, 0x7ff93e96, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "265-p2mix.sp2",	0x400000, 0x01f474fa, 1 | BRF_ESS | BRF_PRG }, //  1
-
-	{ "265-s1ru.s1",	0x020000, 0xbd19c308, 2 | BRF_GRA },           //  2 Text layer tiles
-	
-	{ "265-c1d.c1",		0x800000, 0x7efa6ef7, 3 | BRF_GRA },           //  2 Sprite data
-	{ "265-c2d.c2",		0x800000, 0xaa82948b, 3 | BRF_GRA },           //  3
-	{ "265-c3ru.c3",	0x800000, 0xca656090, 3 | BRF_GRA },           //  4
-	{ "265-c4ru.c4",	0x800000, 0xeb898849, 3 | BRF_GRA },           //  5
-	{ "265-c5d.c5",		0x800000, 0x74bba7c6, 3 | BRF_GRA },           //  6
-	{ "265-c6d.c6",		0x800000, 0xe20d2216, 3 | BRF_GRA },           //  7
-	{ "265-c7mix.c7",	0x800000, 0x629bdf0e, 3 | BRF_GRA },           //  8
-	{ "265-c8mix.c8",	0x800000, 0xc7c8c75c, 3 | BRF_GRA },           //  9
-
-	{ "265-m1ru.m1",	0x020000, 0x9956ccd8, 4 | BRF_ESS | BRF_PRG }, // 10 Z80 code
-
-	{ "265-v1ru.v1",	0x800000, 0x6e7e3508, 5 | BRF_SND },           // 11 Sound data
-	{ "265-v2ru.v2",	0x800000, 0x2157b90f, 5 | BRF_SND },           // 12
-};
-
-STDROMPICKEXT(kf2k2mix, kf2k2mix, neogeo)
-STD_ROM_FN(kf2k2mix)
-
-struct BurnDriver BurnDrvKf2k2mix = {
-	"kf2k2mix", "kof2002", "neogeo", NULL, "2016",
-	"The King of Fighters 2002 (Climax, Hack)\0", NULL, "hack (GSC2007)", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_KOF,
-	NULL, kf2k2mixRomInfo, kf2k2mixRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000,	304, 224, 4, 3
-};
-
-// The King of Fighters 2002 Plus (Optimised, Hack)
-// Modified by GSC2007
-// GOTVG 20141209
-
-static struct BurnRomInfo kof2002tRomDesc[] = {
-	{ "265-p1t.p1",		0x100000, 0x55a19ab8, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "265-p2t.sp2",	0x400000, 0x0a189c94, 1 | BRF_ESS | BRF_PRG }, //  1
-
-	{ "265-s1d.s1",		0x020000, 0xe0eaaba3, 2 | BRF_GRA },           //  2 Text layer tiles
-	
-	{ "265-c1d.c1",		0x800000, 0x7efa6ef7, 3 | BRF_GRA },           //  2 Sprite data
-	{ "265-c2d.c2",		0x800000, 0xaa82948b, 3 | BRF_GRA },           //  3
-	{ "265-c3d.c3",		0x800000, 0x959fad0b, 3 | BRF_GRA },           //  4
-	{ "265-c4d.c4",		0x800000, 0xefe6a468, 3 | BRF_GRA },           //  5
-	{ "265-c5d.c5",		0x800000, 0x74bba7c6, 3 | BRF_GRA },           //  6
-	{ "265-c6d.c6",		0x800000, 0xe20d2216, 3 | BRF_GRA },           //  7
-	{ "265-c7d.c7",		0x800000, 0x8a5b561c, 3 | BRF_GRA },           //  8
-	{ "265-c8d.c8",		0x800000, 0xbef667a3, 3 | BRF_GRA },           //  9
-
-	{ "265-m1d.m1",		0x020000, 0x1c661a4b, 4 | BRF_ESS | BRF_PRG }, // 10 Z80 code
-
-	{ "265-v1d.v1",		0x800000, 0x0fc9a58d, 5 | BRF_SND },           // 11 Sound data
-	{ "265-v2d.v2",		0x800000, 0xb8c475a4, 5 | BRF_SND },           // 12
-};
-
-STDROMPICKEXT(kof2002t, kof2002t, neogeo)
-STD_ROM_FN(kof2002t)
-
-struct BurnDriver BurnDrvKof2002t = {
-	"kof2002t", "kof2002", "neogeo", NULL, "2014",
-	"The King of Fighters 2002 Plus (Optimised, Hack)\0", NULL, "hack (GSC2007)", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_KOF,
-	NULL, kof2002tRomInfo, kof2002tRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000,	304, 224, 4, 3
-};
-
-
-// The King of Fighters 2003 - PS2 Style Portraits (Hack)
-// Hack By 0 Day-S,Eddids,Hiker
-
-static struct BurnRomInfo kf2k3ps2spRomDesc[] = {
-	{ "271-p1p2s.p1",	0x400000, 0xa2b1cd0b, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "271-p2p2s.p2",	0x400000, 0xc2321f79, 1 | BRF_ESS | BRF_PRG }, //  1
-	{ "271-p3p2s.p3",	0x100000, 0x48af7f48, 1 | BRF_ESS | BRF_PRG }, //  2
-
-	{ "271-c1p2s.c1",	0x800000, 0x3c43a170, 3 | BRF_GRA },           //  3 Sprite data
-	{ "271-c2p2s.c2",	0x800000, 0xd8a64d42, 3 | BRF_GRA },           //  4
-	{ "271-c3p2s.c3",	0x800000, 0xd818be4e, 3 | BRF_GRA },           //  5
-	{ "271-c4p2s.c4",	0x800000, 0xeb8bd6d6, 3 | BRF_GRA },           //  6
-	{ "271-c5p2s.c5",	0x800000, 0x53bb6706, 3 | BRF_GRA },           //  7
-	{ "271-c6p2s.c6",	0x800000, 0x993254d5, 3 | BRF_GRA },           //  8
-	{ "271-c7p2s.c7",	0x800000, 0x51db8ffe, 3 | BRF_GRA },           //  9
-	{ "271-c8p2s.c8",	0x800000, 0x7dad01ab, 3 | BRF_GRA },           // 10
-
-	{ "271-m1c.m1",		0x080000, 0xf5515629, 4 | BRF_ESS | BRF_PRG }, // 11 Z80 code
-
-	{ "271-v1c.v1",		0x800000, 0xffa3f8c7, 5 | BRF_SND },           // 12 Sound data
-	{ "271-v2c.v2",		0x800000, 0x5382c7d1, 5 | BRF_SND },           // 13
-};
-
-STDROMPICKEXT(kf2k3ps2sp, kf2k3ps2sp, neogeo)
-STD_ROM_FN(kf2k3ps2sp)
-
-struct BurnDriver BurnDrvKf2k3ps2sp = {
-	"kf2k3ps2sp", "kof2003", "neogeo", NULL, "20??",
-	"The King of Fighters 2003 - PS2 Style Portraits (Hack By 0 Day-S, Eddids, Hiker)\0", "Secret Characters available in MVS", "hack", "Neo Geo MVS",
-	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC50 | HARDWARE_SNK_ALTERNATE_TEXT | HARDWARE_SNK_P32 | HARDWARE_SNK_ENCRYPTED_M1, GBF_VSFIGHT, FBF_KOF,
-	NULL, kf2k3ps2spRomInfo, kf2k3ps2spRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
-	kof2003Init, NeoPVCExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
-	0x1000,	304, 224, 4, 3
-};
-
 /*************************************************************************************
 	Title: King of Fighters '94: Team Edit Edition
 	zipfileName: kof94te and kof94tea
@@ -22027,6 +21444,370 @@ struct BurnDriver BurnDrvKof99sk = {
 };
 
 
+// The King of Fighters 2000 Special BC
+// Hack by GSC2007,EGCG,AILLIS
+// Imitate KOF14 BC System
+
+static struct BurnRomInfo kof2000bcRomDesc[] = {
+	{ "257-p1bc.p1",	0x100000, 0x737d5b20, 1 | BRF_ESS | BRF_PRG }, //  0 64k Code
+	{ "257-p2sp.sp2",	0x400000, 0x48a1a381, 1 | BRF_ESS | BRF_PRG }, //  1
+
+	{ "257-c1.c1",		0x800000, 0xcef1cdfa, 3 | BRF_GRA },           //  2 Sprite data
+	{ "257-c2.c2",		0x800000, 0xf7bf0003, 3 | BRF_GRA },           //  3
+	{ "257-c3.c3",		0x800000, 0x101e6560, 3 | BRF_GRA },           //  4
+	{ "257-c4.c4",		0x800000, 0xbd2fc1b1, 3 | BRF_GRA },           //  5
+	{ "257-c5.c5",		0x800000, 0x89775412, 3 | BRF_GRA },           //  6
+	{ "257-c6.c6",		0x800000, 0xfa7200d5, 3 | BRF_GRA },           //  7
+	{ "257-c7.c7",		0x800000, 0x7da11fe4, 3 | BRF_GRA },           //  8
+	{ "257-c8.c8",		0x800000, 0xb1afa60b, 3 | BRF_GRA },           //  9
+
+	{ "257-m1.m1",		0x040000, 0x4b749113, 4 | BRF_ESS | BRF_PRG }, // 10 Z80 code
+
+	{ "257-v1.v1",		0x400000, 0x17cde847, 5 | BRF_SND },           // 11 Sound data
+	{ "257-v2.v2",		0x400000, 0x1afb20ff, 5 | BRF_SND },           // 12
+	{ "257-v3.v3",		0x400000, 0x4605036a, 5 | BRF_SND },           // 13
+	{ "257-v4.v4",		0x400000, 0x764bbd6b, 5 | BRF_SND },           // 14
+};
+
+STDROMPICKEXT(kof2000bc, kof2000bc, neogeo)
+STD_ROM_FN(kof2000bc)
+
+struct BurnDriver BurnDrvKof2000bc = {
+	"kof2000bc", "kof2000", "neogeo", NULL, "2021",
+	"The King of Fighters 2000 Special BC (Hack By GSC2007, EGCG, AILLIS)\0", "Press AD for Start BC Mode", "hack", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC50 | HARDWARE_SNK_ALTERNATE_TEXT | HARDWARE_SNK_ENCRYPTED_M1, GBF_VSFIGHT, FBF_KOF,
+	NULL, kof2000bcRomInfo, kof2000bcRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	kof2000nInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000,	304, 224, 4, 3
+};
+
+// The King of Fighters 2000 (Special, Hack)
+// Modified by GSC2007 & EGCG
+// GOTVG 20230306
+
+static struct BurnRomInfo kof2kspRomDesc[] = {
+	{ "257-p1sp.p1",	0x100000, 0xa9742061, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "257-p2sp.sp2",	0x400000, 0x48a1a381, 1 | BRF_ESS | BRF_PRG }, //  1
+	
+	{ "257-c1d.c1",		0x800000, 0xabcdd424, 3 | BRF_GRA },           //  2 Sprite data
+	{ "257-c2d.c2",		0x800000, 0xcda33778, 3 | BRF_GRA },           //  3
+	{ "257-c3d.c3",		0x800000, 0x087fb15b, 3 | BRF_GRA },           //  4
+	{ "257-c4d.c4",		0x800000, 0xfe9dfde4, 3 | BRF_GRA },           //  5
+	{ "257-c5d.c5",		0x800000, 0x03ee4bf4, 3 | BRF_GRA },           //  6
+	{ "257-c6d.c6",		0x800000, 0x8599cc5b, 3 | BRF_GRA },           //  7
+	{ "257-c7sp.c7",	0x800000, 0x110f72a3, 3 | BRF_GRA },           //  8
+	{ "257-c8sp.c8",	0x800000, 0x4347f6af, 3 | BRF_GRA },           //  9
+
+	{ "257-m1d.m1",		0x040000, 0xd404db70, 4 | BRF_ESS | BRF_PRG }, // 10 Z80 code
+
+	{ "257-v1.v1",		0x400000, 0x17cde847, 5 | BRF_SND },           // 11 Sound data
+	{ "257-v2.v2",		0x400000, 0x1afb20ff, 5 | BRF_SND },           // 12
+	{ "257-v3.v3",		0x400000, 0x4605036a, 5 | BRF_SND },           // 13
+	{ "257-v4.v4",		0x400000, 0x764bbd6b, 5 | BRF_SND },           // 14
+};
+
+STDROMPICKEXT(kof2ksp, kof2ksp, neogeo)
+STD_ROM_FN(kof2ksp)
+
+struct BurnDriver BurnDrvKof2ksp = {
+	"kof2ksp", "kof2000", "neogeo", NULL, "2023",
+	"The King of Fighters 2000 (Special, Hack)\0", NULL, "hack (GSC2007 & EGCG)", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_ALTERNATE_TEXT, GBF_VSFIGHT, FBF_KOF,
+	NULL, kof2kspRomInfo, kof2kspRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000, 304, 224, 4, 3
+};
+
+// The King of Fighters 2000 SP XXX (Hack)
+
+static struct BurnRomInfo kof2kxxxRomDesc[] = {
+	{ "257-p1xxx.p1",    0x100000, 0xb88cd5eb, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "257-p2xxx.sp2",   0x400000, 0x1a10f2be, 1 | BRF_ESS | BRF_PRG }, //  1
+
+	/* The Encrypted Boards do not have an s1 rom, data for it comes from the Cx ROMs */
+	/* Encrypted */
+	{ "257-c1xxx.c1",    0x800000, 0x3006a5e4, 3 | BRF_GRA },           //  2 Sprite data
+	{ "257-c2xxx.c2",    0x800000, 0x366fd118, 3 | BRF_GRA },           //  3
+	{ "257-c3xxx.c3",    0x800000, 0x5b16d7e3, 3 | BRF_GRA },           //  4
+	{ "257-c4xxx.c4",    0x800000, 0x7e57dfc1, 3 | BRF_GRA },           //  5
+	{ "257-c5xxx.c5",    0x800000, 0x671904f4, 3 | BRF_GRA },           //  6
+	{ "257-c6xxx.c6",    0x800000, 0x68adf255, 3 | BRF_GRA },           //  7
+	{ "257-c7xxx.c7",    0x800000, 0x8c6b22b3, 3 | BRF_GRA },           //  8
+	{ "257-c8xxx.c8",    0x800000, 0x6223bd1d, 3 | BRF_GRA },           //  9
+
+	/* Encrypted */
+	{ "257-m1.m1",       0x040000, 0x4b749113, 4 | BRF_ESS | BRF_PRG }, // 10 Z80 code
+
+	/* Encrypted */
+	{ "257-v1.v1",       0x400000, 0x17cde847, 5 | BRF_SND },           // 11 Sound data
+	{ "257-v2.v2",       0x400000, 0x1afb20ff, 5 | BRF_SND },           // 12
+	{ "257-v3.v3",       0x400000, 0x4605036a, 5 | BRF_SND },           // 13
+	{ "257-v4.v4",       0x400000, 0x764bbd6b, 5 | BRF_SND },           // 14
+};
+
+STDROMPICKEXT(kof2kxxx, kof2kxxx, neogeo)
+STD_ROM_FN(kof2kxxx)
+
+struct BurnDriver BurnDrvKof2kxxx = {
+	"kof2kxxx", "kof2000", "neogeo", NULL, "2016",
+	"The King of Fighters 2000 SP XXX (Hack, Ver. 2016-01-04)\0", NULL, "hack", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC50 | HARDWARE_SNK_ALTERNATE_TEXT | HARDWARE_SNK_ENCRYPTED_M1, GBF_VSFIGHT, FBF_KOF,
+	NULL, kof2kxxxRomInfo, kof2kxxxRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	kof2000nInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000,	304, 224, 4, 3
+};
+
+
+// The King of Fighters 2001 - PS2 Krizalid Edition (Hack)
+// Modified by Eddids
+// 20210130
+
+static struct BurnRomInfo kf2k1pkzRomDesc[] = {
+	{ "262-p1pkz.p1",		0x100000, 0xb6df1dac, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "262-p2pkz.sp2",		0x400000, 0x4cb062de, 1 | BRF_ESS | BRF_PRG }, //  1
+
+	{ "262-s1pkz.s1",		0x020000, 0x73efb81d, 2 | BRF_GRA },           //  2 Text layer tiles
+
+	{ "262-c1d.c1",			0x800000, 0x103225b1, 3 | BRF_GRA },           //  3 Sprite Data
+	{ "262-c2d.c2",			0x800000, 0xf9d05d99, 3 | BRF_GRA },           //  4
+	{ "262-c3d.c3",			0x800000, 0x4c7ec427, 3 | BRF_GRA },           //  5
+	{ "262-c4d.c4",			0x800000, 0x1d237aa6, 3 | BRF_GRA },           //  6
+	{ "262-c5d.c5",			0x800000, 0xc2256db5, 3 | BRF_GRA },           //  7
+	{ "262-c6d.c6",			0x800000, 0x8d6565a9, 3 | BRF_GRA },           //  8
+	{ "262-c7pkz.c7",		0x800000, 0xc29bc0f3, 3 | BRF_GRA },           //  9
+	{ "262-c8pkz.c8",		0x800000, 0x3f1b51d2, 3 | BRF_GRA },           // 10
+	{ "262-c9pkz.c9",		0x800000, 0xe9bb1f55, 3 | BRF_GRA },           // 11
+	{ "262-c10pkz.c10",		0x800000, 0x3853693b, 3 | BRF_GRA },           // 12
+
+	{ "262-m1pkz.m1",		0x020000, 0x6d5a43db, 4 | BRF_ESS | BRF_PRG }, // 13 Z80 code
+
+	{ "262-v1-08-e0.v1",	0x400000, 0x83d49ecf, 5 | BRF_SND },           // 14 Sound data
+	{ "262-v2-08-e0.v2",	0x400000, 0x003f1843, 5 | BRF_SND },           // 15
+	{ "262-v3-08-e0.v3",	0x400000, 0x2ae38dbe, 5 | BRF_SND },           // 16
+	{ "262-v4pkz-08-e0.v4",	0x400000, 0x912f3f3b, 5 | BRF_SND },           // 17
+};
+
+STDROMPICKEXT(kf2k1pkz, kf2k1pkz, neogeo)
+STD_ROM_FN(kf2k1pkz)
+
+struct BurnDriver BurnDrvKf2k1pkz = {
+	"kf2k1pkz", "kof2001", "neogeo", NULL, "2021",
+	"The King of Fighters 2001 - PS2 Krizalid Edition (Hack)\0", "hack only enable in AES mode", "hack", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_KOF,
+	NULL, kf2k1pkzRomInfo, kf2k1pkzRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neoaesDIPInfo,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000, 304, 224, 4, 3
+};
+
+// The King of Fighters 2001 (All Boss Plus, Hack)
+// Modified by 西岐赏金猎人, 臂力哥
+// 20260409
+
+static struct BurnRomInfo kf2k1ultRomDesc[] = {
+	{ "262-p1ult.p1",		0x100000, 0x034b41a5, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "262-p2ult.sp2",		0x500000, 0x245b84ae, 1 | BRF_ESS | BRF_PRG }, //  1
+
+	{ "262-s1ult.s1",		0x020000, 0x6efe7dc8, 2 | BRF_GRA },           //  2 Text layer tiles
+
+	{ "262-c1ult.c1",		0x800000, 0x6a3a091c, 3 | BRF_GRA },           //  3 Sprite data
+	{ "262-c2ult.c2",		0x800000, 0xd4ee100d, 3 | BRF_GRA },           //  4
+	{ "262-c3ult.c3",		0x800000, 0xe68f1a56, 3 | BRF_GRA },           //  5
+	{ "262-c4ult.c4",		0x800000, 0x733f8f29, 3 | BRF_GRA },           //  6
+	{ "262-c5ult.c5",		0x800000, 0x421278cf, 3 | BRF_GRA },           //  7
+	{ "262-c6ult.c6",		0x800000, 0x9e8fa8b5, 3 | BRF_GRA },           //  8
+	{ "262-c7ult.c7",		0x800000, 0x2078f017, 3 | BRF_GRA },           //  9
+	{ "262-c8ult.c8",		0x800000, 0x89a56587, 3 | BRF_GRA },           // 10
+	{ "262-c9ult.c9",		0x800000, 0x8ca54442, 3 | BRF_GRA },           // 11
+	{ "262-c10ult.c10",		0x800000, 0x37a0d99d, 3 | BRF_GRA },           // 12
+	{ "265-c7d.c7",			0x800000, 0x8a5b561c, 3 | BRF_GRA },           // 13
+	{ "265-c8d.c8",			0x800000, 0xbef667a3, 3 | BRF_GRA },           // 14
+	{ "262-c13ult.c13",		0x800000, 0x2a3a1468, 3 | BRF_GRA },           // 15
+	{ "262-c14ult.c14",		0x800000, 0xee0e5d28, 3 | BRF_GRA },           // 16
+
+	{ "262-m1ult.m1",		0x020000, 0x2a8352f6, 4 | BRF_ESS | BRF_PRG }, // 17 Z80 code
+
+	{ "262-v1ult-08-e0.v1",	0x400000, 0x164d1b2a, 5 | BRF_SND },     // 18 Sound data
+	{ "262-v2ult-08-e0.v2",	0x400000, 0x7cc9251e, 5 | BRF_SND },     // 19
+	{ "262-v3ult-08-e0.v3",	0x400000, 0x5dd46eb9, 5 | BRF_SND },     // 20
+	{ "262-v4ult-08-e0.v4",	0x400000, 0x8e651432, 5 | BRF_SND },     // 21
+	{ "262-v5ult-08-e0.v5",	0x400000, 0xd65f6522, 5 | BRF_SND },     // 22
+	{ "262-v6ult-08-e0.v6",	0x400000, 0x7b72324c, 5 | BRF_SND },     // 23
+	{ "262-v7ult-08-e0.v7",	0x400000, 0x2bc74bd0, 5 | BRF_SND },     // 24
+	{ "262-v8ult-08-e0.v8",	0x400000, 0x3988bee9, 5 | BRF_SND },     // 25
+};
+
+STDROMPICKEXT(kf2k1ult, kf2k1ult, neogeo)
+STD_ROM_FN(kf2k1ult)
+
+struct BurnDriver BurnDrvKf2k1ult = {
+	"kf2k1ult", "kof2001", "neogeo", NULL, "2025-26",
+	"The King of Fighters 2001 (All Boss Plus, Hack)\0", NULL, "hack", "Neo Geo MVS",
+	NULL, NULL, L"\u897f\u5c90\u8d4f\u91d1\u730e\u4eba, \u81c2\u529b\u54e5", NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_KOF,
+	NULL, kf2k1ultRomInfo, kf2k1ultRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000, 304, 224, 4, 3
+};
+
+// The King of Fighters 2001 Remix Pro v1.02 Final
+// Version 2004-03-01 Hack By Jason,Kim & Raymonose
+
+static struct BurnRomInfo kof2k1rpRomDesc[] = {
+	{ "262-p1rp.p1",		0x100000, 0xe9e42e55, 1 | BRF_ESS | BRF_PRG },		//  0 68K code
+	{ "262-p2rp.sp2",		0x400000, 0x91668d86, 1 | BRF_ESS | BRF_PRG },		//  1
+
+	{ "262-s1rp.s1",		0x020000, 0x492f5efe, 2 | BRF_GRA },				//  2 Text layer tiles
+
+	/* Encrypted */
+	{ "262-c1-08-e0.c1",	0x800000, 0x99cc785a, 3 | BRF_GRA },				//  3 Sprite data
+	{ "262-c2-08-e0.c2",	0x800000, 0x50368cbf, 3 | BRF_GRA },				//  4
+	{ "262-c3-08-e0.c3",	0x800000, 0xfb14ff87, 3 | BRF_GRA },				//  5
+	{ "262-c4-08-e0.c4",	0x800000, 0x4397faf8, 3 | BRF_GRA },				//  6
+	{ "262-c5-08-e0.c5",	0x800000, 0x91f24be4, 3 | BRF_GRA },				//  7
+	{ "262-c6-08-e0.c6",	0x800000, 0xa31e4403, 3 | BRF_GRA },				//  8
+	{ "262-c7-08-e0.c7",	0x800000, 0x54d9d1ec, 3 | BRF_GRA },				//  9
+	{ "262-c8-08-e0.c8",	0x800000, 0x59289a6b, 3 | BRF_GRA },				// 10
+
+	{ "262-m1d.m1",			0x020000, 0x2fb0a8a5, 4 | BRF_ESS | BRF_PRG },	// 11 Z80 code
+
+	{ "262-v1-08-e0.v1",	0x400000, 0x83d49ecf, 5 | BRF_SND },				// 12 Sound data
+	{ "262-v2-08-e0.v2",	0x400000, 0x003f1843, 5 | BRF_SND },				// 13
+	{ "262-v3-08-e0.v3",	0x400000, 0x2ae38dbe, 5 | BRF_SND },				// 14
+	{ "262-v4-08-e0.v4",	0x400000, 0x26ec4dd9, 5 | BRF_SND },				// 15
+};
+
+STDROMPICKEXT(kof2k1rp, kof2k1rp, neogeo)
+STD_ROM_FN(kof2k1rp)
+
+struct BurnDriver BurnDrvKof2k1rp = {
+	"kof2k1rp", "kof2001", "neogeo", NULL, "Version 2004-03-01",
+	"The King of Fighters 2001 Remix Pro v1.02 Final (Hack By Jason, Kim & Raymonose)\0", NULL, "hack", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC50, GBF_VSFIGHT, FBF_KOF,
+	NULL, kof2k1rpRomInfo, kof2k1rpRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	kof2001Init, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000, 304, 224, 4, 3
+};
+
+
+// The King of Fighters 2002 (Climax, Hack)
+// Modified by GSC2007
+// GOTVG 20161204
+
+static struct BurnRomInfo kf2k2mixRomDesc[] = {
+	{ "265-p1mix.p1",	0x100000, 0x7ff93e96, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "265-p2mix.sp2",	0x400000, 0x01f474fa, 1 | BRF_ESS | BRF_PRG }, //  1
+
+	{ "265-s1ru.s1",	0x020000, 0xbd19c308, 2 | BRF_GRA },           //  2 Text layer tiles
+	
+	{ "265-c1d.c1",		0x800000, 0x7efa6ef7, 3 | BRF_GRA },           //  2 Sprite data
+	{ "265-c2d.c2",		0x800000, 0xaa82948b, 3 | BRF_GRA },           //  3
+	{ "265-c3ru.c3",	0x800000, 0xca656090, 3 | BRF_GRA },           //  4
+	{ "265-c4ru.c4",	0x800000, 0xeb898849, 3 | BRF_GRA },           //  5
+	{ "265-c5d.c5",		0x800000, 0x74bba7c6, 3 | BRF_GRA },           //  6
+	{ "265-c6d.c6",		0x800000, 0xe20d2216, 3 | BRF_GRA },           //  7
+	{ "265-c7mix.c7",	0x800000, 0x629bdf0e, 3 | BRF_GRA },           //  8
+	{ "265-c8mix.c8",	0x800000, 0xc7c8c75c, 3 | BRF_GRA },           //  9
+
+	{ "265-m1ru.m1",	0x020000, 0x9956ccd8, 4 | BRF_ESS | BRF_PRG }, // 10 Z80 code
+
+	{ "265-v1ru.v1",	0x800000, 0x6e7e3508, 5 | BRF_SND },           // 11 Sound data
+	{ "265-v2ru.v2",	0x800000, 0x2157b90f, 5 | BRF_SND },           // 12
+};
+
+STDROMPICKEXT(kf2k2mix, kf2k2mix, neogeo)
+STD_ROM_FN(kf2k2mix)
+
+struct BurnDriver BurnDrvKf2k2mix = {
+	"kf2k2mix", "kof2002", "neogeo", NULL, "2016",
+	"The King of Fighters 2002 (Climax, Hack)\0", NULL, "hack (GSC2007)", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_KOF,
+	NULL, kf2k2mixRomInfo, kf2k2mixRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000,	304, 224, 4, 3
+};
+
+// The King of Fighters 2002 Plus (Optimised, Hack)
+// Modified by GSC2007
+// GOTVG 20141209
+
+static struct BurnRomInfo kof2002tRomDesc[] = {
+	{ "265-p1t.p1",		0x100000, 0x55a19ab8, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "265-p2t.sp2",	0x400000, 0x0a189c94, 1 | BRF_ESS | BRF_PRG }, //  1
+
+	{ "265-s1d.s1",		0x020000, 0xe0eaaba3, 2 | BRF_GRA },           //  2 Text layer tiles
+	
+	{ "265-c1d.c1",		0x800000, 0x7efa6ef7, 3 | BRF_GRA },           //  2 Sprite data
+	{ "265-c2d.c2",		0x800000, 0xaa82948b, 3 | BRF_GRA },           //  3
+	{ "265-c3d.c3",		0x800000, 0x959fad0b, 3 | BRF_GRA },           //  4
+	{ "265-c4d.c4",		0x800000, 0xefe6a468, 3 | BRF_GRA },           //  5
+	{ "265-c5d.c5",		0x800000, 0x74bba7c6, 3 | BRF_GRA },           //  6
+	{ "265-c6d.c6",		0x800000, 0xe20d2216, 3 | BRF_GRA },           //  7
+	{ "265-c7d.c7",		0x800000, 0x8a5b561c, 3 | BRF_GRA },           //  8
+	{ "265-c8d.c8",		0x800000, 0xbef667a3, 3 | BRF_GRA },           //  9
+
+	{ "265-m1d.m1",		0x020000, 0x1c661a4b, 4 | BRF_ESS | BRF_PRG }, // 10 Z80 code
+
+	{ "265-v1d.v1",		0x800000, 0x0fc9a58d, 5 | BRF_SND },           // 11 Sound data
+	{ "265-v2d.v2",		0x800000, 0xb8c475a4, 5 | BRF_SND },           // 12
+};
+
+STDROMPICKEXT(kof2002t, kof2002t, neogeo)
+STD_ROM_FN(kof2002t)
+
+struct BurnDriver BurnDrvKof2002t = {
+	"kof2002t", "kof2002", "neogeo", NULL, "2014",
+	"The King of Fighters 2002 Plus (Optimised, Hack)\0", NULL, "hack (GSC2007)", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_KOF,
+	NULL, kof2002tRomInfo, kof2002tRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000,	304, 224, 4, 3
+};
+
+
+// The King of Fighters 2003 - PS2 Style Portraits (Hack)
+// Hack By 0 Day-S,Eddids,Hiker
+
+static struct BurnRomInfo kf2k3ps2spRomDesc[] = {
+	{ "271-p1p2s.p1",	0x400000, 0xa2b1cd0b, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "271-p2p2s.p2",	0x400000, 0xc2321f79, 1 | BRF_ESS | BRF_PRG }, //  1
+	{ "271-p3p2s.p3",	0x100000, 0x48af7f48, 1 | BRF_ESS | BRF_PRG }, //  2
+
+	{ "271-c1p2s.c1",	0x800000, 0x3c43a170, 3 | BRF_GRA },           //  3 Sprite data
+	{ "271-c2p2s.c2",	0x800000, 0xd8a64d42, 3 | BRF_GRA },           //  4
+	{ "271-c3p2s.c3",	0x800000, 0xd818be4e, 3 | BRF_GRA },           //  5
+	{ "271-c4p2s.c4",	0x800000, 0xeb8bd6d6, 3 | BRF_GRA },           //  6
+	{ "271-c5p2s.c5",	0x800000, 0x53bb6706, 3 | BRF_GRA },           //  7
+	{ "271-c6p2s.c6",	0x800000, 0x993254d5, 3 | BRF_GRA },           //  8
+	{ "271-c7p2s.c7",	0x800000, 0x51db8ffe, 3 | BRF_GRA },           //  9
+	{ "271-c8p2s.c8",	0x800000, 0x7dad01ab, 3 | BRF_GRA },           // 10
+
+	{ "271-m1c.m1",		0x080000, 0xf5515629, 4 | BRF_ESS | BRF_PRG }, // 11 Z80 code
+
+	{ "271-v1c.v1",		0x800000, 0xffa3f8c7, 5 | BRF_SND },           // 12 Sound data
+	{ "271-v2c.v2",		0x800000, 0x5382c7d1, 5 | BRF_SND },           // 13
+};
+
+STDROMPICKEXT(kf2k3ps2sp, kf2k3ps2sp, neogeo)
+STD_ROM_FN(kf2k3ps2sp)
+
+struct BurnDriver BurnDrvKf2k3ps2sp = {
+	"kf2k3ps2sp", "kof2003", "neogeo", NULL, "20??",
+	"The King of Fighters 2003 - PS2 Style Portraits (Hack By 0 Day-S, Eddids, Hiker)\0", "Secret Characters available in MVS", "hack", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC50 | HARDWARE_SNK_ALTERNATE_TEXT | HARDWARE_SNK_P32 | HARDWARE_SNK_ENCRYPTED_M1, GBF_VSFIGHT, FBF_KOF,
+	NULL, kf2k3ps2spRomInfo, kf2k3ps2spRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	kof2003Init, NeoPVCExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000,	304, 224, 4, 3
+};
+
+
 // Neo Turf Masters / Big Tournament Golf: Scotland Course (Hack, v1.08)
 
 static struct BurnRomInfo turfmastscRomDesc[] = {
@@ -22057,6 +21838,7 @@ struct BurnDriver BurnDrvTurfmastsc = {
 	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
 	0x1000,	304, 224, 4, 3
 };
+
 
 // Zintrick / Oshidashi Zentrix (bootleg of CD version, multi-V)
 // https://www.arcade-projects.com/threads/zintrick-with-tracks.36825/
@@ -22091,7 +21873,230 @@ struct BurnDriver BurnDrvZintrckbp = {
 };
 
 
-// GOTVG Mslug hacks part 2
+// ----------------------
+// Metal Slug Unity hacks
+
+// Metal Slug Unity (Added Timer)
+// Modified by Alice愛麗絲/合金弹头爱克斯/CXZInc
+
+static struct BurnRomInfo mslugunityRomDesc[] = {
+	{ "201-p1uni.p1",   0x200000, 0xa3186dfd, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+
+	{ "201-s1.s1",      0x020000, 0x2f55958d, 2 | BRF_GRA },           //  1 Text layer tiles
+
+	{ "201-c1.c1",      0x400000, 0x72813676, 3 | BRF_GRA },           //  2 Sprite data
+	{ "201-c2.c2",      0x400000, 0x96f62574, 3 | BRF_GRA },           //  3
+	{ "201-c3.c3",      0x400000, 0x5121456a, 3 | BRF_GRA },           //  4
+	{ "201-c4.c4",      0x400000, 0xf4ad59a3, 3 | BRF_GRA },           //  5
+
+	{ "201-m1.m1",      0x020000, 0xc28b3253, 4 | BRF_ESS | BRF_PRG }, //  6 Z80 code
+
+	{ "201-v1.v1",      0x400000, 0x23d22ed1, 5 | BRF_SND },           //  7 Sound data
+	{ "201-v2.v2",      0x400000, 0x472cf9db, 5 | BRF_SND },           //  8
+};
+
+STDROMPICKEXT(mslugunity, mslugunity, neogeo)
+STD_ROM_FN(mslugunity)
+
+struct BurnDriver BurnDrvMslugunity = {
+	"mslugunity", "mslug", "neogeo", NULL, "2021",
+	"Metal Slug Unity (Added Timer)\0", NULL, "hack", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_SWAPP, GBF_RUNGUN, FBF_MSLUG,
+	NULL, mslugunityRomInfo, mslugunityRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000,	304, 224, 4, 3
+};
+
+
+// Metal Slug 2 Unity (Added Timer)
+// Modified by Alice愛麗絲/合金弹头爱克斯/CXZInc
+
+static struct BurnRomInfo mslug2unityRomDesc[] = {
+	{ "241-p1uni.p1",    0x100000, 0x1562cf23, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "241-p2.sp2",      0x200000, 0x38883f44, 1 | BRF_ESS | BRF_PRG }, //  1 
+
+	{ "241-s1.s1",       0x020000, 0xf3d32f0f, 2 | BRF_GRA },           //  2 Text layer tiles
+
+	{ "241-c1.c1",       0x800000, 0x394b5e0d, 3 | BRF_GRA },           //  3 Sprite data
+	{ "241-c2.c2",       0x800000, 0xe5806221, 3 | BRF_GRA },           //  4 
+	{ "241-c3.c3",       0x800000, 0x9f6bfa6f, 3 | BRF_GRA },           //  5 
+	{ "241-c4.c4",       0x800000, 0x7d3e306f, 3 | BRF_GRA },           //  6 
+
+	{ "241-m1.m1",       0x020000, 0x94520ebd, 4 | BRF_ESS | BRF_PRG }, //  7 Z80 code
+
+	{ "241-v1.v1",       0x400000, 0x99ec20e8, 5 | BRF_SND },           //  8 Sound data
+	{ "241-v2.v2",       0x400000, 0xecb16799, 5 | BRF_SND },           //  9 
+};
+
+STDROMPICKEXT(mslug2unity, mslug2unity, neogeo)
+STD_ROM_FN(mslug2unity)
+
+struct BurnDriver BurnDrvMslug2unity = {
+	"mslug2unity", "mslug2", "neogeo", NULL, "2021",
+	"Metal Slug 2 Unity (Added Timer)\0", NULL, "hack", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_RUNGUN, FBF_MSLUG,
+	NULL, mslug2unityRomInfo, mslug2unityRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000, 304, 224, 4, 3
+};
+
+// Metal Slug X Unity (Added Timer)
+// Modified by Alice愛麗絲/合金弹头爱克斯/CXZInc
+
+static struct BurnRomInfo mslugxunityRomDesc[] = {
+	{ "250-p1uni.p1",   0x100000, 0x36102d34, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "250-p2.ep1",     0x400000, 0x1fda2e12, 1 | BRF_ESS | BRF_PRG }, //  1 
+
+	{ "250-s1.s1",      0x020000, 0xfb6f441d, 2 | BRF_GRA },           //  2 Text layer tiles
+
+	{ "250-c1.c1",      0x800000, 0x09a52c6f, 3 | BRF_GRA },           //  3 Sprite data
+	{ "250-c2.c2",      0x800000, 0x31679821, 3 | BRF_GRA },           //  4 
+	{ "250-c3.c3",      0x800000, 0xfd602019, 3 | BRF_GRA },           //  5 
+	{ "250-c4.c4",      0x800000, 0x31354513, 3 | BRF_GRA },           //  6 
+	{ "250-c5.c5",      0x800000, 0xa4b56124, 3 | BRF_GRA },           //  7 
+	{ "250-c6.c6",      0x800000, 0x83e3e69d, 3 | BRF_GRA },           //  8 
+
+	{ "250-m1.m1",      0x020000, 0xfd42a842, 4 | BRF_ESS | BRF_PRG }, //  9 Z80 code
+
+	{ "250-v1.v1",      0x400000, 0xc79ede73, 5 | BRF_SND },           // 10 Sound data
+	{ "250-v2.v2",      0x400000, 0xea9aabe1, 5 | BRF_SND },           // 11 
+	{ "250-v3.v3",      0x200000, 0x2ca65102, 5 | BRF_SND },           // 12 
+};
+
+STDROMPICKEXT(mslugxunity, mslugxunity, neogeo)
+STD_ROM_FN(mslugxunity)
+
+struct BurnDriver BurnDrvMslugxunity = {
+	"mslugxunity", "mslugx", "neogeo", NULL, "2021",
+	"Metal Slug X Unity (Added Timer)\0", NULL, "hack", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK | BDF_HISCORE_SUPPORTED, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_RUNGUN, FBF_MSLUG,
+	NULL, mslugxunityRomInfo, mslugxunityRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	mslugxInit, NeoExit, NeoFrame, NeoRender, mslugxScan, &NeoRecalcPalette,
+	0x1000, 304, 224, 4, 3
+};
+
+// Metal Slug 3 Unity (Added Timer)
+// Modified by Alice愛麗絲/合金弹头爱克斯/CXZInc
+
+static struct BurnRomInfo mslug3unityRomDesc[] = {
+	{ "ms3uni.neo-sma",     0x040000, 0x3c6c536b, 9 | BRF_ESS | BRF_PRG }, //  0 68K code		/ stored in the custom chip
+	/* The SMA for this release has a green colour marking; the older revision has a white colour marking */
+	{ "256-pg1.p1",         0x400000, 0xb07edfd5, 1 | BRF_ESS | BRF_PRG }, //  1 				/ TC5332202
+	{ "256-pg2uni.p2",      0x400000, 0xea0c22b6, 1 | BRF_ESS | BRF_PRG }, //  2 				/ TC5332202
+	/* The Encrypted Boards do not have an s1 rom, data for it comes from the Cx ROMs */
+	/* Encrypted */
+	{ "256-c1.c1",          0x800000, 0x5a79c34e, 3 | BRF_GRA },           //  3 Sprite data	/ TC5364202
+	{ "256-c2.c2",          0x800000, 0x944c362c, 3 | BRF_GRA },           //  4 				/ TC5364202
+	{ "256-c3.c3",          0x800000, 0x6e69d36f, 3 | BRF_GRA },           //  5 				/ TC5364202		
+	{ "256-c4.c4",          0x800000, 0xb755b4eb, 3 | BRF_GRA },           //  6 				/ TC5364202
+	{ "256-c5.c5",          0x800000, 0x7aacab47, 3 | BRF_GRA },           //  7 				/ TC5364202
+	{ "256-c6.c6",          0x800000, 0xc698fd5d, 3 | BRF_GRA },           //  8 				/ TC5364202	
+	{ "256-c7.c7",          0x800000, 0xcfceddd2, 3 | BRF_GRA },           //  9 				/ TC5364202
+	{ "256-c8.c8",          0x800000, 0x4d9be34c, 3 | BRF_GRA },           // 10 				/ TC5364202
+
+	{ "256-m1.m1",          0x080000, 0xeaeec116, 4 | BRF_ESS | BRF_PRG }, // 11 Z80 code		/ mask rom TC534000
+
+	{ "256-v1.v1",          0x400000, 0xf2690241, 5 | BRF_SND },           // 12 Sound data 	/ TC5332204
+	{ "256-v2.v2",          0x400000, 0x7e2a10bd, 5 | BRF_SND },           // 13 				/ TC5332204
+	{ "256-v3.v3",          0x400000, 0x0eaec17c, 5 | BRF_SND },           // 14 				/ TC5332204
+	{ "256-v4.v4",          0x400000, 0x9b4b22d4, 5 | BRF_SND },           // 15 				/ TC5332204
+};
+
+STDROMPICKEXT(mslug3unity, mslug3unity, neogeo)
+STD_ROM_FN(mslug3unity)
+
+struct BurnDriver BurnDrvMslug3unity = {
+	"mslug3unity", "mslug3", "neogeo", NULL, "2021",
+	"Metal Slug 3 Unity (Added Timer)\0", NULL, "hack", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK | BDF_HISCORE_SUPPORTED, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC42 | HARDWARE_SNK_SMA_PROTECTION, GBF_RUNGUN, FBF_MSLUG,
+	NULL, mslug3unityRomInfo, mslug3unityRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	mslug3Init, NeoSMAExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000, 304, 224, 4, 3
+};
+
+// Metal Slug 4 Unity (Added Timer)
+// Modified by Alice愛麗絲/合金弹头爱克斯/CXZInc
+
+static struct BurnRomInfo mslug4unityRomDesc[] = {
+	{ "263-p1uni.p1",   0x100000, 0xef3501b6, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "263-p2.sp2",     0x400000, 0xfdb7aed8, 1 | BRF_ESS | BRF_PRG }, //  1
+
+	/* The Encrypted Boards do not have an s1 rom, data for it comes from the Cx ROMs */
+	/* Encrypted */
+	{ "263-c1.c1",      0x800000, 0x84865f8a, 3 | BRF_GRA },           //  2 Sprite data
+	{ "263-c2.c2",      0x800000, 0x81df97f2, 3 | BRF_GRA },           //  3
+	{ "263-c3.c3",      0x800000, 0x1a343323, 3 | BRF_GRA },           //  4
+	{ "263-c4.c4",      0x800000, 0x942cfb44, 3 | BRF_GRA },           //  5
+	{ "263-c5.c5",      0x800000, 0xa748854f, 3 | BRF_GRA },           //  6
+	{ "263-c6.c6",      0x800000, 0x5c8ba116, 3 | BRF_GRA },           //  7
+
+	/* Encrypted */
+	{ "263-m1.m1",      0x020000, 0x46ac8228, 4 | BRF_ESS | BRF_PRG }, //  8 Z80 code
+
+	/* Encrypted */
+	{ "263-v1.v1",      0x800000, 0x01e9b9cd, 5 | BRF_SND },           //  9 Sound data
+	{ "263-v2.v2",      0x800000, 0x4ab2bf81, 5 | BRF_SND },           // 10
+};
+
+STDROMPICKEXT(mslug4unity, mslug4unity, neogeo)
+STD_ROM_FN(mslug4unity)
+
+struct BurnDriver BurnDrvMslug4unity = {
+	"mslug4unity", "mslug4", "neogeo", NULL, "2021",
+	"Metal Slug 4 Unity (Added Timer)\0", NULL, "hack", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC50 | HARDWARE_SNK_ENCRYPTED_M1, GBF_RUNGUN, FBF_MSLUG,
+	NULL, mslug4unityRomInfo, mslug4unityRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	mslug4Init, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000, 304, 224, 4, 3
+};
+
+// Metal Slug 5 Unity (Added Timer)
+// Modified by Alice愛麗絲/合金弹头爱克斯/CXZInc
+
+static struct BurnRomInfo mslug5unityRomDesc[] = {
+	{ "268-p1cruni.p1",   0x400000, 0xced9f5a8, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "268-p2cruni.p2",   0x400000, 0x1c08dbb6, 1 | BRF_ESS | BRF_PRG }, //  1
+
+	/* The Encrypted Boards do not have an s1 rom, data for it comes from the Cx ROMs */
+	/* Encrypted */
+	{ "268-c1c.c1",       0x800000, 0xab7c389a, 3 | BRF_GRA },           //  2 Sprite data
+	{ "268-c2c.c2",       0x800000, 0x3560881b, 3 | BRF_GRA },           //  3
+	{ "268-c3c.c3",       0x800000, 0x3af955ea, 3 | BRF_GRA },           //  4
+	{ "268-c4c.c4",       0x800000, 0xc329c373, 3 | BRF_GRA },           //  5
+	{ "268-c5c.c5",       0x800000, 0x959c8177, 3 | BRF_GRA },           //  6
+	{ "268-c6c.c6",       0x800000, 0x010a831b, 3 | BRF_GRA },           //  7
+	{ "268-c7c.c7",       0x800000, 0x6d72a969, 3 | BRF_GRA },           //  8
+	{ "268-c8c.c8",       0x800000, 0x551d720e, 3 | BRF_GRA },           //  9
+
+	/* Encrypted */
+	{ "268-m1.m1",        0x080000, 0x4a5a6e0e, 4 | BRF_ESS | BRF_PRG },
+
+	/* Encrypted */
+	{ "268-v1c.v1",       0x800000, 0xae31d60c, 5 | BRF_SND },           // 11 Sound data
+	{ "268-v2c.v2",       0x800000, 0xc40613ed, 5 | BRF_SND },           // 12
+};
+
+STDROMPICKEXT(mslug5unity, mslug5unity, neogeo)
+STD_ROM_FN(mslug5unity)
+
+struct BurnDriver BurnDrvMslug5unity = {
+	"mslug5unity", "mslug5", "neogeo", NULL, "2021",
+	"Metal Slug 5 Unity (Added Timer)\0", NULL, "hack", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_CMC50 | HARDWARE_SNK_ALTERNATE_TEXT | HARDWARE_SNK_P32 | HARDWARE_SNK_ENCRYPTED_M1, GBF_RUNGUN, FBF_MSLUG,
+	NULL, mslug5unityRomInfo, mslug5unityRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	mslug5Init, NeoPVCExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000, 304, 224, 4, 3
+};
+
+
+// --------------------------
+// GOTVG Mslug hacks - part 2
 
 // Metal Slug (1v2 Mode,Hack)
 // Modified by 合金弹头爱克斯
