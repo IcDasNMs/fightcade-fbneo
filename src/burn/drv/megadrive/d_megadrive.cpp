@@ -44032,7 +44032,7 @@ struct BurnDriver BurnDrvmd_rbffgenlt = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// Shaolin Carcará (HB, Rev. 1)
+// Shaolin Carcara (HB, Rev. 1)
 static struct BurnRomInfo md_shaolincarcaraRomDesc[] = {
 	{ "Shaolin Carcara (Rev 1)(2020-22)(Manganga Team).bin", 2359296, 0x7bd5e34f, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
@@ -44043,7 +44043,7 @@ STD_ROM_FN(md_shaolincarcara)
 struct BurnDriver BurnDrvmd_shaolincarcara = {
 	"md_shaolincarcara", NULL, NULL, NULL, "2020-22",
 	"Shaolin Carcara (HB, Rev. 1)\0", NULL, "Manganga Team", "Genesis / Mega Drive",
-	L"Shaolin Carcar\u00e1 (HB, Rev. 1)\0", NULL, L"Mangang\u00e1 Team", NULL,
+	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE, GBF_SCRFIGHT, 0,
 	MegadriveGetZipName, md_shaolincarcaraRomInfo, md_shaolincarcaraRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
 	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
