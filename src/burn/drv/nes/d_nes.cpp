@@ -10867,18 +10867,19 @@ struct BurnDriver BurnDrvnes_fleademo = {
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
 
+// Super Tilt Bro. (HB, v2.6)
 static struct BurnRomInfo nes_supertiltbroRomDesc[] = {
-	{ "Super Tilt Bro (HB).nes",          524304, 0x58829008, BRF_ESS | BRF_PRG },
+	{ "Super Tilt Bro v2.6 (2016-26)(Sylvain Gadrat).nes",          524304, 0xfa4edd45, BRF_ESS | BRF_PRG },
 };
 
 STD_ROM_PICK(nes_supertiltbro)
 STD_ROM_FN(nes_supertiltbro)
 
 struct BurnDriver BurnDrvnes_supertiltbro = {
-	"nes_supertiltbro", NULL, NULL, NULL, "1989?",
-	"Super Tilt Bro (HB)\0", NULL, "Nintendo", "NES / Famicom",
+	"nes_supertiltbro", NULL, NULL, NULL, "2016-26",
+	"Super Tilt Bro. (HB, v2.6)\0", NULL, "Sylvain Gadrat", "NES / Famicom",
 	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_MISC, 0,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_VSFIGHT, 0,
 	NESGetZipName, nes_supertiltbroRomInfo, nes_supertiltbroRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
 	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
@@ -12297,8 +12298,9 @@ struct BurnDriver BurnDrvnes_draiocht = {
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
 
+// Justice Duel (HB)
 static struct BurnRomInfo nes_justiceduelRomDesc[] = {
-	{ "Justice Duel (HB).nes",          196624, 0xada8853b, BRF_ESS | BRF_PRG },
+	{ "Justice Duel (2019)(Mega Cat Studios).nes",          196624, 0xada8853b, BRF_ESS | BRF_PRG },
 };
 
 STD_ROM_PICK(nes_justiceduel)
@@ -12308,7 +12310,7 @@ struct BurnDriver BurnDrvnes_justiceduel = {
 	"nes_justiceduel", NULL, NULL, NULL, "2019",
 	"Justice Duel (HB)\0", NULL, "Mega Cat Studios", "NES / Famicom",
 	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_HOMEBREW, 4, HARDWARE_NES, GBF_MISC, 0,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 4, HARDWARE_NES, GBF_ACTION, 0,
 	NESGetZipName, nes_justiceduelRomInfo, nes_justiceduelRomName, NULL, NULL, NULL, NULL, NES4ScoreInputInfo, NES4ScoreDIPInfo,
 	NES4ScoreInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
@@ -32386,6 +32388,25 @@ struct BurnDriver BurnDrvnes_catmercs = {
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
 
+// Clash of Courts (HB, v1.0.2)
+// https://kn56k.itch.io/clash-of-courts
+static struct BurnRomInfo nes_clashcourtsRomDesc[] = {
+	{ "Clash of Courts v1.0.2 (2026)(kn56k).nes",          524304, 0x9a914504, BRF_ESS | BRF_PRG },
+};
+
+STD_ROM_PICK(nes_clashcourts)
+STD_ROM_FN(nes_clashcourts)
+
+struct BurnDriver BurnDrvnes_clashcourts = {
+	"nes_clashcourts", NULL, NULL, NULL, "2026",
+	"Clash of Courts (HB, v1.0.2)\0", NULL, "kn56k", "NES / Famicom",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_HOMEBREW, 6, HARDWARE_NES, GBF_PLATFORM | GBF_ACTION, 0,
+	NESGetZipName, nes_clashcourtsRomInfo, nes_clashcourtsRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
+	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
+	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
+};
+
 // Color Match Combat (HB, V2)
 
 static struct BurnRomInfo nes_colormatcbRomDesc[] = {
@@ -32585,6 +32606,25 @@ struct BurnDriver BurnDrvnes_hurdles = {
 	BDF_GAME_WORKING | BDF_HOMEBREW, 2, HARDWARE_NES, GBF_ACTION, 0,
 	NESGetZipName, nes_hurdlesRomInfo, nes_hurdlesRomName, NULL, NULL, NULL, NULL, NESInputInfo, NESDIPInfo,
 	NESInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
+	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
+};
+
+// Justice Duel (HB, Alt)
+// https://megacatstudios.itch.io/justice-duel
+static struct BurnRomInfo nes_justiceduelaRomDesc[] = {
+	{ "Justice Duel (Alt)(2019)(Mega Cat Studios).nes",          196624, 0xb751f4b2, BRF_ESS | BRF_PRG },
+};
+
+STD_ROM_PICK(nes_justiceduela)
+STD_ROM_FN(nes_justiceduela)
+
+struct BurnDriver BurnDrvnes_justiceduela = {
+	"nes_justiceduela", "nes_justiceduel", NULL, NULL, "2019",
+	"Justice Duel (HB, Alt)\0", NULL, "Mega Cat Studios", "NES / Famicom",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HOMEBREW, 4, HARDWARE_NES, GBF_ACTION, 0,
+	NESGetZipName, nes_justiceduelaRomInfo, nes_justiceduelaRomName, NULL, NULL, NULL, NULL, NES4ScoreInputInfo, NES4ScoreDIPInfo,
+	NES4ScoreInit, NESExit, NESFrame, NESDraw, NESScan, &NESRecalc, 0x40,
 	SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT
 };
 
