@@ -43757,17 +43757,18 @@ struct BurnDriver BurnDrvmd_fightg3500 = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// Final Fight MD (HB, v0.92b)
+// Final Fight MD (HB, v0.95b)
+
 static struct BurnRomInfo md_ffightmdRomDesc[] = {
-	{ "Final Fight MD v0.92b (2025)(MXRetroDev - CFX).bin", 4194304, 0xae245026, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+	{ "Final Fight MD v0.95b (2026)(MXRetroDev - CFX).bin", 4194304, 0xe39eaab0, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
 STD_ROM_PICK(md_ffightmd)
 STD_ROM_FN(md_ffightmd)
 
 struct BurnDriver BurnDrvmd_ffightmd = {
-	"md_ffightmd", NULL, NULL, NULL, "2025",
-	"Final Fight MD (HB, v0.92b)\0", "Public version Christmas 2025", "MXRetroDev - CFX", "Genesis / Mega Drive",
+	"md_ffightmd", NULL, NULL, NULL, "2026",
+	"Final Fight MD (HB, v0.95b)\0", NULL, "MXRetroDev - CFX", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE, GBF_SCRFIGHT, 0,
 	MegadriveGetZipName, md_ffightmdRomInfo, md_ffightmdRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
@@ -44052,9 +44053,9 @@ struct BurnDriver BurnDrvmd_puzzulswap = {
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
 };
 
-// Real Bout Fatal Fury Genesis Lite (HB, v1.5.1)
+// Real Bout Fatal Fury Genesis Lite (HB, v2.0)
 static struct BurnRomInfo md_rbffgenltRomDesc[] = {
-	{ "Real Bout Fatal Fury Genesis Lite v1.5.1 (2024)(Rheo Gamer).bin", 5242880, 0x45d73398, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
+	{ "Real Bout Fatal Fury Genesis Lite v2.0 (2024)(Rheo Gamer).bin", 5242880, 0x9a751878, BRF_PRG | SEGA_MD_ROM_LOAD16_WORD_SWAP | SEGA_MD_ROM_OFFS_000000  },
 };
 
 STD_ROM_PICK(md_rbffgenlt)
@@ -44062,9 +44063,9 @@ STD_ROM_FN(md_rbffgenlt)
 
 struct BurnDriver BurnDrvmd_rbffgenlt = {
 	"md_rbffgenlt", NULL, NULL, NULL, "2024",
-	"Real Bout Fatal Fury Genesis Lite (HB, v1.5.1)\0", NULL, "Rheo Gamer", "Genesis / Mega Drive",
+	"Real Bout Fatal Fury Genesis Lite (HB, v2.0)\0", NULL, "Rheo Gamer", "Genesis / Mega Drive",
 	NULL, NULL, NULL, NULL,
-	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE | HARDWARE_SEGA_MEGADRIVE_PCB_SSF2, GBF_VSFIGHT, 0,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_HOMEBREW, 2, HARDWARE_SEGA_MEGADRIVE | HARDWARE_SEGA_MEGADRIVE_PCB_SSF2 /*| HARDWARE_SEGA_MEGADRIVE_PCB_SEGA_SRAM*/, GBF_VSFIGHT, 0,
 	MegadriveGetZipName, md_rbffgenltRomInfo, md_rbffgenltRomName, NULL, NULL, NULL, NULL, MegadriveInputInfo, MegadriveDIPInfo,
 	MegadriveInit, MegadriveExit, MegadriveFrame, MegadriveDraw, MegadriveScan,
 	&bMegadriveRecalcPalette, 0x100, 320, 224, 4, 3
