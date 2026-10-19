@@ -23964,9 +23964,9 @@ struct BurnDriver BurnDrvCpsSf2gm = {
 // Modified by Persona
 
 static struct BurnRomInfo Sf2creRomDesc[] = {
-	{ "s92re_23b.8f",	0x080000, 0x6f87199e, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
+	{ "s92re_23b.8f",	0x080000, 0x94e91cd3, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
 	{ "s92re_22b.7f",	0x080000, 0x9d4dd0ef, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
-	{ "s92re_21a.6f",	0x080000, 0x94e91cd3, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
+	{ "s92re_21a.6f",	0x080000, 0x6f87199e, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
 
 	{ "s92_01.3a",		0x080000, 0x03b0d852, BRF_GRA | CPS1_TILES },
 	{ "s92_02.4a",		0x080000, 0x840289ec, BRF_GRA | CPS1_TILES },
