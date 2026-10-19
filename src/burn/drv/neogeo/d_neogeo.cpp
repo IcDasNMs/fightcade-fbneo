@@ -20773,7 +20773,7 @@ struct BurnDriver BurnDrvKof98eckvs = {
 
 static struct BurnRomInfo kof98bc2k2RomDesc[] = {
 	{ "98s02-p1.p1",   0x100000, 0x2fd34fd8, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
-	{ "98s02-p2.p2",   0x400000, 0xccc71b9c, 1 | BRF_ESS | BRF_PRG }, //  1
+	{ "98s02-p2.p2",   0x400000, 0xfafb0449, 1 | BRF_ESS | BRF_PRG }, //  1
 
 	{ "98s02-s1.s1",   0x020000, 0xf6871e73, 2 | BRF_GRA },           //  2 Text layer tiles
 
@@ -21777,6 +21777,43 @@ struct BurnDriver BurnDrvKf2k2ps2b = {
 	NULL, kf2k2ps2bRomInfo, kf2k2ps2bRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
 	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
 	0x1000,	304, 224, 4, 3
+};
+
+
+// The King of Fighters 2002 (Remix Ultra Plus, Hack)
+// Unknown Remix Ultra 2.5 plus version
+
+static struct BurnRomInfo kf2k2rupRomDesc[] = {
+	{ "265-p1rup.p1",	0x100000, 0x212760e9, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+	{ "265-p2rup.sp2",	0x500000, 0x6efba363, 1 | BRF_ESS | BRF_PRG }, //  1
+
+	{ "265-s1rup.s1",	0x020000, 0xe384a38c, 2 | BRF_GRA },           //  2 Text layer tiles
+
+	{ "265-c1rup.c1",	0x800000, 0xc1a21b4c, 3 | BRF_GRA },           //  3 Sprite data
+	{ "265-c2rup.c2",	0x800000, 0x9b3d7e8d, 3 | BRF_GRA },           //  4
+	{ "265-c3rup.c3",	0x800000, 0xd2c0c9d5, 3 | BRF_GRA },           //  5
+	{ "265-c4rup.c4",	0x800000, 0x2d1765d5, 3 | BRF_GRA },           //  6
+	{ "265-c5rup.c5",	0x800000, 0xa8042633, 3 | BRF_GRA },           //  7
+	{ "265-c6rup.c6",	0x800000, 0x56d3855b, 3 | BRF_GRA },           //  8
+	{ "265-c7rup.c7",	0x800000, 0x3e92eaf8, 3 | BRF_GRA },           //  9
+	{ "265-c8rup.c8",	0x800000, 0xcb69a2f7, 3 | BRF_GRA },           // 10
+
+	KOF2002_DECRYPTED_Z80
+
+	KOF2002_DECRYPTED_SND
+};
+
+STDROMPICKEXT(kf2k2rup, kf2k2rup, neogeo)
+STD_ROM_FN(kf2k2rup)
+
+struct BurnDriver BurnDrvKf2k2rup = {
+	"kf2k2rup", "kof2002", "neogeo", NULL, "200?",
+	"The King of Fighters 2002 (Remix Ultra Plus, Hack)\0", NULL, "hack", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO, GBF_VSFIGHT, FBF_KOF,
+	NULL, kf2k2rupRomInfo, kf2k2rupRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000, 304, 224, 4, 3
 };
 
 // The King of Fighters 2002 (Omega v.0?)

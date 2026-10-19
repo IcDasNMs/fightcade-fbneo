@@ -23827,9 +23827,9 @@ struct BurnDriver BurnDrvCpsFfightaemgc = {
 // For more infomation, please visit: https://sf2mix.github.io/
 
 static struct BurnRomInfo sf2mixRomDesc[] = {
-	{ "smxe_23b.8f",   0x080000, 0x41877bf2, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
-	{ "smx_22b.7f",    0x080000, 0xecc7e105, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
-	{ "smx_21a.6f",    0x080000, 0x07fb17ea, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
+	{ "smxe_23b.8f",   0x080000, 0x60d0d40d, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
+	{ "smx_22b.7f",    0x080000, 0xf7bd54e7, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
+	{ "smx_21a.6f",    0x080000, 0xb580c709, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
 
 	{ "smx-1m.3a",     0x080000, 0xa8f70643, BRF_GRA | CPS1_TILES },
 	{ "smx-3m.5a",     0x080000, 0xf73f1913, BRF_GRA | CPS1_TILES },
@@ -23862,8 +23862,8 @@ STD_ROM_PICK(sf2mix)
 STD_ROM_FN(sf2mix)
 
 struct BurnDriver BurnDrvCpssf2mix = {
-	"sf2mix", "sf2ce", NULL, NULL, "2025",
-	"Street Fighter II Mix (v1.6, Hack)\0", NULL, "hack (Zero800)", "CPS1",
+	"sf2mix", "sf2ce", NULL, NULL, "2025-26",
+	"Street Fighter II Mix (v1.7, Hack)\0", NULL, "hack (Zero800)", "CPS1",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_CAPCOM_CPS1, GBF_VSFIGHT, FBF_SF,
 	NULL, sf2mixRomInfo, sf2mixRomName, NULL, NULL, NULL, NULL, Sf2InputInfo, Sf2mixDIPInfo,
@@ -23959,14 +23959,14 @@ struct BurnDriver BurnDrvCpsSf2gm = {
 	&CpsRecalcPal, 0x1000, 384, 224, 4, 3
 };
 
-// Street Fighter II': Champion Re-Edit (Hack, v0.29.7)
+// Street Fighter II': Champion Re-Edit (Hack, v0.32)
 // https://sf2cre.blogspot.com
 // Modified by Persona
 
 static struct BurnRomInfo Sf2creRomDesc[] = {
-	{ "s92re_23b.8f",	0x080000, 0xffa481c9, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
-	{ "s92re_22b.7f",	0x080000, 0xe2944558, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
-	{ "s92re_21a.6f",	0x080000, 0xc9c4acb8, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
+	{ "s92re_23b.8f",	0x080000, 0x6f87199e, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
+	{ "s92re_22b.7f",	0x080000, 0x9d4dd0ef, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
+	{ "s92re_21a.6f",	0x080000, 0x94e91cd3, BRF_ESS | BRF_PRG | CPS1_68K_PROGRAM_NO_BYTESWAP },
 
 	{ "s92_01.3a",		0x080000, 0x03b0d852, BRF_GRA | CPS1_TILES },
 	{ "s92_02.4a",		0x080000, 0x840289ec, BRF_GRA | CPS1_TILES },
@@ -23999,8 +23999,8 @@ STD_ROM_PICK(Sf2cre)
 STD_ROM_FN(Sf2cre)
 
 struct BurnDriver BurnDrvCpsSf2cre = {
-	"sf2cre", "sf2ce", NULL, NULL, "2025",
-	"Street Fighter II': Champion Re-Edit (Hack, v0.29.7)\0", NULL, "hack (Persona)", "CPS1",
+	"sf2cre", "sf2ce", NULL, NULL, "2025-26",
+	"Street Fighter II': Champion Re-Edit (Hack, v0.32)\0", NULL, "hack (Persona)", "CPS1",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK | BDF_HISCORE_SUPPORTED, 2, HARDWARE_CAPCOM_CPS1, GBF_VSFIGHT, FBF_SF,
 	NULL, Sf2creRomInfo, Sf2creRomName, NULL, NULL, NULL, NULL, Sf2InputInfo, Sf2cejDIPInfo,
