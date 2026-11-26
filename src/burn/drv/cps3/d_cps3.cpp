@@ -2375,6 +2375,68 @@ struct BurnDriver BurnDrvSfiii3th = {
 	384, 224, 4, 3
 };
 
+// --------------------------------------------------------------------
+// Street Fighter III 3rd Strike: Fight for the Future (Hack, Tag v4.3)
+// --------------------------------------------------------------------
+static struct BurnRomInfo sfiii3tagRomDesc[] = {
+
+	{ "sfiii3_japan_nocd.29f400.u2",		0x080000, 0x1edc6366, BRF_ESS | BRF_BIOS },	// SH-2 Bios
+	
+	{ "sfiii3tag-simm1.0",		0x200000, 0x06095f64, BRF_ESS | BRF_PRG },
+	{ "sfiii3tag-simm1.1",		0x200000, 0xc62aeb15, BRF_ESS | BRF_PRG },
+	{ "sfiii3tag-simm1.2",		0x200000, 0xfe41921b, BRF_ESS | BRF_PRG },
+	{ "sfiii3tag-simm1.3",		0x200000, 0xdbb6ce56, BRF_ESS | BRF_PRG },
+	{ "sfiii3tag-simm2.0",		0x200000, 0x87609fab, BRF_ESS | BRF_PRG },
+	{ "sfiii3tag-simm2.1",		0x200000, 0x1100095a, BRF_ESS | BRF_PRG },
+	{ "sfiii3tag-simm2.2",		0x200000, 0x6c3e86da, BRF_ESS | BRF_PRG },
+	{ "sfiii3tag-simm2.3",		0x200000, 0xe3862125, BRF_ESS | BRF_PRG },
+	{ "sfiii3-simm3.0",			0x200000, 0x7baa1f79, BRF_GRA },
+	{ "sfiii3-simm3.1",			0x200000, 0x234bf8fe, BRF_GRA },
+	{ "sfiii3-simm3.2",			0x200000, 0xd9ebc308, BRF_GRA },
+	{ "sfiii3-simm3.3",			0x200000, 0x293cba77, BRF_GRA },
+	{ "sfiii3-simm3.4",			0x200000, 0x6055e747, BRF_GRA },
+	{ "sfiii3-simm3.5",			0x200000, 0x499aa6fc, BRF_GRA },
+	{ "sfiii3-simm3.6",			0x200000, 0x6c13879e, BRF_GRA },
+	{ "sfiii3-simm3.7",			0x200000, 0xcf4f8ede, BRF_GRA },
+	{ "sfiii3-simm4.0",			0x200000, 0x091fd5ba, BRF_GRA },
+	{ "sfiii3-simm4.1",			0x200000, 0x0bca8917, BRF_GRA },
+	{ "sfiii3-simm4.2",			0x200000, 0xa0fd578b, BRF_GRA },
+	{ "sfiii3-simm4.3",			0x200000, 0x4bf8c699, BRF_GRA },
+	{ "sfiii3-simm4.4",			0x200000, 0x137b8785, BRF_GRA },
+	{ "sfiii3-simm4.5",			0x200000, 0x4fb70671, BRF_GRA },
+	{ "sfiii3-simm4.6",			0x200000, 0x832374a4, BRF_GRA },
+	{ "sfiii3-simm4.7",			0x200000, 0x1c88576d, BRF_GRA },
+	{ "sfiii3-simm5.0",			0x200000, 0xc67d9190, BRF_GRA },
+	{ "sfiii3-simm5.1",			0x200000, 0x6cb79868, BRF_GRA },
+	{ "sfiii3-simm5.2",			0x200000, 0xdf69930e, BRF_GRA },
+	{ "sfiii3-simm5.3",			0x200000, 0x333754e0, BRF_GRA },
+	{ "sfiii3-simm5.4",			0x200000, 0x78f6d417, BRF_GRA },
+	{ "sfiii3-simm5.5",			0x200000, 0x8ccad9b1, BRF_GRA },
+	{ "sfiii3-simm5.6",			0x200000, 0x85de59e5, BRF_GRA },
+	{ "sfiii3-simm5.7",			0x200000, 0xee7e29b3, BRF_GRA },
+	{ "sfiii3-simm6.0",			0x200000, 0x8da69042, BRF_GRA },
+	{ "sfiii3-simm6.1",			0x200000, 0x1c8c7ac4, BRF_GRA },
+	{ "sfiii3-simm6.2",			0x200000, 0xa671341d, BRF_GRA },
+	{ "sfiii3-simm6.3",			0x200000, 0x1a990249, BRF_GRA },
+	{ "sfiii3-simm6.4",			0x200000, 0x20cb39ac, BRF_GRA },
+	{ "sfiii3-simm6.5",			0x200000, 0x5f844b2f, BRF_GRA },
+	{ "sfiii3-simm6.6",			0x200000, 0x450e8d28, BRF_GRA },
+	{ "sfiii3-simm6.7",			0x200000, 0xcc5f4187, BRF_GRA },
+};
+
+STD_ROM_PICK(sfiii3tag)
+STD_ROM_FN(sfiii3tag)
+
+struct BurnDriver BurnDrvSfiii3tag = {
+	"sfiii3tag", "sfiii3", NULL, NULL, "2021",
+	"Street Fighter III 3rd Strike: Fight for the Future (Hack, Tag v4.3)\0", NULL, "hack (Morphus56K)", "CPS-3",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 2, HARDWARE_CAPCOM_CPS3 | HARDWARE_CAPCOM_CPS3_NO_CD, GBF_VSFIGHT, FBF_SF,
+	NULL, sfiii3tagRomInfo, sfiii3tagRomName, NULL, NULL, NULL, NULL, cps3InputInfo, japanDIPInfo,
+	sfiii3Init, cps3Exit, cps3Frame, DrvCps3Draw, cps3Scan, &cps3_palette_change, 0x40000,
+	384, 224, 4, 3
+};
+
 // -------------------------------------------------------------------------
 // Street Fighter III 3rd Strike: Fight for the Future (Widescreen 20220908)
 // -------------------------------------------------------------------------
@@ -2435,6 +2497,69 @@ struct BurnDriver BurnDrvSfiii3ws = {
 	NULL, sfiii3wsRomInfo, sfiii3wsRomName, NULL, NULL, NULL, NULL, cps3InputInfo, japanDIPInfo,
 	sfiii3Init, cps3Exit, cps3Frame, DrvCps3Draw, cps3Scan, &cps3_palette_change, 0x40000,
 	496, 224, 16, 9
+};
+
+// ---------------------------------------------------------------------------
+// Street Fighter III 3rd Strike Plus: Fight for the Future (Hack, v0.34.53)
+// ---------------------------------------------------------------------------
+
+static struct BurnRomInfo sfiii3pRomDesc[] = {
+
+	{ "sfiii3_japan_nocd.29f400.u2",	0x080000, 0x1edc6366, BRF_ESS | BRF_BIOS },	// SH-2 Bios
+
+	{ "sfiii3p-simm1.0",				0x200000, 0xf94b0cf1, BRF_ESS | BRF_PRG },
+	{ "sfiii3p-simm1.1",				0x200000, 0x4441125e, BRF_ESS | BRF_PRG },
+	{ "sfiii3p-simm1.2",				0x200000, 0x748f8795, BRF_ESS | BRF_PRG },
+	{ "sfiii3p-simm1.3",				0x200000, 0xa84143be, BRF_ESS | BRF_PRG },
+	{ "sfiii3p-simm2.0",				0x200000, 0xed763ab5, BRF_ESS | BRF_PRG },
+	{ "sfiii3p-simm2.1",				0x200000, 0x25bcd05f, BRF_ESS | BRF_PRG },
+	{ "sfiii3p-simm2.2",				0x200000, 0x21eaec1a, BRF_ESS | BRF_PRG },
+	{ "sfiii3p-simm2.3",				0x200000, 0x84351d7e, BRF_ESS | BRF_PRG },
+	{ "sfiii3p-simm3.0",				0x200000, 0x0fa69c4a, BRF_GRA },
+	{ "sfiii3p-simm3.1",				0x200000, 0x2f720a23, BRF_GRA },
+	{ "sfiii3p-simm3.2",				0x200000, 0xf144347a, BRF_GRA },
+	{ "sfiii3p-simm3.3",				0x200000, 0xc4f72343, BRF_GRA },
+	{ "sfiii3p-simm3.4",				0x200000, 0x66a0e833, BRF_GRA },
+	{ "sfiii3p-simm3.5",				0x200000, 0x04207b9a, BRF_GRA },
+	{ "sfiii3p-simm3.6",				0x200000, 0x1be13ca7, BRF_GRA },
+	{ "sfiii3p-simm3.7",				0x200000, 0x4ddc5aa4, BRF_GRA },
+	{ "sfiii3-simm4.0",					0x200000, 0x091fd5ba, BRF_GRA },
+	{ "sfiii3-simm4.1",					0x200000, 0x0bca8917, BRF_GRA },
+	{ "sfiii3p-simm4.2",				0x200000, 0x2f9e1970, BRF_GRA },
+	{ "sfiii3p-simm4.3",				0x200000, 0xec5fbea7, BRF_GRA },
+	{ "sfiii3p-simm4.4",				0x200000, 0xbda5ca3a, BRF_GRA },
+	{ "sfiii3p-simm4.5",				0x200000, 0x066c51ea, BRF_GRA },
+	{ "sfiii3p-simm4.6",				0x200000, 0x5ef292f5, BRF_GRA },
+	{ "sfiii3p-simm4.7",				0x200000, 0x27bf7a1c, BRF_GRA },
+	{ "sfiii3p-simm5.0",				0x200000, 0x9092f2f5, BRF_GRA },
+	{ "sfiii3p-simm5.1",				0x200000, 0xd4a6cd22, BRF_GRA },
+	{ "sfiii3p-simm5.2",				0x200000, 0xe803ccb4, BRF_GRA },
+	{ "sfiii3p-simm5.3",				0x200000, 0x685b0121, BRF_GRA },
+	{ "sfiii3p-simm5.4",				0x200000, 0x536c4cc0, BRF_GRA },
+	{ "sfiii3p-simm5.5",				0x200000, 0x2024c1cc, BRF_GRA },
+	{ "sfiii3p-simm5.6",				0x200000, 0x07e5a0ff, BRF_GRA },
+	{ "sfiii3p-simm5.7",				0x200000, 0x45ac9b3d, BRF_GRA },
+	{ "sfiii3p-simm6.0",				0x200000, 0xe4bc5457, BRF_GRA },
+	{ "sfiii3p-simm6.1",				0x200000, 0x6630d08d, BRF_GRA },
+	{ "sfiii3p-simm6.2",				0x200000, 0xb8a9cb27, BRF_GRA },
+	{ "sfiii3p-simm6.3",				0x200000, 0xc84ea0a0, BRF_GRA },
+	{ "sfiii3p-simm6.4",				0x200000, 0xd6d26b58, BRF_GRA },
+	{ "sfiii3p-simm6.5",				0x200000, 0x2eb53bb5, BRF_GRA },
+	{ "sfiii3p-simm6.6",				0x200000, 0x30ef3fd5, BRF_GRA },
+	{ "sfiii3p-simm6.7",				0x200000, 0xdbfec218, BRF_GRA },
+};
+
+STD_ROM_PICK(sfiii3p)
+STD_ROM_FN(sfiii3p)
+
+struct BurnDriver BurnDrvSfiii3p = {
+	"sfiii3p", "sfiii3", NULL, NULL, "2021",
+	"Street Fighter III 3rd Strike Plus: Fight for the Future (Hack, v0.34.53)\0", NULL, "hack (DrewDos)", "CPS-3",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_16BIT_ONLY | BDF_CLONE | BDF_HACK, 2, HARDWARE_CAPCOM_CPS3 | HARDWARE_CAPCOM_CPS3_NO_CD, GBF_VSFIGHT, FBF_SF,
+	NULL, sfiii3pRomInfo, sfiii3pRomName, NULL, NULL, NULL, NULL, cps3InputInfo, japanDIPInfo,
+	sfiii3Init, cps3Exit, cps3Frame, DrvCps3Draw, cps3Scan, &cps3_palette_change, 0x40000,
+	384, 224, 4, 3
 };
 
 // ---------------------------------------------------------------------------

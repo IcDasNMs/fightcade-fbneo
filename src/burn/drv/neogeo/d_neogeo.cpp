@@ -18807,16 +18807,22 @@ struct BurnDriver BurnDrvMslug5tmj = {
 	{ "200-c2.c2",	0x400000, 0x5a65a8ce, 3 | BRF_GRA },
 #define TURFMAST_Z80													\
 	{ "200-m1.m1",	0x020000, 0x9994ac00, 4 | BRF_ESS | BRF_PRG },
-#define TURFMAST_SND													\
-	{ "200-v1.v1",	0x200000, 0x00fd48d2, 5 | BRF_SND },				\
-	{ "200-v2.v2",	0x200000, 0x082acb31, 5 | BRF_SND },				\
-	{ "200-v3.v3",	0x200000, 0x7abca053, 5 | BRF_SND },				\
+#define TURFMAST_SND1										\
+	{ "200-v1.v1",	0x200000, 0x00fd48d2, 5 | BRF_SND },
+#define TURFMAST_SND2										\
+	{ "200-v2.v2",	0x200000, 0x082acb31, 5 | BRF_SND },
+#define TURFMAST_SND3										\
+	{ "200-v3.v3",	0x200000, 0x7abca053, 5 | BRF_SND },
+#define TURFMAST_SND4										\
 	{ "200-v4.v4",	0x200000, 0x6c7b4902, 5 | BRF_SND },
-#define TURFMAST_COMPONENTS												\
-	TURFMAST_TEXT														\
-	TURFMAST_SPR														\
-	TURFMAST_Z80														\
-	TURFMAST_SND
+#define TURFMAST_COMPONENTS									\
+	TURFMAST_TEXT											\
+	TURFMAST_SPR											\
+	TURFMAST_Z80											\
+	TURFMAST_SND1											\
+	TURFMAST_SND2											\
+	TURFMAST_SND3											\
+	TURFMAST_SND4
 
 // Neo Turf Masters / Big Tournament Golf: Scotland Course (Hack, v1.10)
 
@@ -18830,9 +18836,9 @@ static struct BurnRomInfo turfmastscRomDesc[] = {
 
 	{ "200-m1sc.m1",	0x020000, 0x932b54e8, 4 | BRF_ESS | BRF_PRG }, //  4 Z80 code
 
-	{ "200-v1.v1",		0x200000, 0x00fd48d2, 5 | BRF_SND },           //  5 Sound data
+	TURFMAST_SND1
 	{ "200-v2sc.v2",	0x200000, 0x8be97582, 5 | BRF_SND },           //  6
-	{ "200-v3.v3",		0x200000, 0x7abca053, 5 | BRF_SND },           //  7
+	TURFMAST_SND3
 	{ "200-v4sc.v4",	0x200000, 0xe894954f, 5 | BRF_SND },           //  8
 };
 
@@ -18841,7 +18847,7 @@ STD_ROM_FN(turfmastsc)
 
 struct BurnDriver BurnDrvTurfmastsc = {
 	"turfmastsc", "turfmast", "neogeo", NULL, "2026",
-	"Neo Turf Masters / Big Tournament Golf: Scotland Course (Hack, v1.10)\0", NULL, "dericmiller", "Neo Geo MVS",
+	"Neo Turf Masters / Big Tournament Golf: Scotland Course (Hack, v1.10)\0", NULL, "hack (dericmiller)", "Neo Geo MVS",
 	NULL, NULL, NULL, NULL,
 	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_SWAPP, GBF_SPORTSMISC, 0,
 	NULL, turfmastscRomInfo, turfmastscRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
@@ -18849,11 +18855,47 @@ struct BurnDriver BurnDrvTurfmastsc = {
 	0x1000,	304, 224, 4, 3
 };
 
+// Neo Turf Masters Plus / Big Tournament Golf Plus (Hack, v2.0)
+// https://github.com/theenemy-thd/NeoTurfMastersPlus
+static struct BurnRomInfo turfmastplusRomDesc[] = {
+	{ "200-p1pl.p1",	0x200000, 0xb41f72c1, 1 | BRF_ESS | BRF_PRG }, //  0 68K code
+
+	{ "200-s1pl.s1",	0x020000, 0xdf08a9ae, 2 | BRF_GRA },           //  1 Text layer tiles
+
+	{ "200-c1pl.c1",	0x400000, 0xbace1b78, 3 | BRF_GRA },           //  2 Sprite data
+	{ "200-c2pl.c2",	0x400000, 0xb007fea9, 3 | BRF_GRA },           //  3
+	{ "200-c3pl.c3",	0x400000, 0x10fc8214, 3 | BRF_GRA },           //  4
+	{ "200-c4pl.c4",	0x400000, 0x0f83f209, 3 | BRF_GRA },           //  5
+
+	{ "200-m1pl.m1",	0x020000, 0x3547983f, 4 | BRF_ESS | BRF_PRG }, //  6 Z80 code
+
+	TURFMAST_SND1
+	TURFMAST_SND2
+	TURFMAST_SND3
+	{ "200-v4pl.v4",	0x200000, 0x176d83aa, 5 | BRF_SND },           // 10
+};
+
+STDROMPICKEXT(turfmastplus, turfmastplus, neogeo)
+STD_ROM_FN(turfmastplus)
+
+struct BurnDriver BurnDrvTurfmastplus = {
+	"turfmastplus", "turfmast", "neogeo", NULL, "2026",
+	"Neo Turf Masters Plus / Big Tournament Golf Plus (Hack, v2.0)\0", NULL, "hack (TheEnemy)", "Neo Geo MVS",
+	NULL, NULL, NULL, NULL,
+	BDF_GAME_WORKING | BDF_CLONE | BDF_HACK, 2, HARDWARE_PREFIX_CARTRIDGE | HARDWARE_SNK_NEOGEO | HARDWARE_SNK_SWAPP, GBF_SPORTSMISC, 0,
+	NULL, turfmastplusRomInfo, turfmastplusRomName, NULL, NULL, NULL, NULL, neogeoInputInfo, neogeoDIPInfo,
+	NeoInit, NeoExit, NeoFrame, NeoRender, NeoScan, &NeoRecalcPalette,
+	0x1000, 304, 224, 4, 3
+};
+
 #undef TURFMAST_COMPONENTS
 #undef TURFMAST_TEXT
 #undef TURFMAST_SPR
 #undef TURFMAST_Z80
-#undef TURFMAST_SND
+#undef TURFMAST_SND1
+#undef TURFMAST_SND2
+#undef TURFMAST_SND3
+#undef TURFMAST_SND4
 
 
 // ----------------------
